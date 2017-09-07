@@ -1,0 +1,64 @@
+.fieldset-label{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: left;
+  color: #a3a7c0;
+}
+
+.display-textinfo {
+  font-size: 24px;
+  text-align: left;
+  color: var(--azul);
+}
+
+.display-texterror {
+  font-size: 24px;
+  text-align: right;
+  color: var(--dusty-orange);
+}
+
+.fieldset-label {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--bluey-grey-two);
+}
+
+.tab-other {
+  font-size: 20px;
+  text-align: left;
+  color: var(--tealish);
+}
+
+.text-input {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  text-align: right;
+  color: var(--charcoal-grey);
+}
+
+.field-label {
+  font-size: 16px;
+  line-height: 1.75;
+  text-align: left;
+  color: var(--charcoal-grey);
+}
+
+.main-menu {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 2.14;
+  text-align: left;
+  color: var(--white);
+}
+
+.submenu {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 2.31;
+  text-align: left;
+  color: var(--light-blue-grey);
+}
