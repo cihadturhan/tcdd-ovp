@@ -1,6 +1,6 @@
 <template>
   <div class="input-group">
-    <input type="number" class="text-input" :value="value" @input="_change"/>
+    <input type="number" class="text-input" :value="value" @input="onChange" :disabled="disabled"/>
     <div class="input-group-addon">
       <span>{{type}}</span>
     </div>
@@ -8,9 +8,12 @@
 </template>
 
 <script>
+  import debounce from 'debounce';
+
   export default {
     props: {
       type: String,
+      disabled: Boolean,
       scope: { type: Array, required: true },
     },
     computed: {
@@ -18,8 +21,11 @@
         return this.scope.reduce((p, c) => p[c], this.$store.state);
       },
     },
+    created() {
+      this.onChange = debounce(this.onChange, 300);
+    },
     methods: {
-      _change($event) {
+      onChange($event) {
         this.$store.commit({
           type: 'change',
           scope: this.scope,
@@ -43,6 +49,10 @@
     border-bottom-left-radius: 3px;
     box-shadow: inset 0 0 2px 0 rgba(55, 59, 82, 0.3);
     background-color: var(--full-white);
+  }
+
+  input:disabled{
+    background-color: var(--pale-grey-two);
   }
 
   .input-group-addon {

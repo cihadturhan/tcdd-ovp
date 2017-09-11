@@ -11,6 +11,8 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "debounce": "^1.0.2",
+    "flexboxgrid": "^6.3.1",
     "postcss-nested": "^2.1.2",
     "vue": "^2.4.2",
     "vue-odometer": "^0.1.1",

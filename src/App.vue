@@ -29,6 +29,7 @@
 <style>
   @import "assets/style.css";
   @import "styles/index.css";
+  @import "../node_modules/flexboxgrid/src/css/flexboxgrid.css";
 
   section {
     flex: 1;

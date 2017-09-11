@@ -37,10 +37,12 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .varsayilanlar {
+    overflow: auto;
     font-weight: normal;
     flex: 1;
     background-color: #EBF0F5;
     display: flex;
     align-items: stretch;
+    padding-bottom: 400px;
   }
 </style>

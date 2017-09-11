@@ -41,7 +41,7 @@
   }
 
   ul{
-    height: 32px;
+    flex: 0 0 32px;
     display: flex;
     margin: 0px auto;
     justify-content: center;

@@ -19,5 +19,6 @@ export default new Router({
       name: 'Faaliyet Gelirleri',
       component: FaaliyetGelirleri,
     },
+    { path: '*', redirect: '/varsayimlar' },
   ],
 });

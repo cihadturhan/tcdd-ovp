@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img src="../assets/logo.png">
+    <img src="../assets/logo.svg">
   </header>
 </template>
 
@@ -14,9 +14,6 @@
   header{
     background-color: #1D1E28;
     text-align: left;
-    height: 65px;
-  }
-  header > img{
-    height: 100%;
+    padding: 5px 20px;
   }
 </style>

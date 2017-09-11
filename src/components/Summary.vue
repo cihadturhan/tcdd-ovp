@@ -15,7 +15,7 @@
     <div class="col-summary">
       <h3>Dönem Kar/Zarar</h3>
       <p class="summary-text">
-        <VueOdometer class="vue-odometer" :style="{color: donemKarZarar > 0 ? 'var(--tealish)' : 'var(--dusty-orange)'}" :duration="100" :value="giderlerToplam"></VueOdometer>
+        <VueOdometer class="vue-odometer" :style="{color: donemKarZarar > 0 ? 'var(--tealish)' : 'var(--dusty-orange)'}" :duration="100" :value="donemKarZararAbs"></VueOdometer>
       </p>
     </div>
   </div>
@@ -34,11 +34,10 @@
         return this.$store.getters.giderlerToplam;
       },
       donemKarZarar() {
-        return this.$store.getters.donemKarZarar > 1000 ? this.$store.getters.donemKarZarar
-          : -this.$store.getters.donemKarZarar;
+        return this.$store.getters.donemKarZarar;
       },
       donemKarZararAbs() {
-        return Math.abs(this.donemKarZarar);
+        return Math.abs(this.$store.getters.donemKarZarar);
       },
     },
     components: {
@@ -54,6 +53,9 @@
     padding-top: 20px;
     padding-bottom: 25px;
     background-color: var(--full-white);
+    box-shadow: 0 0px 1px rgba(0, 0, 0, 0.09), 0 0px 10px rgba(0, 0, 0, 0.09);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
   }
 
   .col-summary{
