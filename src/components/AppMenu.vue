@@ -6,7 +6,7 @@
         <span>VARSAYIMLAR</span>
       </router-link>
     </li>
-    <li class="sub-menu">
+    <li class="sub-menu" ref="li1" @click="show('li1')" :class="shown.li1">
       <a class="menu-title" href="#">
         <i class="icon-arrow-forward-outline"></i>
         <span>GELİRLER</span>
@@ -25,27 +25,24 @@
       </ul>
     </li>
 
-    <li class="sub-menu collapsed">
-      <a class="menu-title">
+    <li class="sub-menu" ref="li2" @click="show('li2')" :class="shown.li2">
+      <a class="menu-title" href="#">
         <i class="icon-arrow-back-outline"></i>
         <span>GİDERLER</span>
         <caret></caret>
       </a>
       <ul>
         <li>
-          <router-link to="faaliyet-gelirleri">FAALİYET GELİRLERİ</router-link>
+          <router-link to="faaliyet-giderleri">FAALİYET GİDERLERİ</router-link>
         </li>
         <li>
-          <router-link to="kamu-hizmet-yukumlulugu">KAMU HİZMET YÜKÜMLÜLÜĞÜ</router-link>
-        </li>
-        <li>
-          <router-link to="faaliyet-disi-gelirler">FAALİYET DIŞI GELİRLER</router-link>
+          <router-link to="faaliyet-disi-giderler">FAALİYET DIŞI GİDERLER</router-link>
         </li>
       </ul>
     </li>
 
-    <li class="sub-menu collapsed">
-      <a class="menu-title">
+    <li class="sub-menu" ref="li3" @click="show('li3')" :class="shown.li3">
+      <a class="menu-title" href="#">
 
         <i class="icon-arrow-repeat"></i>
         <span>DÖNEM KAR/ZARAR</span>
@@ -54,13 +51,7 @@
         </a>
       <ul>
         <li>
-          <router-link to="faaliyet-gelirleri">FAALİYET GELİRLERİ</router-link>
-        </li>
-        <li>
-          <router-link to="kamu-hizmet-yukumlulugu">KAMU HİZMET YÜKÜMLÜLÜĞÜ</router-link>
-        </li>
-        <li>
-          <router-link to="faaliyet-disi-gelirler">FAALİYET DIŞI GELİRLER</router-link>
+          <router-link to="genel-icmal">GENEL İCMAL</router-link>
         </li>
       </ul>
     </li>
@@ -73,6 +64,48 @@
 
   export default {
     name: 'appmenu',
+    data() {
+      return {
+        items: {
+          li1: { hide: true },
+          li2: { hide: true },
+          li3: { hide: true },
+        },
+        activeIndex: null,
+      };
+    },
+    mounted() {
+      const hasActive = Object.entries(this.items).find((entry) => {
+        const el = this.$refs[entry[0]];
+        return !!Array.from(el.querySelectorAll('a')).find(child => Array.from(child.classList).indexOf('active') > -1, false);
+      });
+
+      if (hasActive) {
+        this.activeIndex = hasActive[0];
+      }
+    },
+    watch: {
+      activeIndex(newValue, oldValue) {
+        if (oldValue) {
+          this.items[oldValue].hide = true;
+        }
+        this.items[newValue].hide = false;
+      },
+    },
+    computed: {
+      shown() {
+        return Object.entries(this.items).reduce((p, c) => {
+          const prev = p;
+          prev[c[0]] = c[1].hide ? 'collapsed' : '';
+          return prev;
+        }, {});
+      },
+    },
+    methods: {
+      show(index) {
+        this.activeIndex = index;
+      },
+    },
     components: {
       caret,
     },

@@ -15,4 +15,9 @@
   --white: #f9f9f9;
   --full-white: #ffffff;
   --dusty-orange: #ea5e3c;
+
+  --table-border: rgba(29, 30, 40, 0.3);
+  --table-row-disabled-dark: hsl(232, 19%, 88%);
+  --table-row-disabled: hsl(232, 19%, 90%);
+  --table-row-disabled-light: hsl(232, 19%, 96%);
 }

@@ -1,34 +1,32 @@
 <template>
-  <div class="varsayilanlar">
-    <Tabs :tabs="tabs" :scope="scope"></Tabs>
-  </div>
+    <div class="content-wrapper">
+      <div class="content"><Tabs :tabs="tabs" :content="fields" :scope="scope" :on-new-tab-created="onNewTabCreated"></Tabs></div>
+      <AppFooter></AppFooter>
+    </div>
 </template>
 
 <script>
-
-  import Tabs from './Tabs';
-  import Fields from './Varsayimlar/Fields';
+  import Tabs from '@@/Tabs';
+  import AppFooter from '@/components/AppFooter';
 
   export default {
-    name: 'hello',
     data() {
       return {
         tabs: [
-          { title: '2017', content: Fields },
+          { title: '2017' },
           /*{ title: '2018', content: Fields },
           { title: '2019', content: Fields },
           { title: '2020', content: Fields },*/
         ],
-        scope: ['varsayimlar'],
       };
     },
-    watch: {
-      totalProfit() {
-        // eslint-disable-next-line
-        console.error('totalProfit');
+    methods: {
+      onNewTabCreated() {
+
       },
     },
     components: {
+      AppFooter,
       Tabs,
     },
   };
@@ -36,7 +34,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .varsayilanlar {
+  .content {
     overflow: auto;
     font-weight: normal;
     flex: 1;

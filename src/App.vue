@@ -3,10 +3,7 @@
     <AppHeader></AppHeader>
     <section>
       <AppMenu></AppMenu>
-      <div class="content-wrapper">
-        <router-view></router-view>
-        <AppFooter></AppFooter>
-      </div>
+      <router-view></router-view>
     </section>
   </div>
 </template>
@@ -26,8 +23,8 @@
   };
 </script>
 
-<style>
-  @import "assets/style.css";
+<style lang="postcss">
+  @import "styles/icons.css";
   @import "styles/index.css";
   @import "../node_modules/flexboxgrid/src/css/flexboxgrid.css";
 

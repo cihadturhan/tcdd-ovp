@@ -4,10 +4,11 @@
       <li @click="activeIndex = index" v-for="(tab, index) in tabs" :class="{active: index == activeIndex}">
         <a href="#">{{tab.title}}</a>
       </li>
+      <li class="add-tab" @click="onNewTabCreated"> <i class="icon-plus add-icon"></i></li>
     </ul>
     <div class="tab-content">
       <section v-for="(tab, index) in tabs" v-show="index == activeIndex">
-        <component :is="tab.content" :scope="[...scope, tab.title]"></component>
+        <component :is="content" :scope="[...scope, tab.title]"></component>
       </section>
     </div>
   </div>
@@ -20,6 +21,8 @@
     props: {
       tabs: Array,
       scope: Array,
+      content: Object,
+      onNewTabCreated: Function,
     },
     data() {
       return { activeIndex: 0 };
@@ -80,5 +83,13 @@
 
   section{
     padding: 60px 30px;
+  }
+
+  .add-icon{
+    color: var(--tealish)
+  }
+
+  .add-tab{
+    cursor: pointer;
   }
 </style>

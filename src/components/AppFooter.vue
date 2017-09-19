@@ -40,6 +40,6 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    /*border-top: 1px solid var(--light-blue-grey);*/
+    box-shadow: 0 0px 1px rgba(0, 0, 0, .09), 0 0px 10px rgba(0, 0, 0, .09);
   }
 </style>

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { beforeLastScope, lastScope, lastItem } from '../util';
 
 Vue.use(Vuex);
 
@@ -38,8 +39,94 @@ const store = new Vuex.Store({
         },
       },
     },
+    faaliyetGelirleri: {
+      2017: {
+        banliyo: {
+          marmaray: {
+            gelir: 0,
+            yolcuSayisi: 0,
+            yolcuKm: 0,
+          },
+          ankara: {
+            gelir: 0,
+            yolcuSayisi: 0,
+            yolcuKm: 0,
+          },
+        },
+        anahat: {
+          konvansiyonel: {
+            yurtici: {
+              gelir: 1000,
+              yolcuSayisi: 90,
+              yolcuKm: 70,
+            },
+            uluslararasi: {
+              gelir: 0,
+              yolcuSayisi: 0,
+              yolcuKm: 0,
+            },
+          },
+          yht: {
+            ankaraEskisehir: {
+              gelir: 0,
+              yolcuSayisi: 0,
+              yolcuKm: 0,
+            },
+            konyaAnkara: {
+              gelir: 10,
+              yolcuSayisi: 0,
+              yolcuKm: 12,
+            },
+            ankaraIstanbul: {
+              gelir: 0,
+              yolcuSayisi: 0,
+              yolcuKm: 0,
+            },
+            konyaIstanbul: {
+              gelir: 10,
+              yolcuSayisi: 20,
+              yolcuKm: 0,
+            },
+          },
+        },
+
+      },
+    },
   },
   getters: {
+    birimGelir(state) {
+      return (scope) => {
+        // ['faaliyetGelirleri', '2017', 'banliyo', 'marmaray']
+        // ['faaliyetGelirleri', '2017', 'anahat', 'yht', 'konyaAnkara']
+        const item = lastScope(state, scope);
+        return { value: item.yolcuKm === 0 ? 0 : item.gelir / item.yolcuKm };
+      };
+    },
+    gelirToplam(state) {
+      // ['faaliyetGelirleri', '2017', 'banliyo'']
+      // ['faaliyetGelirleri', '2017', 'anahat', 'yht']
+      // ['faaliyetGelirleri', '2017', 'anahat', 'konvansiyonel']
+      return (scope) => {
+        const item = lastScope(state, scope);
+        return Object.values(item).reduce((prev, curr) => {
+          const p = prev;
+          p.gelir += curr.gelir;
+          p.yolcuSayisi += curr.yolcuSayisi;
+          p.yolcuKm += curr.yolcuKm;
+          return p;
+        }, {
+          gelir: 0,
+          yolcuSayisi: 0,
+          yolcuKm: 0,
+        });
+      };
+    },
+    toplamBirimGelir(state, getters) {
+      return (scope) => {
+        const item = getters.gelirToplam(scope);
+        return { value: item.yolcuKm === 0 ? 0 : item.gelir / item.yolcuKm };
+      };
+    },
     gelirlerToplam(state) {
       const yil = state.varsayimlar[2017];
       return 19120 * yil.fiyatlar.hamPetrolBrent
@@ -61,8 +148,11 @@ const store = new Vuex.Store({
   },
   mutations: {
     change(state, { scope, value }) {
-      const obj = scope.slice(0, scope.length - 1).reduce((p, c) => p[c], state);
-      obj[scope[scope.length - 1]] = value;
+      if (isNaN(value) || value === null || typeof value === 'undefined') {
+        return;
+      }
+      const obj = beforeLastScope(state, scope);
+      obj[lastItem(scope)] = value;
     },
   },
 });

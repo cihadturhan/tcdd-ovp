@@ -1,9 +1,23 @@
-.fieldset-label{
+h2.fieldset-label{
   font-size: 20px;
-  font-weight: 500;
-  line-height: 1.5;
-  text-align: left;
-  color: #a3a7c0;
+  color: var(--bluey-grey-two);
+}
+
+h3.fieldset-label{
+  font-size: 18px;
+  color: var(--pale-teal);
+}
+
+h4.fieldset-label{
+  font-size: 17px;
+  color: var(--lipstick);
+}
+
+h5.fieldset-label{
+  font-size: 16px;
+  color: var(--cerulean);
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .display-textinfo {
@@ -19,11 +33,9 @@
 }
 
 .fieldset-label {
-  font-size: 20px;
   font-weight: 500;
   line-height: 1.5;
   text-align: left;
-  color: var(--bluey-grey-two);
 }
 
 .tab-other {
