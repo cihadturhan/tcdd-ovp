@@ -1,11 +1,22 @@
 <template>
-  <td><input size="9" type="text" value="192,400,000"></td>
+  <td>
+    <AutoInput :scope="scope"
+               :disabled="disabled"
+               :getterName="getterName" />
+  </td>
 </template>
 
 <script>
+  import AutoInput from './AutoInput.vue';
+
   export default {
     props: {
-      scope: { type: Array, required: true },
+      scope: { type: Array },
+      getterName: { type: String },
+      disabled: { type: Boolean },
+    },
+    components: {
+      AutoInput,
     },
   };
 </script>
@@ -17,11 +28,11 @@
   }
 
   input {
-    height: 23px;
+    height: 100%;
     border: none;
     background: hsla(120, 50%, 80%, 0.4);
     text-align: right;
-    padding: 0 10px;
+    padding: 0 3px;
     appearance: none;
     width: 100%;
   }

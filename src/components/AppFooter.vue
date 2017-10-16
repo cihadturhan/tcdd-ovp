@@ -18,6 +18,7 @@
 </script>
 
 <style scoped>
+  @import '../styles/colors.css';
   button{
     appearance: none;
     background: none;
@@ -28,6 +29,7 @@
     align-items: center;
     line-height: 20px;
     padding: 10px;
+    cursor: pointer;
   }
   i{
     font-size: 30px;
@@ -35,6 +37,7 @@
     line-height: 30px;
   }
   footer{
+    position: relative;
     height: 60px;
     background: var(--full-white);
     display: flex;

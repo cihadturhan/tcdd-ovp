@@ -2,15 +2,15 @@
   <div class="ritz grid-container">
     <table class="waffle" cellspacing="0" cellpadding="0">
       <thead>
-        <tr>
-          <th></th>
-          <th colspan="4"> İŞLETME GİDERLERİ</th>
-          <th colspan="2"> BAKIM ONARIM GİDERLERİ</th>
-          <th> SATIŞLARIN MALİYETİ</th>
-          <th> GENEL YÖNETİM GİDERLERİ</th>
-          <th> TCDD TAŞIMACILIK</th>
-          <th> TOPLAM </th>
-        </tr>
+      <tr>
+        <th></th>
+        <th colspan="4"> İŞLETME GİDERLERİ</th>
+        <th colspan="2"> BAKIM ONARIM GİDERLERİ</th>
+        <th> SATIŞLARIN MALİYETİ</th>
+        <th> GENEL YÖNETİM GİDERLERİ</th>
+        <th> TCDD TAŞIMACILIK</th>
+        <th> TOPLAM </th>
+      </tr>
       </thead>
       <tbody>
       <tr class="subheading">
@@ -121,7 +121,7 @@
         <td> YHT</td>
         <td></td>
         <td></td>
-        <td is="TableRowInput" :scope="[faaliyetGiderleri, ...scope, ]"></td>
+        <td is="TableRowInput" :scope="[...scope, 'faaliyetGiderleri','']"></td>
         <td></td>
         <td></td>
         <td></td>
@@ -238,8 +238,7 @@
         <td> Anahat</td>
         <td> 327,000,000</td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td></td><td></td>
         <td></td>
         <td></td>
         <td> 327,000,000</td>
@@ -288,16 +287,16 @@
       </tr>
       <tr>
         <td> Hurda satışı</td>
-        <td is="TableRowInput" :scope="[faaliyetGiderleri, ...scope, ]"></td>
-        <td is="TableRowInput" :scope="[faaliyetGiderleri, ...scope, ]"></td>
+        <td is="TableRowInput" :scope="[...scope, 'faaliyetGiderleri','']"></td>
+        <td is="TableRowInput" :scope="[...scope, 'faaliyetGiderleri','']"></td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        <td is="TableRowInput" :scope="[faaliyetGiderleri, ...scope, ]"></td>
-        <td is="TableRowInput" :scope="[faaliyetGiderleri, ...scope, ]"></td>
+        <td is="TableRowInput" :scope="[...scope, 'faaliyetGiderleri','']"></td>
+        <td is="TableRowInput" :scope="[...scope, 'faaliyetGiderleri','']"></td>
         <td></td>
-        <td is="TableRowInput" :scope="[faaliyetGiderleri, ...scope, ]"></td>
+        <td is="TableRowInput" :scope="[...scope, 'faaliyetGiderleri','']"></td>
       </tr>
       <tr>
         <td> Diğer satışlar</td>
@@ -340,172 +339,172 @@
       </tr>
       <tr class="group-title">
         <td> Faaliyet Giderleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
         <td></td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Personel Giderleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Memur Personel</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Sözleşmeli</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Daimi İşçi</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
         <td></td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Geçici İşçi</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
         <td></td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Malzeme Giderleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Enerji Giderler</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Yakıt (Motorin)</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Elektrik Giderleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Diğerleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Yol Malzemeleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
         <td></td>
         <td></td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Çeken - Çekilen Malzemeleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Tesisler Malzemeler</td>
@@ -516,438 +515,438 @@
         <td></td>
         <td></td>
         <td> -</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Genel İşletme ve Bakım Malzemeleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Yağ, Boya ve Kimyevi Malzemeler</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Kırtasiye, Basılı Kağıt ve Bilg Mlz G.</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Diğerleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Dışarıya Yaptırılan Bakım ve Onarım Giderleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Çeken Çekilen Araç Onarımları</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td> -</td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
         <td> -</td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Dahili Bakım ve Onarım giderleri</td>
-        <td> </td>
-        <td> </td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        <td> </td>
         <td></td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td> -</td>
       </tr>
       <tr>
         <td> Bağlı Ortaklık bakım onarım giderleri</td>
-        <td> </td>
-        <td> </td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        <td> </td>
         <td></td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Dışarıya Yaptırılan Bakım ve Onarım Giderleri</td>
         <td></td>
         <td></td>
-        <td> </td>
-        <td> </td>
         <td></td>
-        <td> </td>
-        <td> </td>
         <td></td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Yerüstü ve Yeraltı Düzenleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Tesis Makine ve Cihaz Onarımları</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Binaların bakım ve onarımları</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Diğerleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Hizmet Alımları</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Temizlik Hizmet Alımı Giderleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Araç Hizmet Alımı Giderleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Gişeler için Hizmet Alımı Gid.</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Koruma ve Güvenlik için Hizmet Al</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Diğer</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Amortismanlar</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Çeken ve çekilen araçlar amortismanı</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Tesisler, makinalar ve cihazlar amortism</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Diğerleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Dış. Sağlanan Gaz ve Su Gideri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Gaz (Isıtma) Gideri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Su Gideri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Kira Giderleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Mahkeme ve Noter Giderleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Eğitim Kültür ve Yayın Giderleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Vergi ve Sigorta</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Haberleşme Giderleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Diğerleri</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> TCDD Altyapı Erişim ücreti</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
         <td></td>
         <td></td>
-        <td> </td>
         <td></td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr class="group-title">
         <td> Faaliyet Dışı Giderler</td>
@@ -958,9 +957,9 @@
         <td> -</td>
         <td></td>
         <td> -</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Faiz ve Komisyon</td>
@@ -971,9 +970,9 @@
         <td></td>
         <td></td>
         <td> -</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Kambiyo</td>
@@ -984,9 +983,9 @@
         <td></td>
         <td></td>
         <td> -</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Diğerler</td>
@@ -997,9 +996,9 @@
         <td> -</td>
         <td></td>
         <td> -</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Ö.D. Ait Sözl. Pers. Emeklilik</td>
@@ -1010,9 +1009,9 @@
         <td></td>
         <td></td>
         <td> -</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Ö.D. Ait Kıdem Tazminatları</td>
@@ -1023,9 +1022,9 @@
         <td></td>
         <td></td>
         <td> -</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Ö.D. Ait Memur Emekli İkramiyeleri</td>
@@ -1036,9 +1035,9 @@
         <td></td>
         <td></td>
         <td> -</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Diğer</td>
@@ -1049,48 +1048,48 @@
         <td></td>
         <td></td>
         <td> -</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr class="section-title">
         <td> GİDERLER TOPLAMI</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr class="section-title">
         <td> DÖNEM KAR/ZARAR</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Faaliyet Kar/Zararı</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Faaliyet Dışı Kar/Zarar</td>
@@ -1101,48 +1100,48 @@
         <td> -</td>
         <td> -</td>
         <td> 40,000,000</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Faaliyet Gelirinin Gideri Karşılama Oranı (%)</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> Toplam Gelirin Toplam Gideri Karşılama Oranı (%)</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
         <td> EBİTDA</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       </tbody>
     </table>
@@ -1154,10 +1153,10 @@
   import TableRowInput from '@/components/TableRowInput';
 
   export default {
-    data() {
-      return {
-        scope: [2017],
-      };
+    computed: {
+      scope() {
+        return [this.$store.state.currentYear];
+      },
     },
     components: {
       TableRowInput,
@@ -1169,58 +1168,20 @@
 <style scoped lang="postcss">
   @import "../styles/colors.css";
 
-  table{
-    border-collapse: collapse;
+  .grid-container{
+    flex: 1;
   }
 
-  td{
-    padding: 3px 3px 3px 6px;
-    border: 1px solid var(--table-border);
-  }
-
-  tr:not(.subheading)>td:not(:first-child){
-    text-align: right;
-  }
-
-  tr.subheading>td{
-    background-color: var(--light-blue-grey);
-  }
-
-  tr.group-title{
-    font-weight: 500;
-    background-color: var(--table-row-disabled);
-    & > td{
-      padding-left: 3px;
-    }
-  }
-
-  tr.section-title{
-    font-weight: 600;
-    background-color: var(--table-row-disabled-dark);
-  }
-
-  tr.disabled{
-    background-color: var(--table-row-disabled);
-  }
-
-  tr.disabled-light{
-    background-color: var(--table-row-disabled-light);
-  }
-
-  th{
-    padding: 5px 0;
-  }
-
-  tr>td:first-child{
+  tr > td:first-child {
     text-align: left;
   }
 
   td:nth-child(-n + 10):nth-child(n + 10) {
-    background-image: linear-gradient(hsla(60, 100%, 60%, 0.36),hsla(60, 100%, 60%, 0.36));
+    background-image: linear-gradient(hsla(60, 100%, 60%, 0.36), hsla(60, 100%, 60%, 0.36));
   }
 
   td:nth-child(-n + 5):nth-child(n + 2) {
-    background-image: linear-gradient(rgba(234, 139, 17, 0.36),rgba(234, 139, 17, 0.36));
+    background-image: linear-gradient(rgba(234, 139, 17, 0.36), rgba(234, 139, 17, 0.36));
   }
 </style>
 

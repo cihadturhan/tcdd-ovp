@@ -1,6 +1,6 @@
 <template>
     <div class="content-wrapper">
-      <div class="content"><Tabs :tabs="tabs" :content="fields" :scope="scope" :on-new-tab-created="onNewTabCreated"></Tabs></div>
+      <div class="content"><Tabs :content="fields" :scope="scope" :on-new-tab-created="onNewTabCreated"></Tabs></div>
       <AppFooter></AppFooter>
     </div>
 </template>
@@ -10,16 +10,6 @@
   import AppFooter from '@/components/AppFooter';
 
   export default {
-    data() {
-      return {
-        tabs: [
-          { title: '2017' },
-          /*{ title: '2018', content: Fields },
-          { title: '2019', content: Fields },
-          { title: '2020', content: Fields },*/
-        ],
-      };
-    },
     methods: {
       onNewTabCreated() {
 

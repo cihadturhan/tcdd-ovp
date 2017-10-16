@@ -23,7 +23,7 @@
 
         <div class="field-group">
           <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'banliyo', 'marmaray', 'value']"/>
+          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'banliyo', 'marmaray']"/>
         </div>
 
       </div>
@@ -44,7 +44,7 @@
         </div>
         <div class="field-group">
           <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'banliyo', 'ankara', 'value']"/>
+          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'banliyo', 'ankara']"/>
         </div>
       </div>
 
@@ -52,22 +52,22 @@
         <h5 class="fieldset-label">Kentiçi Toplam</h5>
         <div class="field-group">
           <label class="field-label">Gelir</label>
-          <InputGroup type="" getter-name="gelirToplam" :scope="[...scope, 'banliyo', 'gelir']"/>
+          <InputGroup type="" getter-name="toplamGelir" :scope="[...scope, 'banliyo']"/>
         </div>
 
         <div class="field-group">
           <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" getter-name="gelirToplam" :scope="[...scope, 'banliyo', 'yolcuSayisi']"/>
+          <InputGroup type="" getter-name="toplamYolcuSayisi" :scope="[...scope, 'banliyo']"/>
         </div>
         <div class="field-group">
           <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" getter-name="gelirToplam" :scope="[...scope, 'banliyo', 'yolcuKm']"/>
+          <InputGroup type="" getter-name="toplamYolcuKm" :scope="[...scope, 'banliyo']"/>
         </div>
         <div class="field-group">
           <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="toplamBirimGelir" :scope="[...scope, 'banliyo', 'value']"/>
+          <InputGroup type="" getter-name="toplamBirimGelir" :scope="[...scope, 'banliyo']"/>
         </div>
-      </div>
+      </div>+
 
     </div>
 
@@ -92,7 +92,7 @@
 
         <div class="field-group">
           <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'konvansiyonel', 'yurtici', 'value']"/>
+          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'konvansiyonel', 'yurtici']"/>
         </div>
       </div>
 
@@ -113,7 +113,7 @@
         </div>
         <div class="field-group">
           <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'konvansiyonel', 'uluslararasi', 'value']"/>
+          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'konvansiyonel', 'uluslararasi']"/>
         </div>
       </div>
 
@@ -121,20 +121,20 @@
         <h5 class="fieldset-label">Konvansiyonel Toplam</h5>
         <div class="field-group">
           <label class="field-label">Gelir</label>
-          <InputGroup type="" getter-name="gelirToplam" :scope="[...scope,  'anahat', 'konvansiyonel', 'gelir']"/>
+          <InputGroup type="" getter-name="toplamGelir" :scope="[...scope,  'anahat', 'konvansiyonel']"/>
         </div>
 
         <div class="field-group">
           <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" getter-name="gelirToplam" :scope="[...scope,  'anahat', 'konvansiyonel', 'yolcuSayisi']"/>
+          <InputGroup type="" getter-name="toplamYolcuSayisi" :scope="[...scope,  'anahat', 'konvansiyonel']"/>
         </div>
         <div class="field-group">
           <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" getter-name="gelirToplam" :scope="[...scope,  'anahat', 'konvansiyonel', 'yolcuKm']"/>
+          <InputGroup type="" getter-name="toplamYolcuKm" :scope="[...scope,  'anahat', 'konvansiyonel']"/>
         </div>
         <div class="field-group">
           <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="toplamBirimGelir" :scope="[...scope, 'anahat', 'konvansiyonel', 'value']"/>
+          <InputGroup type="" getter-name="toplamBirimGelir" :scope="[...scope, 'anahat', 'konvansiyonel']"/>
         </div>
       </div>
     </div>
@@ -159,7 +159,7 @@
 
         <div class="field-group">
           <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'ankaraEskisehir', 'value']"/>
+          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'ankaraEskisehir']"/>
         </div>
       </div>
 
@@ -181,7 +181,7 @@
 
         <div class="field-group">
           <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'konyaAnkara', 'value']"/>
+          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'konyaAnkara']"/>
         </div>
       </div>
 
@@ -203,7 +203,7 @@
 
         <div class="field-group">
           <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'ankaraIstanbul', 'value']"/>
+          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'ankaraIstanbul']"/>
         </div>
       </div>
 
@@ -225,7 +225,7 @@
 
         <div class="field-group">
           <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'konyaIstanbul', 'value']"/>
+          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'konyaIstanbul']"/>
         </div>
       </div>
 
@@ -233,19 +233,19 @@
         <h5 class="fieldset-label">YHT Toplam</h5>
         <div class="field-group">
           <label class="field-label">Gelir</label>
-          <InputGroup type="" getter-name="gelirToplam" :scope="[...scope,  'anahat', 'yht', 'gelir']"/>
+          <InputGroup type="" getter-name="toplamGelir" :scope="[...scope,  'anahat', 'yht']"/>
         </div>
         <div class="field-group">
           <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" getter-name="gelirToplam" :scope="[...scope,  'anahat', 'yht', 'yolcuSayisi']"/>
+          <InputGroup type="" getter-name="toplamYolcuSayisi" :scope="[...scope,  'anahat', 'yht']"/>
         </div>
         <div class="field-group">
           <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" getter-name="gelirToplam" :scope="[...scope,  'anahat', 'yht', 'yolcuKm']"/>
+          <InputGroup type="" getter-name="toplamYolcuKm" :scope="[...scope,  'anahat', 'yht']"/>
         </div>
         <div class="field-group">
           <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="toplamBirimGelir" :scope="[...scope, 'anahat', 'yht', 'value']"/>
+          <InputGroup type="" getter-name="toplamBirimGelir" :scope="[...scope, 'anahat', 'yht']"/>
         </div>
       </div>
       </div>

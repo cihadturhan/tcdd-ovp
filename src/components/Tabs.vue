@@ -1,14 +1,15 @@
 <template>
   <div class="tab-container">
     <ul class="tab-list-container">
-      <li @click="activeIndex = index" v-for="(tab, index) in tabs" :class="{active: index == activeIndex}">
+      <li @click="onTabClick(index)" v-for="(tab, index) in tabs"
+          :class="{active: index == activeIndex}">
         <a href="#">{{tab.title}}</a>
       </li>
-      <li class="add-tab" @click="onNewTabCreated"> <i class="icon-plus add-icon"></i></li>
+      <li class="add-tab" @click="onNewTabCreated"><i class="icon-plus add-icon"></i></li>
     </ul>
     <div class="tab-content">
       <section v-for="(tab, index) in tabs" v-show="index == activeIndex">
-        <component :is="content" :scope="[...scope, tab.title]"></component>
+        <component :is="content" :scope="[tab.title, ...scope]"></component>
       </section>
     </div>
   </div>
@@ -16,22 +17,46 @@
 
 
 <script>
+  /* eslint-disable no-underscore-dangle */
+  import { addNewYear } from '../util';
+
   export default {
     name: 'tabs',
     props: {
-      tabs: Array,
       scope: Array,
       content: Object,
-      onNewTabCreated: Function,
     },
     data() {
       return { activeIndex: 0 };
+    },
+    computed: {
+      tabs() {
+        const titles = [];
+        const minYear = this.$store.state.minYear;
+        const maxYear = this.$store.state.maxYear;
+
+        for (let year = minYear; year <= maxYear; year += 1) {
+          titles.push({ title: year });
+        }
+        return titles;
+      },
+    },
+    methods: {
+      onNewTabCreated() {
+        const maxYear = this.$store.state.maxYear;
+        addNewYear(this.$store, maxYear + 1);
+        this.$store.commit('addYear');
+      },
+      onTabClick(index) {
+        this.activeIndex = index;
+        this.$store.commit({ type: 'setYear', year: Number(this.tabs[index].title) });
+      },
     },
   };
 </script>
 
 <style scoped>
-  .tab-container{
+  .tab-container {
     margin-top: 22px;
     width: 100%;
     flex: 1;
@@ -39,18 +64,18 @@
     flex-direction: column;
   }
 
-  .tab-list-container{
+  .tab-list-container {
     width: 100%;
   }
 
-  ul{
+  ul {
     flex: 0 0 32px;
     display: flex;
     margin: 0px auto;
     justify-content: center;
   }
 
-  li{
+  li {
     width: 100px;
     display: flex;
     align-items: center;
@@ -58,9 +83,9 @@
     position: relative;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    &.active{
+    &.active {
       background-color: #F7F8FC;
-      &::before, &::after{
+      &::before, &::after {
         content: "";
 
       }
@@ -76,20 +101,20 @@
     }
   }
 
-  .tab-content{
+  .tab-content {
     background-color: #F7F8FC;
     flex: 1;
   }
 
-  section{
+  section {
     padding: 60px 30px;
   }
 
-  .add-icon{
+  .add-icon {
     color: var(--tealish)
   }
 
-  .add-tab{
+  .add-tab {
     cursor: pointer;
   }
 </style>

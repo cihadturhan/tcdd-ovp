@@ -9,6 +9,7 @@
 </template>
 
 <script>
+  import { addNewYear } from '@/util';
   import AppMenu from '@/components/AppMenu';
   import AppHeader from '@/components/AppHeader';
   import AppFooter from '@/components/AppFooter';
@@ -19,6 +20,12 @@
       AppMenu,
       AppHeader,
       AppFooter,
+    },
+    created() {
+      /*eslint-disable*/
+      console.log(this.$store);
+      addNewYear(this.$store, this.$store.state.minYear);
+      console.log(this.$store);
     },
   };
 </script>

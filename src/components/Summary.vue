@@ -14,8 +14,11 @@
     </div>
     <div class="col-summary">
       <h3>Dönem Kar/Zarar</h3>
-      <p class="summary-text">
-        <VueOdometer class="vue-odometer" :style="{color: donemKarZarar > 0 ? 'var(--tealish)' : 'var(--dusty-orange)'}" :duration="100" :value="donemKarZararAbs"></VueOdometer>
+      <p class="summary-text" :class="donemKarZarar > 0 ? 'summary-success' : 'summary-danger'">
+        <VueOdometer
+          class="vue-odometer"
+          :duration="100"
+          :value="donemKarZararAbs"></VueOdometer>
       </p>
     </div>
   </div>
@@ -47,6 +50,19 @@
 </script>
 
 <style scoped>
+  @import '../styles/colors.css';
+  .summary-text{
+    color: var(--azul);
+    &.summary-danger{
+      color: var(--dusty-orange);
+    }
+
+    &.summary-success{
+      color: var(--tealish);
+    }
+  }
+
+
   .row-summary{
     display: flex;
     width: 655px;
@@ -72,7 +88,6 @@
 
   .vue-odometer{
     font-size: 24px;
-    color: var(--azul);
     /*transition: color 0.5s;*/
     /*&.positive{
       color: var(--tealish)

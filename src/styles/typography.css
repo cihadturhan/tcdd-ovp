@@ -44,14 +44,6 @@ h5.fieldset-label{
   color: var(--tealish);
 }
 
-.text-input {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.75;
-  text-align: right;
-  color: var(--charcoal-grey);
-}
-
 .field-label {
   font-size: 16px;
   line-height: 1.75;

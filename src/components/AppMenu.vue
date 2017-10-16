@@ -17,10 +17,7 @@
           <router-link to="faaliyet-gelirleri">FAALİYET GELİRLERİ</router-link>
         </li>
         <li>
-          <router-link to="kamu-hizmet-yukumlulugu">KAMU HİZMET YÜKÜMLÜLÜĞÜ</router-link>
-        </li>
-        <li>
-          <router-link to="faaliyet-disi-gelirler">FAALİYET DIŞI GELİRLER</router-link>
+          <router-link to="yuk-gelirleri">YÜK GELİRLERİ</router-link>
         </li>
       </ul>
     </li>
@@ -33,10 +30,10 @@
       </a>
       <ul>
         <li>
-          <router-link to="faaliyet-giderleri">FAALİYET GİDERLERİ</router-link>
+          <router-link to="personel-giderleri">PERSONEL GİDERLERİ</router-link>
         </li>
         <li>
-          <router-link to="faaliyet-disi-giderler">FAALİYET DIŞI GİDERLER</router-link>
+          <router-link to="enerji-giderleri">ENERJİ GİDERLERİ</router-link>
         </li>
       </ul>
     </li>
