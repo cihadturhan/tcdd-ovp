@@ -11,6 +11,7 @@ import AltyapiErisim from '@/pages/AltyapiErisim.vue';
 import PersonelGiderleri from '@/pages/PersonelGiderleri.vue';
 import FaaliyetDisiGiderler from '@/pages/FaaliyetDisiGiderler.vue';
 import GenelIcmal from '@/pages/GenelIcmal.vue';
+import Grafikler from '@/pages/Grafikler.vue';
 
 Vue.use(Router);
 
@@ -66,6 +67,10 @@ export default new Router({
       path: '/genel-icmal',
       name: 'Genel İcmal',
       component: GenelIcmal,
+    }, {
+      path: '/grafikler',
+      name: 'Grafikler',
+      component: Grafikler,
     },
     { path: '*', redirect: '/varsayimlar' },
   ],

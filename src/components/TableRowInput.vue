@@ -30,7 +30,7 @@
   input {
     height: 24px;
     border: none;
-    background: hsla(120, 50%, 80%, 0.4);
+    background: hsla(120, 50%, 80%, .5);
     text-align: right;
     padding: 0 3px;
     appearance: none;

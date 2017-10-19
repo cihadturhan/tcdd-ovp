@@ -53,6 +53,9 @@
         <li>
           <router-link to="genel-icmal">GENEL İCMAL</router-link>
         </li>
+        <li>
+          <router-link to="grafikler">GRAFİKLER</router-link>
+        </li>
       </ul>
     </li>
 

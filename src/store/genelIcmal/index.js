@@ -70,6 +70,7 @@ export default (year) => {
         const value = getters[`gelirler/${column}/toplamGelir`];
         return value ? prev + value : prev;
       }, 0),
+      'giderler/toplam': () => 2781407000,
       ...faaliyetGelirleriToplamGelir,
       ...gelirlerToplam,
       ...outerGetters,

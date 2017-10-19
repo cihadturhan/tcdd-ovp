@@ -3,13 +3,13 @@
     <div class="col-summary">
       <h3>Gelirler Toplamı</h3>
       <p class="summary-text">
-        <VueOdometer class="vue-odometer" :duration="100" :value="gelirlerToplam"></VueOdometer>
+        <VueOdometer class="vue-odometer" :duration="30" :value="gelirlerToplam"></VueOdometer>
       </p>
     </div>
     <div class="col-summary">
       <h3>Giderler Toplamı</h3>
       <p class="summary-text">
-        <VueOdometer class="vue-odometer" :duration="100" :value="giderlerToplam"></VueOdometer>
+        <VueOdometer class="vue-odometer" :duration="30" :value="giderlerToplam"></VueOdometer>
       </p>
     </div>
     <div class="col-summary">
@@ -17,7 +17,7 @@
       <p class="summary-text" :class="donemKarZarar > 0 ? 'summary-success' : 'summary-danger'">
         <VueOdometer
           class="vue-odometer"
-          :duration="100"
+          :duration="30"
           :value="donemKarZararAbs"></VueOdometer>
       </p>
     </div>
@@ -38,13 +38,14 @@
         return this.$store.getters[`${currentYear}/genelIcmal/gelirler/toplam`];
       },
       giderlerToplam() {
-        return this.$store.getters.giderlerToplam;
+        const currentYear = this.$store.state.currentYear;
+        return this.$store.getters[`${currentYear}/genelIcmal/giderler/toplam`];
       },
       donemKarZarar() {
-        return this.$store.getters.donemKarZarar;
+        return this.gelirlerToplam - this.giderlerToplam;
       },
       donemKarZararAbs() {
-        return Math.abs(this.$store.getters.donemKarZarar);
+        return Math.abs(this.donemKarZarar);
       },
     },
     components: {

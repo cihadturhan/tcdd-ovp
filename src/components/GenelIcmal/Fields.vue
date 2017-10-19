@@ -1271,10 +1271,10 @@
   }
 
   td:nth-child(-n + 10):nth-child(n + 10) {
-    background-image: linear-gradient(hsla(60, 100%, 60%, 0.36), hsla(60, 100%, 60%, 0.36));
+    background-image: linear-gradient(rgba(254, 204, 255, 0.45), rgba(254, 204, 255, 0.45));
   }
 
   td:nth-child(-n + 5):nth-child(n + 2) {
-    background-image: linear-gradient(rgba(234, 139, 17, 0.36), rgba(234, 139, 17, 0.36));
+    background-image: linear-gradient(hsla(211, 86%, 49%, 0.2), hsla(211, 86%, 49%, 0.2));
   }
 </style>
