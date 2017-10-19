@@ -77,7 +77,7 @@ const birimGelirler = scopes
     return prev;
   }, {});
 
-export default {
+export default (year) => ({ // eslint-disable-line
   namespaced: true,
   state() {
     return { ...faaliyetBilgileri };
@@ -124,5 +124,5 @@ export default {
       yolcuKm: getters.toplamYolcuKm,
     }),
   },
-};
+});
 

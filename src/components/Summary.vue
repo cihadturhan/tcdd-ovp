@@ -28,10 +28,14 @@
   import VueOdometer from 'vue-odometer';
 
   export default {
+    props: {
+      scope: [Array],
+    },
     name: 'Summary',
     computed: {
       gelirlerToplam() {
-        return this.$store.getters.gelirlerToplam;
+        const currentYear = this.$store.state.currentYear;
+        return this.$store.getters[`${currentYear}/genelIcmal/gelirler/toplam`];
       },
       giderlerToplam() {
         return this.$store.getters.giderlerToplam;

@@ -28,20 +28,11 @@ const store = new Vuex.Store({
         return item.yolcuKm === 0 ? 0 : item.gelir / item.yolcuKm;
       };
     },
-
-
     toplamBirimGelir(state, getters) {
       return (scope) => {
         const item = getters.toplamGelir(scope);
         return item.yolcuKm === 0 ? 0 : item.gelir / item.yolcuKm;
       };
-    },
-    gelirlerToplam(state) {
-      const yil = state[state.currentYear].varsayimlar;
-      return 19120 * yil.fiyatlar.hamPetrolBrent
-        * (yil.fiyatlar.gsyhDeflatoru / 10)
-        * (yil.fiyatlar.tufeYilSonu / 10) * (yil.fiyatlar.yiUfeYilSonu / 10)
-        * yil.buyume.gsyhReelBuyumesi * yil.buyume.gsyhNominalBuyumesi;
     },
     giderlerToplam(state) {
       const yil = state[state.currentYear].varsayimlar;

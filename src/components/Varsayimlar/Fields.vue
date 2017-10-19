@@ -108,7 +108,7 @@
       <div class="col-xs-5 col-xs-offset-2">
         <div class="field-group">
           <label class="field-label">Yillik Ortalama Artis</label>
-          <InputGroup type="%" disabled :scope="[...scope, 'memurMaasi', 'ortalama']"/>
+          <InputGroup type="%" disabled :getter-name="`${scope.join('/')}/memurMaasi/ortalama`"/>
         </div>
       </div>
     </div>
@@ -131,10 +131,16 @@
       <div class="col-xs-5 col-xs-offset-2">
         <div class="field-group">
           <label class="field-label">Yillik Ortalama Artis</label>
-          <InputGroup type="%" disabled :scope="[...scope, 'kamuIscisiUcreti', 'ortalama']"/>
+          <InputGroup type="%" disabled :getter-name="`${scope.join('/')}/kamuIscisiUcreti/ortalama`"/>
         </div>
       </div>
     </div>
+
+    <div class="row start-xs note">
+      *Memur maaşı için artış 1. ve 7. aylarda, işçi ücreti için artış 3. ve 9. aylardadır. İkinci artış ilkine eklenerek ortalama hesaplanır.
+    </div>
+
+
 
   </div>
 </template>

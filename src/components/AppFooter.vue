@@ -1,7 +1,7 @@
 <template>
   <footer>
     <button class="prev"><i class="icon-arrow-left"></i><span>Geri</span></button>
-    <AppSummary></AppSummary>
+    <AppSummary :scope="scope"></AppSummary>
     <button class="next"><span>İleri</span><i class="icon-arrow-right"></i></button>
   </footer>
 </template>
@@ -10,6 +10,9 @@
   import AppSummary from './Summary';
 
   export default {
+    props: {
+      scope: [Array],
+    },
     components: {
       AppSummary,
     },

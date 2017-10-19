@@ -1,4 +1,4 @@
-export default {
+export default (year) => ({  // eslint-disable-line
   namespaced: true,
   state() {
     return {
@@ -33,5 +33,5 @@ export default {
     toplamGelir: (state, getters) => getters['yurtici/toplamGelir'] + getters['uluslararasi/toplamGelir'],
     toplamSatisNetTonKm: (state, getters) => getters.toplamNetTonKm + state.idariTasima,
   },
-};
+});
 

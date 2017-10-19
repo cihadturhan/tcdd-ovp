@@ -7,7 +7,7 @@ import altyapiErisim from '../store/altyapiErisim';
 import genelIcmal from '../store/genelIcmal/index';
 
 
-const modules = {
+const moduleGenerators = {
   yukGelirleri,
   faaliyetGelirleri,
   varsayimlar,
@@ -25,7 +25,7 @@ export const lastItem = arr => arr[arr.length - 1];
 export const addNewYear = (store, year) => {
   // register a nested module `nested/myModule`
   store.registerModule([String(year)], { namespaced: true });
-  Object.entries(modules).forEach(([moduleName, module]) => {
-    store.registerModule([String(year), moduleName], module);
+  Object.entries(moduleGenerators).forEach(([moduleName, moduleGenerator]) => {
+    store.registerModule([String(year), moduleName], moduleGenerator(year));
   });
 };

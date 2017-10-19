@@ -36,7 +36,7 @@ const altyapiErisimGiderleri = Object.keys(trenHamtonKm).reduce((p, key) => {
   return p;
 }, {});
 
-export default {
+export default (year) => ({ // eslint-disable-line
   namespaced: true,
   state() {
     return {
@@ -52,4 +52,4 @@ export default {
       .keys(altyapiErisimGiderleri)
       .reduce((p, curr) => p + getters[curr], 0),
   },
-};
+});

@@ -5,7 +5,7 @@
   export default {
     props: {
       getterName: String,
-      scope: { type: Array },
+      scope: [Array, String],
     },
     computed: {
       value() {
@@ -19,7 +19,14 @@
 
           return this.roundOff(value, 4);
         }
-        return this.roundOff(this.scope.reduce((p, c) => p[c], this.$store.state), 4);
+
+        let currentScope;
+        if (typeof this.scope === 'string') {
+          currentScope = this.scope.split('/');
+        } else {
+          currentScope = this.scope;
+        }
+        return this.roundOff(currentScope.reduce((p, c) => p[c], this.$store.state), 4);
       },
     },
     methods: {

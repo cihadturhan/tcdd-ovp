@@ -17,6 +17,10 @@ a{
   text-decoration: none;
 }
 
+.note {
+  margin-top: 15px
+}
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

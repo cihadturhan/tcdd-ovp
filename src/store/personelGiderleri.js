@@ -3,7 +3,7 @@ const personelBilgileri = {
     memur: { adet: 10, ortalamaAylikUcret: 6500 },
     sozlesmeli: { adet: 20, ortalamaAylikUcret: 6000 },
     daimi: { adet: 25, ortalamaAylikUcret: 4000 },
-    gecici: { adet: 50, ortalamaAylikUcret: 5500 },
+    gecici: { adet: 0, ortalamaAylikUcret: 5500 },
   },
   yht: {
     memur: { adet: 20, ortalamaAylikUcret: 6500 },
@@ -43,13 +43,6 @@ const personelBilgileri = {
   },
 };
 
-const personelGiderleri = Object.keys(personelBilgileri).reduce((p, key) => {
-  p[`${key}/personelGideri`] = state => Object.values(state[key]).reduce(
-    (pp, { adet, ortalamaAylikUcret }) => pp + (adet * ortalamaAylikUcret),
-    0);
-  return p;
-}, {});
-
 const personelAdetleri = Object.keys(personelBilgileri).reduce((p, key) => {
   p[`${key}/personelAdeti`] = state => Object.values(state[key]).reduce(
     (pp, { adet }) => pp + adet,
@@ -57,20 +50,45 @@ const personelAdetleri = Object.keys(personelBilgileri).reduce((p, key) => {
   return p;
 }, {});
 
-export default {
-  namespaced: true,
-  state() {
-    return { ...personelBilgileri };
-  },
-  getters: {
-    ...personelGiderleri,
-    ...personelAdetleri,
-    toplamGider: state => Object.values(state).reduce((p, value) => {
-      const current = Object.values(value).reduce((pp, vvalue) => {
-        pp += (vvalue.adet * vvalue.ortalamaAylikUcret);
-        return pp;
-      }, 0);
-      return p + current;
-    }, 0),
-  },
+export default (year) => {
+  const trenPersonelGiderleri = Object.entries(personelBilgileri).reduce((prev, [key, values]) => {
+    const p = Object.entries(values).reduce((pprev, [meslek]) => {
+      pprev[`${key}/${meslek}/personelGideri`] = (state, getters, globalState, globalGetter) => {
+        const { adet, ortalamaAylikUcret } = state[key][meslek];
+        const maasTipi = meslek === 'memur' ? 'memurMaasi' : 'kamuIscisiUcreti';
+        const yillikOrtalamaArtis = globalGetter[`${year}/varsayimlar/${maasTipi}/ortalama`];
+        return (adet * ortalamaAylikUcret * (1 + (yillikOrtalamaArtis / 100)) * 12);
+      };
+      return pprev;
+    }, {});
+    return { ...prev, ...p };
+  }, {});
+
+
+  const personelGiderleri = Object.keys(personelBilgileri).reduce((p, key) => {
+    p[`${key}/personelGideri`] = (state, getters) => Object.keys(state[key]).reduce(
+      (pp, meslek) => pp + getters[`${key}/${meslek}/personelGideri`], 0);
+    return p;
+  }, {});
+
+  const trenGiderleri = Object.keys(personelBilgileri.yolcu).reduce((p, meslek) => {
+    p[`${meslek}/personelGideri`] = (state, getters) => Object.keys(state).reduce(
+      (pp, key) => pp + getters[`${key}/${meslek}/personelGideri`], 0);
+    return p;
+  }, {});
+
+  return { // eslint-disable-line
+    namespaced: true,
+    state() {
+      return { ...personelBilgileri };
+    },
+    getters: {
+      ...trenPersonelGiderleri,
+      ...trenGiderleri,
+      ...personelGiderleri,
+      ...personelAdetleri,
+      toplamGider: (state, getter) => Object.keys(personelGiderleri)
+        .reduce((p, key) => p + getter[key], 0),
+    },
+  };
 };

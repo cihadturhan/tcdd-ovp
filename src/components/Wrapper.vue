@@ -1,7 +1,7 @@
 <template>
     <div class="content-wrapper">
       <div class="content"><Tabs :content="fields" :scope="scope" :on-new-tab-created="onNewTabCreated"></Tabs></div>
-      <AppFooter></AppFooter>
+      <AppFooter :scope="scope"></AppFooter>
     </div>
 </template>
 

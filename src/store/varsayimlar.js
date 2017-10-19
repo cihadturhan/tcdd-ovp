@@ -1,4 +1,4 @@
-export default {
+export default (year) => ({  // eslint-disable-line
   namespaced: true,
   state() {
     return {
@@ -25,13 +25,20 @@ export default {
       memurMaasi: {
         iDonem: 5.0,
         iiDonem: 5.0,
-        ortalama: 0,
       },
       kamuIscisiUcreti: {
         iDonem: 5.0,
         iiDonem: 5.0,
-        ortalama: 0,
       },
     };
   },
-};
+  getters: {
+    'memurMaasi/ortalama': state => (state.memurMaasi.iDonem * (6 / 12)) +
+      ((((100 + state.memurMaasi.iDonem) *
+        ((100 + state.memurMaasi.iiDonem) / 100)) - 100) * (6 / 12)),
+    'kamuIscisiUcreti/ortalama': state => (/* 0 * 3/12 + */
+      state.kamuIscisiUcreti.iDonem * (6 / 12)) +
+      ((((100 + state.kamuIscisiUcreti.iDonem) *
+        ((100 + state.kamuIscisiUcreti.iiDonem) / 100)) - 100) * (3 / 12)),
+  },
+});

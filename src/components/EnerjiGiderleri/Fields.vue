@@ -85,9 +85,3 @@
     },
   };
 </script>
-
-<style scoped>
-  .note {
-    margin-top: 15px
-  }
-</style>

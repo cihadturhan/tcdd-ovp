@@ -50,7 +50,7 @@ const toplamGiderler = Object.keys(enerjiGiderleri).reduce((p, key) => {
   return p;
 }, {});
 
-export default {
+export default (year) => ({ // eslint-disable-line
   namespaced: true,
   state() {
     return { ...enerjiGiderleri };
@@ -65,8 +65,7 @@ export default {
         return p;
       }, 0),
     toplamElektrikGideri: (state, getters, allState) => {
-      // TODO - Current Year is wrong!!!
-      const elektrikFiyat = allState[allState.currentYear].varsayimlar.fiyatlar.elektrikKWS;
+      const elektrikFiyat = allState[year].varsayimlar.fiyatlar.elektrikKWS;
       return getters.toplamElektrikKullanimi * elektrikFiyat;
     },
     toplamMotorinKullanimi: state => Object.entries(state)
@@ -75,11 +74,10 @@ export default {
         return p;
       }, 0),
     toplamMotorinGideri: (state, getters, allState) => {
-      // TODO - Current Year is wrong!!!
-      const motorinFiyat = allState[allState.currentYear].varsayimlar.fiyatlar.motorin;
+      const motorinFiyat = allState[year].varsayimlar.fiyatlar.motorin;
       return getters.toplamMotorinKullanimi * motorinFiyat;
     },
     toplamGider: (_, getters) => getters.toplamElektrikGideri + getters.toplamMotorinGideri,
     toplamKullanim: (_, getters) => getters.toplamElektrikGideri + getters.toplamMotorinGideri,
   },
-};
+});
