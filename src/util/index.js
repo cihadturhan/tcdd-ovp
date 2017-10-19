@@ -3,6 +3,8 @@ import faaliyetGelirleri from '../store/faaliyetGelirleri';
 import varsayimlar from '../store/varsayimlar';
 import personelGiderleri from '../store/personelGiderleri';
 import enerjiGiderleri from '../store/enerjiGiderleri';
+import altyapiErisim from '../store/altyapiErisim';
+import genelIcmal from '../store/genelIcmal/index';
 
 
 const modules = {
@@ -11,6 +13,8 @@ const modules = {
   varsayimlar,
   personelGiderleri,
   enerjiGiderleri,
+  altyapiErisim,
+  genelIcmal,
 };
 
 
@@ -25,4 +29,3 @@ export const addNewYear = (store, year) => {
     store.registerModule([String(year), moduleName], module);
   });
 };
-

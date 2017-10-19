@@ -35,6 +35,9 @@
         <li>
           <router-link to="enerji-giderleri">ENERJİ GİDERLERİ</router-link>
         </li>
+        <li>
+          <router-link to="altyapi-erisim">ALTYAPI ERİŞİM ÜCRETLERİ</router-link>
+        </li>
       </ul>
     </li>
 

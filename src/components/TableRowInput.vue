@@ -28,7 +28,7 @@
   }
 
   input {
-    height: 100%;
+    height: 24px;
     border: none;
     background: hsla(120, 50%, 80%, 0.4);
     text-align: right;

@@ -19,6 +19,8 @@ export default {
         yiUfeYilSonu: 11.20,
         yiUfeYillikOrtalama: 14.46,
         hamPetrolBrent: 50.63,
+        elektrikKWS: 0.314096,
+        motorin: 4.80,
       },
       memurMaasi: {
         iDonem: 5.0,

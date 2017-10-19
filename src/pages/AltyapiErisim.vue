@@ -1,13 +1,13 @@
 <script>
   import Wrapper from '@@/Wrapper';
-  import Fields from '@@/GenelIcmal/Fields';
+  import Fields from '@@/AltyapiErisim/Fields';
 
   export default {
     extends: Wrapper,
-    name: 'genelIcmal',
+    name: 'altyapiErisim',
     data() {
       return {
-        scope: ['genelIcmal'],
+        scope: ['altyapiErisim'],
         fields: Fields,
       };
     },

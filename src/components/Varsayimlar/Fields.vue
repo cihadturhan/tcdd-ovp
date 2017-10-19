@@ -58,6 +58,14 @@
           <label class="field-label">H. Petrol Fiyatı - Brent</label>
           <InputGroup type="%" :scope="[...scope, 'fiyatlar', 'hamPetrolBrent']"/>
         </div>
+        <div class="field-group">
+          <label class="field-label">Elektrik Fiyatı - KWS</label>
+          <InputGroup type="%" :scope="[...scope, 'fiyatlar', 'elektrikKWS']"/>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Mazot Fiyatı - Litre</label>
+          <InputGroup type="%" :scope="[...scope, 'fiyatlar', 'motorin']"/>
+        </div>
       </div>
       <div class="col-xs-5 col-xs-offset-2">
         <div class="field-group">

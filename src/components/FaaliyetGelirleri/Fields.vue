@@ -1,259 +1,233 @@
 <template>
   <div class="container container-fluid">
+    <div class="row center-xs">
+      <div class="col-lg-12">
 
-    <h2 class="fieldset-label">YOLCU GELİRLERİ</h2>
-    <h3 class="fieldset-label">1. Banliyö</h3>
+        <h2 class="fieldset-label">YOLCU GELİRLERİ</h2>
+        <h3 class="fieldset-label">1. Banliyö</h3>
 
-    <div class="row start-xs">
-      <div class="col-xs-4">
-        <h5 class="fieldset-label">a. Marmaray</h5>
-        <div class="field-group">
-          <label class="field-label">Gelir</label>
-          <InputGroup type="" :scope="[...scope, 'banliyo', 'marmaray', 'gelir']"/>
-        </div>
+        <table class="tableizer-table">
+          <thead>
+          <tr class="section-title">
+            <th></th>
+            <th>Marmaray</th>
+            <th>Ankara Banliyösü</th>
+            <th>Kentiçi Toplam</th>
+          </tr>
+          </thead>
 
-        <div class="field-group">
-          <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" :scope="[...scope, 'banliyo', 'marmaray', 'yolcuSayisi']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" :scope="[...scope, 'banliyo', 'marmaray', 'yolcuKm']"/>
-        </div>
+          <tbody>
+          <tr>
+            <td>Gelir (TL)</td>
+            <td is="TableRowInput" :scope="[...scope, 'banliyo', 'marmaray', 'gelir']"></td>
+            <td is="TableRowInput" :scope="[...scope, 'banliyo', 'ankara', 'gelir']"></td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/banliyo/toplamGelir'"></td>
+          </tr>
 
-        <div class="field-group">
-          <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'banliyo', 'marmaray']"/>
-        </div>
+          <tr>
+            <td>Yolcu Sayısı</td>
+            <td is="TableRowInput" :scope="[...scope, 'banliyo', 'marmaray', 'yolcuSayisi']"></td>
+            <td is="TableRowInput" :scope="[...scope, 'banliyo', 'ankara', 'yolcuSayisi']"></td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/banliyo/toplamYolcu'"></td>
+          </tr>
 
-      </div>
-      <div class="col-xs-4">
-        <h5 class="fieldset-label">b. Ankara Banliyösü</h5>
-        <div class="field-group">
-          <label class="field-label">Gelir</label>
-          <InputGroup type="" :scope="[...scope, 'banliyo', 'ankara', 'gelir']"/>
-        </div>
+          <tr>
+            <td>Yolcu Km (Bin KM)</td>
+            <td is="TableRowInput" :scope="[...scope, 'banliyo', 'marmaray', 'yolcuKm']"></td>
+            <td is="TableRowInput" :scope="[...scope, 'banliyo', 'ankara', 'yolcuKm']"></td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/banliyo/toplamYolcuKm'"></td>
+          </tr>
 
-        <div class="field-group">
-          <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" :scope="[...scope, 'banliyo', 'ankara', 'yolcuSayisi']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" :scope="[...scope, 'banliyo', 'ankara', 'yolcuKm']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'banliyo', 'ankara']"/>
-        </div>
-      </div>
+          <tr class="disabled">
+            <td>Birim Gelir (TL/Yolcu KM)</td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/banliyo/marmaray/birimGelir'"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/banliyo/ankara/birimGelir'"></td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/banliyo/birimGelir'"></td>
+          </tr>
+          </tbody>
+        </table>
 
-      <div class="col-xs-4">
-        <h5 class="fieldset-label">Kentiçi Toplam</h5>
-        <div class="field-group">
-          <label class="field-label">Gelir</label>
-          <InputGroup type="" getter-name="toplamGelir" :scope="[...scope, 'banliyo']"/>
-        </div>
+        <br/>
+        <h3 class="fieldset-label">2. Anahat</h3>
+        <h4 class="fieldset-label">2.1 Konvansiyonel</h4>
 
-        <div class="field-group">
-          <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" getter-name="toplamYolcuSayisi" :scope="[...scope, 'banliyo']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" getter-name="toplamYolcuKm" :scope="[...scope, 'banliyo']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="toplamBirimGelir" :scope="[...scope, 'banliyo']"/>
-        </div>
-      </div>+
+        <table class="tableizer-table">
+          <thead>
+          <tr class="section-title">
+            <th></th>
+            <th>Yurtiçi</th>
+            <th>Uluslararası</th>
+            <th>Konvansiyonel Toplam</th>
+          </tr>
+          </thead>
 
-    </div>
+          <tbody>
+          <tr>
+            <td>Gelir (TL)</td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'konvansiyonel', 'yurtici', 'gelir']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'konvansiyonel', 'uluslararasi', 'gelir']"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/konvansiyonel/toplamGelir'"></td>
+          </tr>
 
-    <h3 class="fieldset-label">2. Anahat</h3>
-    <h4 class="fieldset-label">2.1 Konvansiyonel</h4>
-    <div class="row start-xs">
-      <div class="col-xs-4">
-        <h5 class="fieldset-label">a. Yurtiçi</h5>
-        <div class="field-group">
-          <label class="field-label">Gelir</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'konvansiyonel', 'yurtici', 'gelir']"/>
-        </div>
+          <tr>
+            <td>Yolcu Sayısı</td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'konvansiyonel', 'yurtici', 'yolcuSayisi']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'konvansiyonel', 'uluslararasi', 'yolcuSayisi']"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/konvansiyonel/toplamYolcu'"></td>
+          </tr>
 
-        <div class="field-group">
-          <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'konvansiyonel', 'yurtici', 'yolcuSayisi']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'konvansiyonel', 'yurtici', 'yolcuKm']"/>
-        </div>
+          <tr>
+            <td>Yolcu Km (Bin KM)</td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'konvansiyonel', 'yurtici', 'yolcuKm']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'konvansiyonel', 'uluslararasi', 'yolcuKm']"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/konvansiyonel/toplamYolcuKm'"></td>
+          </tr>
 
-        <div class="field-group">
-          <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'konvansiyonel', 'yurtici']"/>
-        </div>
-      </div>
+          <tr class="disabled">
+            <td>Birim Gelir (TL/Yolcu KM)</td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/konvansiyonel/yurtici/birimGelir'"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/konvansiyonel/uluslararasi/birimGelir'"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/konvansiyonel/birimGelir'"></td>
+          </tr>
+          </tbody>
+        </table>
 
-      <div class="col-xs-4">
-        <h5 class="fieldset-label">b. Uluslararası</h5>
-        <div class="field-group">
-          <label class="field-label">Gelir</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'konvansiyonel', 'uluslararasi', 'gelir']"/>
-        </div>
+        <br/>
+        <h4 class="fieldset-label">2.2 Yüksek Hızlı Tren</h4>
+        <table class="tableizer-table">
+          <thead>
+          <tr class="section-title">
+            <th></th>
+            <th>Ankara-Eskişehir YHT</th>
+            <th>Konya-Ankara YHT</th>
+            <th>Ankara-İstanbul YHT</th>
+            <th>Konya-İstanbul YHT</th>
+            <th>YHT Toplam</th>
+          </tr>
+          </thead>
 
-        <div class="field-group">
-          <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'konvansiyonel', 'uluslararasi', 'yolcuSayisi']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'konvansiyonel', 'uluslararasi', 'yolcuKm']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'konvansiyonel', 'uluslararasi']"/>
-        </div>
-      </div>
+          <tbody>
+          <tr>
+            <td>Gelir (TL)</td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'ankaraEskisehir', 'gelir']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'konyaAnkara', 'gelir']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'ankaraIstanbul', 'gelir']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'konyaIstanbul', 'gelir']"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/yht/toplamGelir'"></td>
+          </tr>
 
-      <div class="col-xs-4">
-        <h5 class="fieldset-label">Konvansiyonel Toplam</h5>
-        <div class="field-group">
-          <label class="field-label">Gelir</label>
-          <InputGroup type="" getter-name="toplamGelir" :scope="[...scope,  'anahat', 'konvansiyonel']"/>
-        </div>
+          <tr>
+            <td>Yolcu Sayısı</td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'ankaraEskisehir', 'yolcuSayisi']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'konyaAnkara', 'yolcuSayisi']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'ankaraIstanbul', 'yolcuSayisi']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'konyaIstanbul', 'yolcuSayisi']"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/yht/toplamYolcu'"></td>
+          </tr>
 
-        <div class="field-group">
-          <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" getter-name="toplamYolcuSayisi" :scope="[...scope,  'anahat', 'konvansiyonel']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" getter-name="toplamYolcuKm" :scope="[...scope,  'anahat', 'konvansiyonel']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="toplamBirimGelir" :scope="[...scope, 'anahat', 'konvansiyonel']"/>
-        </div>
-      </div>
-    </div>
+          <tr>
+            <td>Yolcu Km (Bin KM)</td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'ankaraEskisehir', 'yolcuKm']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'konyaAnkara', 'yolcuKm']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'ankaraIstanbul', 'yolcuKm']"></td>
+            <td is="TableRowInput"
+                :scope="[...scope, 'anahat', 'yht', 'konyaIstanbul', 'yolcuKm']"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/yht/toplamYolcuKm'"></td>
+          </tr>
 
-    <h4 class="fieldset-label">2.2 Yüksek Hızlı Tren</h4>
-    <div class="row start-xs">
-      <div class="col-xs-4">
-        <h5 class="fieldset-label">Ankara-Eskişehir YHT</h5>
-        <div class="field-group">
-          <label class="field-label">Gelir</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'ankaraEskisehir', 'gelir']"/>
-        </div>
+          <tr class="disabled">
+            <td>Birim Gelir (TL/Yolcu KM)</td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/yht/ankaraEskisehir/birimGelir'"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/yht/konyaAnkara/birimGelir'"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/yht/ankaraIstanbul/birimGelir'"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/yht/konyaIstanbul/birimGelir'"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/yht/birimGelir'"></td>
+          </tr>
+          </tbody>
+        </table>
 
-        <div class="field-group">
-          <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'ankaraEskisehir', 'yolcuSayisi']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'ankaraEskisehir', 'yolcuKm']"/>
-        </div>
+        <br/>
+        <h3 class="fieldset-label">3. Toplam</h3>
 
-        <div class="field-group">
-          <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'ankaraEskisehir']"/>
-        </div>
-      </div>
+        <table class="tableizer-table">
+          <thead>
+          <tr class="section-title">
+            <th></th>
+            <th>Anahat (Konvansiyonel + YHT) Toplam</th>
+            <th>Yolcu (Banliyo + Anahat) Toplam</th>
+          </tr>
+          </thead>
 
-      <div class="col-xs-4">
-        <h5 class="fieldset-label">Konya-Ankara YHT</h5>
-        <div class="field-group">
-          <label class="field-label">Gelir</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'konyaAnkara', 'gelir']"/>
-        </div>
+          <tbody>
+          <tr>
+            <td>Gelir (TL)</td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/anahat/toplamGelir'"></td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/toplamGelir'"></td>
+          </tr>
 
-        <div class="field-group">
-          <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'konyaAnkara', 'yolcuSayisi']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'konyaAnkara', 'yolcuKm']"/>
-        </div>
+          <tr>
+            <td>Yolcu Sayısı</td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/anahat/toplamYolcu'"></td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/toplamYolcu'"></td>
+          </tr>
 
-        <div class="field-group">
-          <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'konyaAnkara']"/>
-        </div>
-      </div>
+          <tr>
+            <td>Yolcu Km (Bin KM)</td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/anahat/toplamYolcuKm'"></td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/toplamYolcuKm'"></td>
+          </tr>
 
-      <div class="col-xs-4">
-        <h5 class="fieldset-label">Ankara-İstanbul YHT</h5>
-        <div class="field-group">
-          <label class="field-label">Gelir</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'ankaraIstanbul', 'gelir']"/>
-        </div>
+          <tr class="disabled">
+            <td>Birim Gelir (TL/Yolcu KM)</td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/anahat/birimGelir'"></td>
+            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/birimGelir'"></td>
+          </tr>
+          </tbody>
+        </table>
 
-        <div class="field-group">
-          <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'ankaraIstanbul', 'yolcuSayisi']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'ankaraIstanbul', 'yolcuKm']"/>
-        </div>
 
-        <div class="field-group">
-          <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'ankaraIstanbul']"/>
-        </div>
-      </div>
-
-      <div class="col-xs-4">
-        <h5 class="fieldset-label">Konya-İstanbul YHT</h5>
-        <div class="field-group">
-          <label class="field-label">Gelir</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'konyaIstanbul', 'gelir']"/>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'konyaIstanbul', 'yolcuSayisi']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" :scope="[...scope, 'anahat', 'yht', 'konyaIstanbul', 'yolcuKm']"/>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="birimGelir" :scope="[...scope, 'anahat', 'yht', 'konyaIstanbul']"/>
-        </div>
-      </div>
-
-      <div class="col-xs-4 col-xs-offset-4">
-        <h5 class="fieldset-label">YHT Toplam</h5>
-        <div class="field-group">
-          <label class="field-label">Gelir</label>
-          <InputGroup type="" getter-name="toplamGelir" :scope="[...scope,  'anahat', 'yht']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu Sayısı</label>
-          <InputGroup type="" getter-name="toplamYolcuSayisi" :scope="[...scope,  'anahat', 'yht']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Yolcu KM</label>
-          <InputGroup type="" getter-name="toplamYolcuKm" :scope="[...scope,  'anahat', 'yht']"/>
-        </div>
-        <div class="field-group">
-          <label class="field-label">Birim Gelir</label>
-          <InputGroup type="" getter-name="toplamBirimGelir" :scope="[...scope, 'anahat', 'yht']"/>
-        </div>
-      </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
   import InputGroup from '@/components/InputGroup';
+  import TableRowInput from '@/components/TableRowInput';
+  import TableRowDisplay from '@/components/TableRowDisplay';
 
   export default {
     name: 'fields',
@@ -265,22 +239,16 @@
     },
     components: {
       InputGroup,
+      TableRowInput,
+      TableRowDisplay,
     },
   };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .field-group {
-    display: flex;
-    justify-content: space-between;
-  }
 
-  .container{
-    width: 100%;
-  }
-
-  .row{
+  .row {
     margin-bottom: 20px;
   }
 </style>

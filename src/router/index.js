@@ -7,6 +7,7 @@ import FaaliyetDisiGelirler from '@/pages/FaaliyetDisiGelirler.vue';
 import KamuHizmetYukumlulugu from '@/pages/KamuHizmetYukumlulugu.vue';
 import FaaliyetGiderleri from '@/pages/FaaliyetGiderleri.vue';
 import EnerjiGiderleri from '@/pages/EnerjiGiderleri.vue';
+import AltyapiErisim from '@/pages/AltyapiErisim.vue';
 import PersonelGiderleri from '@/pages/PersonelGiderleri.vue';
 import FaaliyetDisiGiderler from '@/pages/FaaliyetDisiGiderler.vue';
 import GenelIcmal from '@/pages/GenelIcmal.vue';
@@ -46,6 +47,11 @@ export default new Router({
       path: '/enerji-giderleri',
       name: 'Enerji Giderleri',
       component: EnerjiGiderleri,
+    },
+    {
+      path: '/altyapi-erisim',
+      name: 'Altyapı Erişim',
+      component: AltyapiErisim,
     },
     {
       path: '/personel-giderleri',

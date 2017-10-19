@@ -10,6 +10,14 @@ const store = new Vuex.Store({
     currentYear: 2017,
     minYear: 2017,
     maxYear: 2017,
+    rows: [
+      { key: 'yolcu', title: 'Yolcu' },
+      { key: 'lojistik', title: 'Lojistik' },
+      { key: 'yht', title: 'YHT' },
+      { key: 'marmaray', title: 'Marmaray' },
+      { key: 'adf', title: 'ADF' },
+      { key: 'genelYonetim', title: 'Genel Yönetim' },
+    ],
   },
   getters: {
     birimGelir(state) {
@@ -20,27 +28,8 @@ const store = new Vuex.Store({
         return item.yolcuKm === 0 ? 0 : item.gelir / item.yolcuKm;
       };
     },
-    // ['2017', 'faaliyetGelirleri', 'banliyo']
-    // ['2017', 'faaliyetGelirleri', 'anahat', 'yht']
-    // ['2017', 'faaliyetGelirleri', 'anahat', 'konvansiyonel']
-    toplamGelir(state) {
-      return (scope) => {
-        const item = lastScope(state, scope);
-        return Object.values(item).reduce((prev, curr) => prev + curr.gelir, 0);
-      };
-    },
-    toplamYolcuSayisi(state) {
-      return (scope) => {
-        const item = lastScope(state, scope);
-        return Object.values(item).reduce((prev, curr) => prev + curr.yolcuSayisi, 0);
-      };
-    },
-    toplamYolcuKm(state) {
-      return (scope) => {
-        const item = lastScope(state, scope);
-        return Object.values(item).reduce((prev, curr) => prev + curr.yolcuKm, 0);
-      };
-    },
+
+
     toplamBirimGelir(state, getters) {
       return (scope) => {
         const item = getters.toplamGelir(scope);
