@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+
+import Login from '@/pages/Login.vue';
+
 import Varsayimlar from '@/pages/Varsayimlar.vue';
 import FaaliyetGelirleri from '@/pages/FaaliyetGelirleri.vue';
 import YukGelirleri from '@/pages/YukGelirleri.vue';
@@ -13,12 +16,18 @@ import FaaliyetDisiGiderler from '@/pages/FaaliyetDisiGiderler.vue';
 import GenelIcmal from '@/pages/GenelIcmal.vue';
 import Grafikler from '@/pages/Grafikler.vue';
 
+
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
   linkActiveClass: 'active',
+  base: __dirname,
   routes: [
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
+    },
     {
       path: '/varsayimlar',
       name: 'Varsayimlar',

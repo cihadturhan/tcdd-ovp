@@ -36,9 +36,9 @@ export default (year) => ({  // eslint-disable-line
     'memurMaasi/ortalama': state => (state.memurMaasi.iDonem * (6 / 12)) +
       ((((100 + state.memurMaasi.iDonem) *
         ((100 + state.memurMaasi.iiDonem) / 100)) - 100) * (6 / 12)),
-    'kamuIscisiUcreti/ortalama': state => (/* 0 * 3/12 + */
+    'kamuIscisiUcreti/ortalama': state => (/* 0 * 2/12 + */
       state.kamuIscisiUcreti.iDonem * (6 / 12)) +
       ((((100 + state.kamuIscisiUcreti.iDonem) *
-        ((100 + state.kamuIscisiUcreti.iiDonem) / 100)) - 100) * (3 / 12)),
+        ((100 + state.kamuIscisiUcreti.iiDonem) / 100)) - 100) * (4 / 12)),
   },
 });

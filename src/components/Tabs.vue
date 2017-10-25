@@ -3,7 +3,7 @@
     <ul class="tab-list-container">
       <li @click="onTabClick(index)" v-for="(tab, index) in tabs"
           :class="{active: index == activeIndex}">
-        <a href="#">{{tab.title}}</a>
+        <a href="javascript:void(0)">{{tab.title}}</a>
       </li>
       <li class="add-tab" @click="onNewTabCreated"><i class="icon-plus add-icon"></i></li>
     </ul>

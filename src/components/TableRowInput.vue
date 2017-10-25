@@ -24,13 +24,13 @@
 <style scoped>
   td {
     padding: 0;
-    border-color: hsla(120, 40%, 50%, 0.8);
+    border-color: hsla(100, 50%, 50%, 0.8);
   }
 
   input {
     height: 24px;
     border: none;
-    background: hsla(120, 50%, 80%, .5);
+    background: hsla(100, 60%, 70%, .5);
     text-align: right;
     padding: 0 3px;
     appearance: none;

@@ -7,7 +7,7 @@
       </router-link>
     </li>
     <li class="sub-menu" ref="li1" @click="show('li1')" :class="shown.li1">
-      <a class="menu-title" href="#">
+      <a class="menu-title" href="javascript:void(0)">
         <i class="icon-arrow-forward-outline"></i>
         <span>GELİRLER</span>
         <caret></caret>
@@ -23,7 +23,7 @@
     </li>
 
     <li class="sub-menu" ref="li2" @click="show('li2')" :class="shown.li2">
-      <a class="menu-title" href="#">
+      <a class="menu-title" href="javascript:void(0)">
         <i class="icon-arrow-back-outline"></i>
         <span>GİDERLER</span>
         <caret></caret>
@@ -42,13 +42,13 @@
     </li>
 
     <li class="sub-menu" ref="li3" @click="show('li3')" :class="shown.li3">
-      <a class="menu-title" href="#">
+      <a class="menu-title" href="javascript:void(0)">
 
         <i class="icon-arrow-repeat"></i>
         <span>DÖNEM KAR/ZARAR</span>
         <caret></caret>
 
-        </a>
+      </a>
       <ul>
         <li>
           <router-link to="genel-icmal">GENEL İCMAL</router-link>
@@ -154,7 +154,7 @@
     & .menu-title {
       display: flex;
       align-items: center;
-      & > span{
+      & > span {
         margin-right: 5px;
       }
     }
@@ -168,9 +168,10 @@
           padding-left: 30px;
           position: relative;
           & > a {
-          color: #CFD2E6;
-          font-size: 13px;
-        }}
+            color: #CFD2E6;
+            font-size: 13px;
+          }
+        }
       }
     }
     & li:not(.sub-menu), .menu-title {

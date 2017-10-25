@@ -17,6 +17,7 @@ const moduleGenerators = {
   genelIcmal,
 };
 
+export const deepClone = obj => JSON.parse(JSON.stringify(obj));
 
 export const beforeLastScope = (obj, scope) =>
   scope.slice(0, scope.length - 1).reduce((p, c) => p[c], obj);
@@ -26,6 +27,11 @@ export const addNewYear = (store, year) => {
   // register a nested module `nested/myModule`
   store.registerModule([String(year)], { namespaced: true });
   Object.entries(moduleGenerators).forEach(([moduleName, moduleGenerator]) => {
-    store.registerModule([String(year), moduleName], moduleGenerator(year));
+    const generatedModule = moduleGenerator(year);
+    if (year > store.state.minYear) {
+      const previousYearState = deepClone(store.state[year - 1][moduleName]);
+      generatedModule.state = () => previousYearState;
+    }
+    store.registerModule([String(year), moduleName], generatedModule);
   });
 };

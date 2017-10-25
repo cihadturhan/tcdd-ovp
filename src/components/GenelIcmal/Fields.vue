@@ -57,7 +57,7 @@
         <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yolcuGelir/toplam`"></td>
       </tr>
       <tr>
-        <td> Yurtiçi Yolcu Gelirleri</td>
+        <td class="level-1"> Yurtiçi Yolcu Gelirleri</td>
         <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yurtici/yolcu/toplam`"></td>
         <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yurtici/lojistik/toplam`"></td>
         <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yurtici/yht/toplam`"></td>
@@ -70,7 +70,7 @@
         <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yurtici/toplam`"></td>
       </tr>
       <tr>
-        <td> Banliyo</td>
+        <td class="level-2"> Banliyo</td>
         <td is="TableRowDisplay"
             :scope="`${strParentScope}/faaliyetGelirleri/banliyo/ankara/gelir`"></td>
         <td></td>
@@ -87,20 +87,24 @@
             :scope="`${strParentScope}/faaliyetGelirleri/banliyo/ankara/gelir`"></td>
       </tr>
       <tr>
-        <td> Bölgesel</td>
+        <td class="level-2"> Marmaray</td>
         <td></td>
         <td></td>
         <td></td>
+        <td is="TableRowDisplay"
+            :scope="[...parentScope, 'faaliyetGelirleri', 'banliyo', 'marmaray', 'gelir']"></td>
         <td></td>
         <td></td>
+        <td is="TableRowDisplay"
+            :scope="[...parentScope, 'faaliyetGelirleri', 'banliyo', 'marmaray', 'gelir']"></td>
         <td></td>
-        <td> -</td>
-        <td></td>
-        <td> -</td>
-        <td> -</td>
+        <td is="TableRowDisplay"
+            :scope="[...parentScope, 'faaliyetGelirleri', 'banliyo', 'marmaray', 'gelir']"></td>
+        <td is="TableRowDisplay"
+            :scope="[...parentScope, 'faaliyetGelirleri', 'banliyo', 'marmaray', 'gelir']"></td>
       </tr>
       <tr>
-        <td> Anahat</td>
+        <td class="level-2"> Anahat</td>
         <td is="TableRowInput" :scope="[...scope, 'faaliyetGelirleri', 'yurtici', 'anahat']"></td>
         <td></td>
         <td></td>
@@ -112,25 +116,9 @@
         <td is="TableRowDisplay" :scope="[...scope, 'faaliyetGelirleri', 'yurtici', 'anahat']"></td>
         <td is="TableRowDisplay" :scope="[...scope, 'faaliyetGelirleri', 'yurtici', 'anahat']"></td>
       </tr>
+
       <tr>
-        <td> Marmaray</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td is="TableRowDisplay"
-            :scope="[...parentScope, 'faaliyetGelirleri', 'banliyo', 'marmaray', 'gelir']"></td>
-        <td></td>
-        <td></td>
-        <td is="TableRowDisplay"
-            :scope="[...parentScope, 'faaliyetGelirleri', 'banliyo', 'marmaray', 'gelir']"></td>
-        <td></td>
-        <td is="TableRowDisplay"
-            :scope="[...parentScope, 'faaliyetGelirleri', 'banliyo', 'marmaray', 'gelir']"></td>
-        <td is="TableRowDisplay"
-            :scope="[...parentScope, 'faaliyetGelirleri', 'banliyo', 'marmaray', 'gelir']"></td>
-      </tr>
-      <tr>
-        <td> YHT</td>
+        <td class="level-2"> YHT</td>
         <td></td>
         <td></td>
         <td is="TableRowDisplay"
@@ -147,7 +135,7 @@
             :getter-name="`${strParentScope}/faaliyetGelirleri/anahat/yht/toplamGelir`"></td>
       </tr>
       <tr>
-        <td> Diğer yolcu gelirleri</td>
+        <td class="level-2"> Diğer yolcu gelirleri</td>
         <td is="TableRowInput" :scope="[...scope, 'faaliyetGelirleri', 'yurtici', 'diger']"></td>
         <td></td>
         <td></td>
@@ -160,7 +148,7 @@
         <td is="TableRowDisplay" :scope="[...scope, 'faaliyetGelirleri', 'yurtici', 'diger']"></td>
       </tr>
       <tr>
-        <td> Yurtdışı Yolcu Gelirleri</td>
+        <td class="level-1"> Yurtdışı Yolcu Gelirleri</td>
         <td is="TableRowDisplay"
             :scope="[...parentScope, 'faaliyetGelirleri', 'anahat', 'konvansiyonel', 'uluslararasi', 'gelir']"></td>
         <td></td>
@@ -176,7 +164,7 @@
         <td is="TableRowDisplay"
             :scope="[...parentScope, 'faaliyetGelirleri', 'anahat', 'konvansiyonel', 'uluslararasi', 'gelir']"></td>
       </tr>
-      <tr>
+      <tr class="disabled-light">
         <td> Yük Gelirleri</td>
         <td> -</td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/yukGelirleri/toplamGelir`"></td>
@@ -190,7 +178,7 @@
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/yukGelirleri/toplamGelir`"></td>
       </tr>
       <tr>
-        <td> Yurtiçi Yük Gelirleri</td>
+        <td class="level-1"> Yurtiçi Yük Gelirleri</td>
         <td></td>
         <td is="TableRowDisplay"
             :getter-name="`${strParentScope}/yukGelirleri/yurtici/toplamGelir`"></td>
@@ -207,7 +195,7 @@
             :getter-name="`${strParentScope}/yukGelirleri/yurtici/toplamGelir`"></td>
       </tr>
       <tr>
-        <td> Yurtdışı Yük Gelirleri</td>
+        <td class="level-1"> Yurtdışı Yük Gelirleri</td>
         <td></td>
         <td is="TableRowDisplay"
             :getter-name="`${strParentScope}/yukGelirleri/uluslararasi/toplamGelir`"></td>
@@ -243,23 +231,6 @@
         <td> TODO</td>
       </tr>
       <tr>
-        <td> Banliyö</td>
-        <td is="TableRowInput"
-            :scope="[...scope, 'kamuHizmetYukumlulugu', 'yolcu', 'banliyo']"></td>
-        <td is="TableRowInput"
-            :scope="[...scope, 'kamuHizmetYukumlulugu', 'lojistik', 'banliyo']"></td>
-        <td is="TableRowInput" :scope="[...scope, 'kamuHizmetYukumlulugu', 'yht', 'banliyo']"></td>
-        <td is="TableRowInput"
-            :scope="[...scope, 'kamuHizmetYukumlulugu', 'marmaray', 'banliyo']"></td>
-        <td is="TableRowInput"
-            :scope="[...scope, 'kamuHizmetYukumlulugu', 'aracBakim', 'banliyo']"></td>
-        <td is="TableRowInput" :scope="[...scope, 'kamuHizmetYukumlulugu', 'adf', 'banliyo']"></td>
-        <td> -</td>
-        <td></td>
-        <td> -</td>
-        <td> -</td>
-      </tr>
-      <tr>
         <td> Bölgesel</td>
         <td is="TableRowInput"
             :scope="[...scope, 'kamuHizmetYukumlulugu', 'yolcu', 'bolgesel']"></td>
@@ -290,23 +261,6 @@
         <td></td>
         <td> 327,000,000</td>
         <td> 327,000,000</td>
-      </tr>
-      <tr>
-        <td> Marmaray</td>
-        <td is="TableRowInput"
-            :scope="[...scope, 'kamuHizmetYukumlulugu', 'yolcu', 'marmaray']"></td>
-        <td is="TableRowInput"
-            :scope="[...scope, 'kamuHizmetYukumlulugu', 'lojistik', 'marmaray']"></td>
-        <td is="TableRowInput" :scope="[...scope, 'kamuHizmetYukumlulugu', 'yht', 'marmaray']"></td>
-        <td is="TableRowInput"
-            :scope="[...scope, 'kamuHizmetYukumlulugu', 'marmaray', 'marmaray']"></td>
-        <td is="TableRowInput"
-            :scope="[...scope, 'kamuHizmetYukumlulugu', 'aracBakim', 'marmaray']"></td>
-        <td is="TableRowInput" :scope="[...scope, 'kamuHizmetYukumlulugu', 'adf', 'marmaray']"></td>
-        <td> -</td>
-        <td></td>
-        <td> -</td>
-        <td> -</td>
       </tr>
       <tr>
         <td> YHT</td>
@@ -431,8 +385,8 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
-        <td> <strong>Personel Giderleri</strong></td>
+      <tr class="disabled-light">
+        <td>Personel Giderleri</td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yolcu/personelGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/lojistik/personelGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yht/personelGideri`"></td>
@@ -445,7 +399,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Memur Personel</td>
+        <td class="level-1"> Memur Personel</td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yolcu/memur/personelGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/lojistik/memur/personelGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yht/memur/personelGideri`"></td>
@@ -458,7 +412,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Sözleşmeli</td>
+        <td class="level-1"> Sözleşmeli</td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yolcu/sozlesmeli/personelGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/lojistik/sozlesmeli/personelGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yht/sozlesmeli/personelGideri`"></td>
@@ -471,7 +425,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Daimi İşçi</td>
+        <td class="level-1"> Daimi İşçi</td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yolcu/daimi/personelGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/lojistik/daimi/personelGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yht/daimi/personelGideri`"></td>
@@ -484,7 +438,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Geçici İşçi</td>
+        <td class="level-1"> Geçici İşçi</td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yolcu/gecici/personelGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/lojistik/gecici/personelGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yht/gecici/personelGideri`"></td>
@@ -496,8 +450,8 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
-        <td> <strong>Malzeme Giderleri</strong></td>
+      <tr class="disabled-light">
+        <td>Malzeme Giderleri</td>
         <td></td>
         <td></td>
         <td></td>
@@ -509,8 +463,8 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
-        <td> Enerji Giderler</td>
+      <tr class="disabled-light">
+        <td> Enerji Giderleri</td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yolcu/toplamGider`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/lojistik/toplamGider`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yht/toplamGider`"></td>
@@ -523,7 +477,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Yakıt (Motorin)</td>
+        <td class="level-1"> Yakıt (Motorin)</td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yolcu/motorinGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/lojistik/motorinGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yht/motorinGideri`"></td>
@@ -536,7 +490,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Elektrik Giderleri</td>
+        <td class="level-1"> Elektrik Giderleri</td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yolcu/elektrikGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/lojistik/elektrikGideri`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yht/elektrikGideri`"></td>
@@ -548,111 +502,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
-        <td> Diğerleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Yol Malzemeleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Çeken - Çekilen Malzemeleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Tesisler Malzemeler</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td> -</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Genel İşletme ve Bakım Malzemeleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Yağ, Boya ve Kimyevi Malzemeler</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Kırtasiye, Basılı Kağıt ve Bilg Mlz G.</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Diğerleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
+      <tr class="disabled-light">
         <td> Dışarıya Yaptırılan Bakım ve Onarım Giderleri</td>
         <td></td>
         <td></td>
@@ -666,33 +516,60 @@
         <td></td>
       </tr>
       <tr>
-        <td> Çeken Çekilen Araç Onarımları</td>
+        <td class="level-1"> Çeken Çekilen Araç Onarımları</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="level-2"> Bağlı Ortaklık bakım onarım giderleri</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr >
+        <td class="level-2"> Dışarıya Yaptırılan Bakım ve Onarım Giderleri</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td class="level-2"> Dahili Bakım ve Onarım giderleri</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
         <td> -</td>
-        <td></td>
-        <td></td>
-        <td> -</td>
-        <td></td>
-        <td></td>
       </tr>
       <tr>
-        <td> Dahili Bakım ve Onarım giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td> -</td>
-      </tr>
-      <tr>
-        <td> Bağlı Ortaklık bakım onarım giderleri</td>
+        <td class="level-1">Diğer</td>
         <td></td>
         <td></td>
         <td></td>
@@ -704,72 +581,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
-        <td> Dışarıya Yaptırılan Bakım ve Onarım Giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Yerüstü ve Yeraltı Düzenleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Tesis Makine ve Cihaz Onarımları</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Binaların bakım ve onarımları</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Diğerleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
+      <tr class="disabled-light">
         <td> Hizmet Alımları</td>
         <td></td>
         <td></td>
@@ -783,7 +595,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Temizlik Hizmet Alımı Giderleri</td>
+        <td class="level-1"> Gişeler için Hizmet Alımı Gid.</td>
         <td></td>
         <td></td>
         <td></td>
@@ -796,7 +608,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Araç Hizmet Alımı Giderleri</td>
+        <td class="level-1"> Araç Hizmet Alımı Giderleri</td>
         <td></td>
         <td></td>
         <td></td>
@@ -809,7 +621,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Gişeler için Hizmet Alımı Gid.</td>
+        <td class="level-1"> Temizlik Hizmet Alımı Giderleri</td>
         <td></td>
         <td></td>
         <td></td>
@@ -822,7 +634,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Koruma ve Güvenlik için Hizmet Al</td>
+        <td class="level-1"> Diğer Hizmet Alımları</td>
         <td></td>
         <td></td>
         <td></td>
@@ -834,20 +646,8 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
-        <td> Diğer</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
+
+      <tr class="disabled-light">
         <td> Amortismanlar</td>
         <td></td>
         <td></td>
@@ -861,7 +661,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Çeken ve çekilen araçlar amortismanı</td>
+        <td class="level-1"> Çeken ve çekilen araçlar amortismanı</td>
         <td></td>
         <td></td>
         <td></td>
@@ -874,7 +674,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Tesisler, makinalar ve cihazlar amortism</td>
+        <td class="level-1"> Tesisler, makinalar ve cihazlar amortism</td>
         <td></td>
         <td></td>
         <td></td>
@@ -887,7 +687,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Diğerleri</td>
+        <td class="level-1"> Diğerleri</td>
         <td></td>
         <td></td>
         <td></td>
@@ -899,7 +699,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
+      <tr class="disabled-light">
         <td> Dış. Sağlanan Gaz ve Su Gideri</td>
         <td></td>
         <td></td>
@@ -912,98 +712,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
-        <td> Gaz (Isıtma) Gideri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Su Gideri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Kira Giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Mahkeme ve Noter Giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Eğitim Kültür ve Yayın Giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Vergi ve Sigorta</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Haberleşme Giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
+      <tr class="disabled-light">
         <td> Diğerleri</td>
         <td></td>
         <td></td>
@@ -1016,7 +725,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
+      <tr class="group-title">
         <td> TCDD Altyapı Erişim ücreti</td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/altyapiErisim/yolcu/gider`"></td>
         <td is="TableRowDisplay" :getter-name="`${strParentScope}/altyapiErisim/lojistik/gider`"></td>
@@ -1031,18 +740,18 @@
       </tr>
       <tr class="group-title">
         <td> Faaliyet Dışı Giderler</td>
-        <td> -</td>
-        <td> -</td>
-        <td> -</td>
-        <td> -</td>
-        <td> -</td>
         <td></td>
-        <td> -</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
-      <tr>
+      <tr class="disabled-light">
         <td> Faiz ve Komisyon</td>
         <td></td>
         <td></td>
@@ -1050,12 +759,12 @@
         <td></td>
         <td></td>
         <td></td>
-        <td> -</td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
-      <tr>
+      <tr class="disabled-light">
         <td> Kambiyo</td>
         <td></td>
         <td></td>
@@ -1068,7 +777,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
+      <tr class="disabled-light">
         <td> Diğerler</td>
         <td> -</td>
         <td> -</td>
@@ -1082,7 +791,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Ö.D. Ait Sözl. Pers. Emeklilik</td>
+        <td class="level-1"> Ö.D. Ait Sözl. Pers. Emeklilik</td>
         <td></td>
         <td></td>
         <td></td>
@@ -1095,7 +804,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Ö.D. Ait Kıdem Tazminatları</td>
+        <td class="level-1"> Ö.D. Ait Kıdem Tazminatları</td>
         <td></td>
         <td></td>
         <td></td>
@@ -1108,7 +817,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Ö.D. Ait Memur Emekli İkramiyeleri</td>
+        <td class="level-1"> Ö.D. Ait Memur Emekli İkramiyeleri</td>
         <td></td>
         <td></td>
         <td></td>
@@ -1121,7 +830,7 @@
         <td></td>
       </tr>
       <tr>
-        <td> Diğer</td>
+        <td class="level-1"> Diğer</td>
         <td></td>
         <td></td>
         <td></td>
@@ -1268,6 +977,18 @@
 
   tr > td:first-child {
     text-align: left;
+  }
+
+  td.level-1{
+    padding-left: 15px;
+  }
+
+  td.level-2{
+    padding-left: 30px;
+  }
+
+  td.level-3{
+    padding-left: 45px;
   }
 
   td:nth-child(-n + 10):nth-child(n + 10) {
