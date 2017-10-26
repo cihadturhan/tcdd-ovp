@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 
-import RecursiveTableBody from '@/global/RecursiveTableBody.vue';
+import RecursiveTableRow from '@/global/RecursiveTableRow.vue';
 
 import AppMain from './Main.vue';
 import store from './store';
@@ -10,7 +10,7 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
-Vue.component('recursive-table-body', RecursiveTableBody);
+Vue.component('recursive-table-row', RecursiveTableRow);
 
 /* eslint-disable no-new */
 new Vue({

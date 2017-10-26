@@ -2,6 +2,7 @@ import { generateGetters } from './util';
 
 import faaliyetDisiGelirler from './faaliyetDisiGelirler';
 import kamuHizmetYukumlulugu from './kamuHizmetYukumlulugu';
+import giderlerGenerator from './giderler/';
 
 const outerState = {
   faaliyetDisiGelirler,
@@ -17,6 +18,8 @@ const outerState = {
 const outerGetters = generateGetters(outerState);
 
 export default (year) => {
+  const giderler = giderlerGenerator(year);
+
   const columns = ['yolcu', 'lojistik', 'yht', 'marmaray'];
   const faaliyetGelirleriToplamGelir = columns.reduce((prev, key) => {
     prev[`faaliyetGelirleri/${key}/toplamGelir`] = (state, getters, globalState, globalGetters) =>
@@ -37,7 +40,7 @@ export default (year) => {
   return {
     namespaced: true,
     state() {
-      return outerState;
+      return { ...outerState, ...giderler.state };
     },
     getters: {
       'faaliyetGelirleri/yurtici/yolcu/toplam': (state, getters, globalState) => {

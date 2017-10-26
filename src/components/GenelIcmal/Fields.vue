@@ -935,6 +935,8 @@
       </tr>
       </tbody>
     </table>
+
+    <recursive-table-row :data="giderler" />
   </div>
 </template>
 
@@ -942,8 +944,45 @@
 <script>
   import TableRowInput from '@/components/TableRowInput';
   import TableRowDisplay from '@/components/TableRowDisplay';
+  import giderler from '@/store/genelIcmal/giderler/template';
+  /* eslint-disable */
+
+  /* const flatten = (expense, scope = []) => {
+    if (expense.children && expense.children.length) {
+      childrenGetters = expense.children.reduce((prev, curr) => [
+        ...prev,
+        ...flatten(curr, [ ...scope, expense.name ]),
+      ], []);
+    } else {
+      switch (TypeOf(expense.getters)) {
+        case 'string':
+          childrenGetters = rows.reduce((prev, row) => [
+            ...prev,
+            // TODO - 
+            // [`${scope}/${expense.name}/${row.key}`]:
+            //         (s, g, gs, globalGetters) => globalGetters[year + expense.getters.replace('{fieldName}', row.key)],
+          ],
+           {});
+          break;
+        case 'array':
+          childrenGetters = expense.getters.reduce((prev, getterObj) => ({
+            ...prev,
+            [`${scope}/${expense.name}/${getterObj.name}`]:
+                    (s, g, gs, globalGetters) => globalGetters[year + getterObj.getter],
+          }), {});
+          break;
+        default:
+          childrenGetters = {};
+      }
+    }
+
+    return childrenGetters;
+  }*/
 
   export default {
+    data() {
+      return { giderler };
+    },
     props: {
       scope: Array,
     },
@@ -959,6 +998,9 @@
       strScope() {
         return this.scope.join('/');
       },
+      flatGiderler() {
+        return; // flatten(this.giderler) ;
+      }
     },
     components: {
       TableRowInput,

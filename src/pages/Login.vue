@@ -1,8 +1,9 @@
 <template>
-  <form action="" @submit="attempLogin">
-    <div><input name="username"></div>
-    <div><input type="password" name="password"></div>
-    <div><input type="button" value="GİRİŞ YAP"></div>
+  <form action="" @submit.prevent="attempLogin()">
+    <div v-if="error"> Hatalı Giriş! Giriş bilgilerinizi kontrol edip tekrar deneyiniz. </div>
+    <div><input name="username" v-model="params.username"></div>
+    <div><input type="password" name="password" v-model="params.password"></div>
+    <div><input type="submit" value="GİRİŞ YAP" :disabled="!isValid"></div>
   </form>
 </template>
 
@@ -17,35 +18,43 @@
     data() {
       return {
         loading: true,
+        error: false,
         params: {
           username: '',
           password: '',
         },
       };
     },
+    computed: {
+      isValid(){
+        return this.params.username !== '' && this.params.password !== '';
+      }
+    },
     methods: {
       attempLogin() {
-
-        axios.post(`${host}/secureovp/authenticate`, qs.stringify({
-          username: 'tcdd',
-          password: '1',
-        }), {
+        this.error = false;
+        this.loading = true;
+        axios.post(`${host}/secureovp/authenticate`, qs.stringify(this.params), {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
-        }).then(() => {
-          axios.get(`${host}/application/getLastOVP`, {withCredentials: true}).then( ovpData => console.log(ovpData));
-          axios.post(`${host}/application/addOVP`,  qs.stringify({
-            'ovp.JSON': '{test: 1}',
-          }), {withCredentials: true})
+          fetchType: 'CORS',
+          withCredentials: true,
+        }).then(response => {
+          this.loading = false;
+          if (response.data === 'success') {
+            this.$store.commit({type: 'updateUser', user: { username: this.params.username }, });
+            this.$router.push({name: 'Varsayimlar'});
+          } else {
+            this.error = true;
+          }
+        }).catch(() => {
+          this.loading = false;
         });
       },
     },
     created() {
-      this.attempLogin();
-      /* axios.get(`${host}/secure/login`, { headers: { Accept: 'text/html' } }).then((response) => {
-        this.params.authenticityToken = authTokenRegex.exec(response)[1];
-      }); */
+
     },
   };
 

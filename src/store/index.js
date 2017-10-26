@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import qs from 'qs';
+import axios from 'axios';
 
-import { rows } from '@/util/config';
+import { rows, host } from '@/util/config';
 import { beforeLastScope, lastItem } from '@/util';
-
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ const store = new Vuex.Store({
     minYear: 2017,
     maxYear: 2017,
     loggedIn: false,
+    user: {},
     rows,
   },
   getters: {},
@@ -25,16 +27,25 @@ const store = new Vuex.Store({
       const obj = beforeLastScope(state, scope);
       obj[lastItem(scope)] = value;
     },
+    updateUser(state, { user }) {
+      state.user = user;
+      state.loggedIn = !!user.username;
+    },
     addYear(state) {
       state.maxYear += 1;
     },
     setYear(state, { year }) {
       state.currentYear = year;
     },
-    login(state) {
-      setTimeout(() => {
-        state.loggedIn = true;
-      }, 1000);
+  },
+  actions: {
+    getLastOVP() {
+      axios.get(`${host}/application/getLastOVP`, { withCredentials: true }).then(() => 1);
+    },
+    addOVP(data) {
+      axios.post(`${host}/application/addOVP`, qs.stringify({
+        'ovp.JSON': JSON.stringify(data),
+      }), { withCredentials: true });
     },
   },
 });
