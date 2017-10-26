@@ -6,6 +6,7 @@ export const rows = [
   { key: 'lojistik', title: 'Lojistik' },
   { key: 'yht', title: 'YHT' },
   { key: 'marmaray', title: 'Marmaray' },
+  { key: 'aracBakim', title: 'Araç Bakım' },
   { key: 'adf', title: 'ADF' },
   { key: 'genelYonetim', title: 'Genel Yönetim' },
 ];

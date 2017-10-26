@@ -77,6 +77,7 @@ export default (year) => {
       ...faaliyetGelirleriToplamGelir,
       ...gelirlerToplam,
       ...outerGetters,
+      ...giderler.getters,
     },
   };
 };

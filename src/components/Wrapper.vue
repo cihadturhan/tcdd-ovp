@@ -1,7 +1,7 @@
 <template>
     <div class="content-wrapper">
       <div class="content"><Tabs :content="fields" :scope="scope" :on-new-tab-created="onNewTabCreated"></Tabs></div>
-      <AppFooter :scope="scope"></AppFooter>
+      <AppFooter v-if="footerShown" :scope="scope"></AppFooter>
     </div>
 </template>
 
@@ -10,6 +10,11 @@
   import AppFooter from '@/components/AppFooter';
 
   export default {
+    data() {
+      return {
+        footerShown: true,
+      };
+    },
     methods: {
       onNewTabCreated() {
 

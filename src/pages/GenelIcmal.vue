@@ -9,6 +9,7 @@
       return {
         scope: ['genelIcmal'],
         fields: Fields,
+        footerShown: false,
       };
     },
     components: {},

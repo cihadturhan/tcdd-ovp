@@ -6,6 +6,32 @@ export default {
       name: 'faaliyetGiderleri',
       label: 'Faaliyet Giderleri',
       children: [
+        {
+          name: 'personelGiderleri',
+          label: 'Personel Giderleri',
+          children: [
+            {
+              name: 'memur',
+              label: 'Memur Personel',
+              getters: '/personelGiderleri/{fieldName}/memur/personelGideri',
+            },
+            {
+              name: 'sozlesmeli',
+              label: 'Sözleşmeli',
+              getters: '/personelGiderleri/{fieldName}/sozlesmeli/personelGideri',
+            },
+            {
+              name: 'daimi',
+              label: 'Daimi İşçi',
+              getters: '/personelGiderleri/{fieldName}/daimi/personelGideri',
+            },
+            {
+              name: 'gecici',
+              label: 'Geçici İşçi',
+              getters: '/personelGiderleri/{fieldName}/gecici/personelGideri',
+            },
+          ],
+        },
         { name: 'malzemeGiderleri', label: 'Malzeme Giderleri' },
         {
           name: 'enerjiGiderleri',
@@ -67,6 +93,7 @@ export default {
         },
         { name: 'disSaglananGazveSu', label: 'Dış. Sağlanan Gaz ve Su Gideri' },
         { name: 'digerleri', label: 'Diğerleri' },
+        { name: 'altyapiErisim', label: ' TCDD Altyapı Erişim ücreti', getters: '/altyapiErisim/{fieldName}/gider' },
       ],
     },
     {
@@ -74,7 +101,7 @@ export default {
       label: 'Faaliyet Dışı Giderler',
       children: [
         { name: 'faizVeKomisyon', label: 'Faiz ve Komisyon' },
-        { name: 'kabmiyo', label: 'Faiz ve Komisyon' },
+        { name: 'kabmiyo', label: 'Kambiyo' },
         {
           name: 'digerler',
           label: 'Diğerleri',

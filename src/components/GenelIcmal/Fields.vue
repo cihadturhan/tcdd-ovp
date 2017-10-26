@@ -45,23 +45,32 @@
       </tr>
       <tr class="disabled-light">
         <td> Yolcu Gelirleri</td>
-        <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yolcu/yolcuGelir`"></td>
+        <td is="TableRowDisplay"
+            :getter-name="`${strScope}/faaliyetGelirleri/yolcu/yolcuGelir`"></td>
         <td>-</td>
         <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yht/yolcuGelir`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/marmaray/yolcuGelir`"></td>
+        <td is="TableRowDisplay"
+            :getter-name="`${strScope}/faaliyetGelirleri/marmaray/yolcuGelir`"></td>
         <td> -</td>
         <td> -</td>
-        <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yolcuGelir/toplam`"></td>
+        <td is="TableRowDisplay"
+            :getter-name="`${strScope}/faaliyetGelirleri/yolcuGelir/toplam`"></td>
         <td>-</td>
-        <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yolcuGelir/toplam`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yolcuGelir/toplam`"></td>
+        <td is="TableRowDisplay"
+            :getter-name="`${strScope}/faaliyetGelirleri/yolcuGelir/toplam`"></td>
+        <td is="TableRowDisplay"
+            :getter-name="`${strScope}/faaliyetGelirleri/yolcuGelir/toplam`"></td>
       </tr>
       <tr>
         <td class="level-1"> Yurtiçi Yolcu Gelirleri</td>
-        <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yurtici/yolcu/toplam`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yurtici/lojistik/toplam`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yurtici/yht/toplam`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yurtici/marmaray/toplam`"></td>
+        <td is="TableRowDisplay"
+            :getter-name="`${strScope}/faaliyetGelirleri/yurtici/yolcu/toplam`"></td>
+        <td is="TableRowDisplay"
+            :getter-name="`${strScope}/faaliyetGelirleri/yurtici/lojistik/toplam`"></td>
+        <td is="TableRowDisplay"
+            :getter-name="`${strScope}/faaliyetGelirleri/yurtici/yht/toplam`"></td>
+        <td is="TableRowDisplay"
+            :getter-name="`${strScope}/faaliyetGelirleri/yurtici/marmaray/toplam`"></td>
         <td>-</td>
         <td>-</td>
         <td is="TableRowDisplay" :getter-name="`${strScope}/faaliyetGelirleri/yurtici/toplam`"></td>
@@ -372,489 +381,21 @@
         <td is="TableRowDisplay"
             :getter-name="`${strScope}/gelirler/toplam`"></td>
       </tr>
-      <tr class="group-title">
-        <td> Faaliyet Giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="disabled-light">
-        <td>Personel Giderleri</td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yolcu/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/lojistik/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yht/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/marmaray/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/aracBakim/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/adf/personelGideri`"></td>
-        <td></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/genelYonetim/memur/personelGideri`"></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Memur Personel</td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yolcu/memur/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/lojistik/memur/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yht/memur/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/marmaray/memur/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/aracBakim/memur/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/adf/memur/personelGideri`"></td>
-        <td></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/genelYonetim/memur/personelGideri`"></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Sözleşmeli</td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yolcu/sozlesmeli/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/lojistik/sozlesmeli/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yht/sozlesmeli/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/marmaray/sozlesmeli/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/aracBakim/sozlesmeli/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/adf/sozlesmeli/personelGideri`"></td>
-        <td></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/genelYonetim/sozlesmeli/personelGideri`"></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Daimi İşçi</td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yolcu/daimi/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/lojistik/daimi/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yht/daimi/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/marmaray/daimi/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/aracBakim/daimi/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/adf/daimi/personelGideri`"></td>
-        <td></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/genelYonetim/daimi/personelGideri`"></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Geçici İşçi</td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yolcu/gecici/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/lojistik/gecici/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/yht/gecici/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/marmaray/gecici/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/aracBakim/gecici/personelGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/adf/gecici/personelGideri`"></td>
-        <td></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/personelGiderleri/genelYonetim/gecici/personelGideri`"></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="disabled-light">
-        <td>Malzeme Giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="disabled-light">
-        <td> Enerji Giderleri</td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yolcu/toplamGider`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/lojistik/toplamGider`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yht/toplamGider`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/marmaray/toplamGider`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/aracBakim/toplamGider`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/adf/toplamGider`"></td>
-        <td></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/genelYonetim/toplamGider`"></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Yakıt (Motorin)</td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yolcu/motorinGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/lojistik/motorinGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yht/motorinGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/marmaray/motorinGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/aracBakim/motorinGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/adf/motorinGideri`"></td>
-        <td></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/genelYonetim/motorinGideri`"></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Elektrik Giderleri</td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yolcu/elektrikGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/lojistik/elektrikGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/yht/elektrikGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/marmaray/elektrikGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/aracBakim/elektrikGideri`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/adf/elektrikGideri`"></td>
-        <td></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/enerjiGiderleri/genelYonetim/elektrikGideri`"></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="disabled-light">
-        <td> Dışarıya Yaptırılan Bakım ve Onarım Giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Çeken Çekilen Araç Onarımları</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-2"> Bağlı Ortaklık bakım onarım giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr >
-        <td class="level-2"> Dışarıya Yaptırılan Bakım ve Onarım Giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
 
       <tr>
-        <td class="level-2"> Dahili Bakım ve Onarım giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td> -</td>
-      </tr>
-      <tr>
-        <td class="level-1">Diğer</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="disabled-light">
-        <td> Hizmet Alımları</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Gişeler için Hizmet Alımı Gid.</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Araç Hizmet Alımı Giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Temizlik Hizmet Alımı Giderleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Diğer Hizmet Alımları</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td colspan="11"> &nbsp; </td>
       </tr>
 
-      <tr class="disabled-light">
-        <td> Amortismanlar</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
+      <tr v-for="flatGider in flatGiderler" :class="classNames[flatGider.level]">
+        <td>{{flatGider.label}}</td>
+
+        <td v-for="col in flatGider.cols"
+            :is="col.scope ? 'TableRowInput' : 'TableRowDisplay'"
+            v-bind="{[col.scope ? 'scope' : 'getterName']: col.scope || col.getter}">
+        </td>
       </tr>
-      <tr>
-        <td class="level-1"> Çeken ve çekilen araçlar amortismanı</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Tesisler, makinalar ve cihazlar amortism</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Diğerleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="disabled-light">
-        <td> Dış. Sağlanan Gaz ve Su Gideri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="disabled-light">
-        <td> Diğerleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="group-title">
-        <td> TCDD Altyapı Erişim ücreti</td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/altyapiErisim/yolcu/gider`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/altyapiErisim/lojistik/gider`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/altyapiErisim/yht/gider`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/altyapiErisim/marmaray/gider`"></td>
-        <td></td>
-        <td></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/altyapiErisim/marmaray/gider`"></td>
-        <td></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/altyapiErisim/marmaray/gider`"></td>
-        <td is="TableRowDisplay" :getter-name="`${strParentScope}/altyapiErisim/marmaray/gider`"></td>
-      </tr>
-      <tr class="group-title">
-        <td> Faaliyet Dışı Giderler</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="disabled-light">
-        <td> Faiz ve Komisyon</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="disabled-light">
-        <td> Kambiyo</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td> -</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="disabled-light">
-        <td> Diğerler</td>
-        <td> -</td>
-        <td> -</td>
-        <td> -</td>
-        <td> -</td>
-        <td> -</td>
-        <td></td>
-        <td> -</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Ö.D. Ait Sözl. Pers. Emeklilik</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td> -</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Ö.D. Ait Kıdem Tazminatları</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td> -</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Ö.D. Ait Memur Emekli İkramiyeleri</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td> -</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="level-1"> Diğer</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td> -</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="section-title">
-        <td> GİDERLER TOPLAMI</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+
       <tr class="section-title">
         <td> DÖNEM KAR/ZARAR</td>
         <td></td>
@@ -936,7 +477,6 @@
       </tbody>
     </table>
 
-    <recursive-table-row :data="giderler" />
   </div>
 </template>
 
@@ -945,43 +485,16 @@
   import TableRowInput from '@/components/TableRowInput';
   import TableRowDisplay from '@/components/TableRowDisplay';
   import giderler from '@/store/genelIcmal/giderler/template';
-  /* eslint-disable */
+  import { TypeOf } from '@/store/genelIcmal/util';
+  import { rows } from '@/util/config';
 
-  /* const flatten = (expense, scope = []) => {
-    if (expense.children && expense.children.length) {
-      childrenGetters = expense.children.reduce((prev, curr) => [
-        ...prev,
-        ...flatten(curr, [ ...scope, expense.name ]),
-      ], []);
-    } else {
-      switch (TypeOf(expense.getters)) {
-        case 'string':
-          childrenGetters = rows.reduce((prev, row) => [
-            ...prev,
-            // TODO - 
-            // [`${scope}/${expense.name}/${row.key}`]:
-            //         (s, g, gs, globalGetters) => globalGetters[year + expense.getters.replace('{fieldName}', row.key)],
-          ],
-           {});
-          break;
-        case 'array':
-          childrenGetters = expense.getters.reduce((prev, getterObj) => ({
-            ...prev,
-            [`${scope}/${expense.name}/${getterObj.name}`]:
-                    (s, g, gs, globalGetters) => globalGetters[year + getterObj.getter],
-          }), {});
-          break;
-        default:
-          childrenGetters = {};
-      }
-    }
-
-    return childrenGetters;
-  }*/
 
   export default {
     data() {
-      return { giderler };
+      return {
+        classNames: ['section-title', 'group-title', 'disabled-light', 'level-1', 'level-2', 'level-3'],
+        giderler,
+      };
     },
     props: {
       scope: Array,
@@ -999,8 +512,115 @@
         return this.scope.join('/');
       },
       flatGiderler() {
-        return; // flatten(this.giderler) ;
-      }
+        const [first, ...rest] = this.flatten(this.giderler);
+        return [...rest, first];
+      },
+    },
+    methods: {
+      flatten(expense, scope = []) {
+        let parentExpense;
+        const currScope = `${this.strScope}/${scope.join('/')}${scope.length ? '/' : ''}`;
+        let childrenExpense;
+        if (expense.children && expense.children.length) {
+          parentExpense = {
+            label: expense.label,
+            level: scope.length,
+            cols: rows.reduce((prev, row) => [
+              ...prev,
+              {
+                getter: `${currScope}${expense.name}/${row.key}/toplam`,
+              },
+            ], []),
+          };
+
+          childrenExpense = [parentExpense, ...expense.children.reduce((prev, curr) => {
+            let child = this.flatten(curr, [...scope, expense.name]);
+            if (TypeOf(child) === 'object') {
+              child = [child];
+            }
+            return [
+              ...prev,
+              ...child,
+            ];
+          }, [])];
+        } else {
+          switch (TypeOf(expense.getters)) {
+            case 'string':
+              childrenExpense = {
+                label: expense.label,
+                level: scope.length,
+                cols: rows.reduce((prev, row) => [
+                  ...prev,
+                  {
+                    getter: `${currScope}${expense.name}/${row.key}`,
+                  },
+                ], []),
+              };
+              break;
+            case 'array': {
+              const expenseGetterObj = expense.getters
+                .reduce((prev, getterObj) => ({ ...prev, [getterObj.name]: getterObj.getter }), {});
+
+              childrenExpense = {
+                label: expense.label,
+                level: scope.length,
+                cols: rows.reduce((prev, row) => {
+                  if (row.key in expenseGetterObj) {
+                    return [
+                      ...prev,
+                      {
+                        getter: `${currScope}${expense.name}/${row.key}`,
+                      }];
+                  }
+                  return [
+                    ...prev,
+                    {
+                      scope: [...this.scope, ...scope, expense.name, row.key],
+                    }];
+                }, []),
+              };
+              break;
+            }
+            case 'undefined':
+              childrenExpense = {
+                label: expense.label,
+                level: scope.length,
+                cols: rows.reduce((prev, row) => [
+                  ...prev,
+                  {
+                    scope: [...this.scope, ...scope, expense.name, row.key],
+                  }], []),
+              };
+              break;
+            default:
+              childrenExpense = {};
+          }
+        }
+
+        if (childrenExpense.cols) {
+          childrenExpense.cols.splice(6, 0, {
+            getter: `${currScope}${expense.name}/satislarinMaaliyeti`,
+          });
+          childrenExpense.cols.push({
+            getter: `${currScope}${expense.name}/tcddTasimacilik`,
+          });
+          childrenExpense.cols.push({
+            getter: `${currScope}${expense.name}/genelToplam`,
+          });
+        } else {
+          parentExpense.cols.splice(6, 0, {
+            getter: `${currScope}${expense.name}/satislarinMaaliyeti`,
+          });
+          parentExpense.cols.push({
+            getter: `${currScope}${expense.name}/tcddTasimacilik`,
+          });
+          parentExpense.cols.push({
+            getter: `${currScope}${expense.name}/genelToplam`,
+          });
+        }
+
+        return childrenExpense;
+      },
     },
     components: {
       TableRowInput,
@@ -1021,15 +641,15 @@
     text-align: left;
   }
 
-  td.level-1{
+  .level-1 > td:first-child {
     padding-left: 15px;
   }
 
-  td.level-2{
+  .level-2 > td:first-child {
     padding-left: 30px;
   }
 
-  td.level-3{
+  .level-3 > tr:first-child {
     padding-left: 45px;
   }
 
