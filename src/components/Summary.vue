@@ -35,11 +35,11 @@
     computed: {
       gelirlerToplam() {
         const currentYear = this.$store.state.currentYear;
-        return this.$store.getters[`${currentYear}/genelIcmal/gelirler/toplam`];
+        return this.$store.getters[`${currentYear}/genelIcmal//gelirler/genelToplam/toplam`];
       },
       giderlerToplam() {
         const currentYear = this.$store.state.currentYear;
-        return this.$store.getters[`${currentYear}/genelIcmal/giderler/toplam`];
+        return this.$store.getters[`${currentYear}/genelIcmal//giderler/genelToplam/toplam`];
       },
       donemKarZarar() {
         return this.gelirlerToplam - this.giderlerToplam;

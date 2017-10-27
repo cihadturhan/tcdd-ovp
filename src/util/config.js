@@ -10,3 +10,7 @@ export const rows = [
   { key: 'adf', title: 'ADF' },
   { key: 'genelYonetim', title: 'Genel Yönetim' },
 ];
+
+export const smRows = rows.slice(0, 4);
+export const tRows = [...rows.slice(0, 4), rows[6]];
+export const gtRows = rows;

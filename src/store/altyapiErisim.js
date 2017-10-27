@@ -19,7 +19,7 @@ const trenHamtonKm = {
     carpan: 6,
     deger: 3903520,
   },
-  anahat: {
+  yolcu: {
     title: 'Anahat',
     carpan: 4,
     deger: 3903520,

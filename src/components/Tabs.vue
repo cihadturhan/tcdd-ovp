@@ -18,7 +18,7 @@
 
 <script>
   /* eslint-disable no-underscore-dangle */
-  import { addNewYear } from '../util';
+  import { addNewYear } from '../store/util';
 
   export default {
     name: 'tabs',

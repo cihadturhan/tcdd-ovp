@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import { addNewYear } from '@/util';
+  import { addNewYear } from '@/store/util';
   import AppMenu from '@/components/AppMenu';
   import AppHeader from '@/components/AppHeader';
   import AppFooter from '@/components/AppFooter';

@@ -24,8 +24,10 @@ export default (year) => ({  // eslint-disable-line
   getters: {
     'yurtici/birimGelir': state => state.yurtici.gelir / state.yurtici.netTonKm,
     'yurtici/toplamGelir': state => state.yurtici.gelir + state.yurtici.digerGelirler,
+    'yurtici/lojistik': state => state.yurtici.gelir + state.yurtici.digerGelirler,
     'uluslararasi/birimGelir': state => state.uluslararasi.gelir / state.uluslararasi.netTonKm,
     'uluslararasi/toplamGelir': state => state.uluslararasi.gelir + state.uluslararasi.digerGelirler,
+    'uluslararasi/lojistik': state => state.uluslararasi.gelir + state.uluslararasi.digerGelirler,
     tasimaGeliri: state => state.yurtici.gelir + state.uluslararasi.gelir,
     toplamNetTonKm: state => state.yurtici.netTonKm + state.uluslararasi.netTonKm,
     ortalamaBirimGelir: (state, getters) => getters.tasimaGeliri / getters.toplamNetTonKm,

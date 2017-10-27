@@ -5,8 +5,17 @@
       <span>TCDD TAŞIMACILIK A.Ş. GENEL MÜDÜRLÜĞÜ</span> <br/>
       <span>ORTA VADELİ PLAN ÇALIŞMASI</span>
     </h1>
-    <span class="text-lighter">Merhaba {{$store.state.user.username}} &nbsp;&middot;&nbsp; </span>
-    <a class="text-light" href="javascript:void(0)" @click.prevent="logout()">Çıkış Yap</a>
+
+    <div class="last-update">
+      <span class="text-light">Son Guncelleme: {{}}  &nbsp;&middot;&nbsp; </span>
+      <a class="text-light" href="javascript:void(0)" @click.prevent="logout()">Çıkış Yap</a>
+    </div>
+
+    <div>
+      <div> <span class="text-lighter">Merhaba {{$store.state.user.username}} &nbsp;&middot;&nbsp; </span>
+        <a class="text-light" href="javascript:void(0)" @click.prevent="logout()">Çıkış Yap</a></div>
+    </div>
+
   </header>
 </template>
 
@@ -44,6 +53,10 @@
     padding: 5px 20px;
     display: flex;
     align-items: center;
+  }
+
+  .last-update{
+    flex: 2;
   }
 
   .brand {

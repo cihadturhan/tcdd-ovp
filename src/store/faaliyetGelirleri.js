@@ -11,6 +11,13 @@ const faaliyetBilgileri = {
       yolcuKm: 2000000,
     },
   },
+  diger: {
+    yurtici: {
+      gelir: 3337000,
+      yolcuSayisi: 1000,
+      yolcuKm: 1000,
+    },
+  },
   anahat: {
     konvansiyonel: {
       yurtici: {
@@ -123,6 +130,12 @@ export default (year) => ({ // eslint-disable-line
       gelir: getters.toplamGelir,
       yolcuKm: getters.toplamYolcuKm,
     }),
+
+    'uluslararasi/yolcu': state => state.anahat.konvansiyonel.uluslararasi.gelir,
+    'banliyo/marmaray': state => state.banliyo.marmaray.gelir,
+    'banliyo/ankara': state => state.banliyo.ankara.gelir,
+    'diger/yolcu': state => state.diger.yurtici.gelir,
+    anahat: state => state.anahat.konvansiyonel.yurtici.gelir - state.diger.yurtici.gelir,
   },
 });
 

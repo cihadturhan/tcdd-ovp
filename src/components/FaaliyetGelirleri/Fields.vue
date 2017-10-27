@@ -178,6 +178,44 @@
           </tr>
           </tbody>
         </table>
+        <br/>
+
+
+        <h3 class="fieldset-label">3. Diğer</h3>
+
+        <table class="tableizer-table">
+          <thead>
+          <tr class="section-title">
+            <th></th>
+            <th>Diğer</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr>
+            <td>Gelir (TL)</td>
+            <td is="TableRowInput" :scope="[...scope, 'diger', 'yurtici', 'gelir']"></td>
+          </tr>
+
+          <tr>
+            <td>Yolcu Sayısı</td>
+            <td is="TableRowInput" :scope="[...scope, 'diger', 'yurtici', 'yolcuSayisi']"></td>
+          </tr>
+
+          <tr>
+            <td>Yolcu Km (Bin KM)</td>
+            <td is="TableRowInput" :scope="[...scope, 'diger', 'yurtici', 'yolcuKm']"></td>
+          </tr>
+
+          <tr class="disabled">
+            <td>Birim Gelir (TL/Yolcu KM)</td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/diger/yurtici/birimGelir'"></td>
+          </tr>
+          </tbody>
+        </table>
+
+        <br/>
 
         <br/>
         <h3 class="fieldset-label">3. Toplam</h3>
