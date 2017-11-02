@@ -8,14 +8,17 @@
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src"
+    "lint": "eslint --ext .js,.vue src",
+    "fixpath": "node build/fixpath.js"
   },
   "dependencies": {
     "axios": "^0.17.0",
     "debounce": "^1.0.2",
     "flexboxgrid": "^6.3.1",
     "highcharts": "^6.0.1",
+    "moment": "^2.19.1",
     "qs": "^6.5.1",
+    "typicons.font": "^2.0.9",
     "vue": "^2.4.2",
     "vue-highcharts": "0.0.10",
     "vue-odometer": "^0.1.1",

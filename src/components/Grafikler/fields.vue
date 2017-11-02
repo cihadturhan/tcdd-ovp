@@ -1,16 +1,27 @@
 <template>
   <div class="chart-content">
     <div class="row center-xs">
-      <div class="col-lg-12">
+      <div class="col-lg-6">
         <div class="panel">
           <highcharts :options="options1"></highcharts>
         </div>
         <div class="panel">
-          <highcharts :options="options2"></highcharts>
+          <highcharts :options="options4"></highcharts>
         </div>
         <div class="panel">
-          <highcharts :options="options3"></highcharts>
+          <highcharts :options="options5"></highcharts>
         </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="panel">
+          <highcharts :options="gelirDaginim"></highcharts>
+        </div>
+        <div class="panel">
+          <highcharts :options="giderDaginim"></highcharts>
+        </div>
+        <!--<div class="panel">
+          <highcharts :options="options2"></highcharts>
+        </div>-->
       </div>
     </div>
   </div>
@@ -21,23 +32,80 @@
   import Vue from 'vue';
   import VueHighcharts from 'vue-highcharts';
   import Highcharts from 'highcharts';
+  import { rows } from '@/util/config';
 
   Vue.use(VueHighcharts, { Highcharts });
 
   export default {
-    data() {
-      return {
-        options1: {
+    computed: {
+      years() {
+        const state = this.$store.state;
+        const result = [];
+        for (let year = state.minYear; year <= state.maxYear; year += 1) {
+          result.push(year);
+        }
+        return result;
+      },
+      giderler() {
+        const getters = this.$store.getters;
+        return this.years.map(year => Math.round(getters[`${year}/genelIcmal//gelirler/genelToplam/toplam`] / 1000));
+      },
+      gelirlerBreakdown() {
+        const { getters } = this.$store;
+        const breakdowns = ['faaliyetGelirleri', 'kamuHizmetYukumlulugu', 'faaliyetDisiGelirler'];
+        return breakdowns.map(breakdown => ({
+          data: this.years.map(year =>
+            Math.round(getters[`${year}/genelIcmal//gelirler/${breakdown}/genelToplam/toplam`] / 1000),
+          ),
+          name: breakdown,
+        }));
+      },
+      giderlerBreakdown() {
+        const { getters } = this.$store;
+        const breakdowns = ['faaliyetGiderleri', 'faaliyetDisiGiderler'];
+        return breakdowns.map(breakdown => ({
+          data: this.years.map(year =>
+            Math.round(getters[`${year}/genelIcmal//giderler/${breakdown}/genelToplam/toplam`] / 1000),
+          ),
+          name: breakdown,
+        }));
+      },
+      giderlerDistribution() {
+        const { getters } = this.$store;
+        return rows.map(({ key }) => ({
+          data: this.years.map(year =>
+            Math.round(getters[`${year}/genelIcmal//giderler/${key}/toplam`] / 1000),
+          ),
+          name: key,
+        }));
+      },
+      gelirlerDistribution() {
+        const { getters } = this.$store;
+        return rows.map(({ key }) => ({
+          data: this.years.map(year =>
+            Math.round(getters[`${year}/genelIcmal//gelirler/${key}/toplam`] / 1000),
+          ),
+          name: key,
+        }));
+      },
+      gelirler() {
+        const getters = this.$store.getters;
+        return this.years.map(year => Math.round(getters[`${year}/genelIcmal//giderler/genelToplam/toplam`] / 1000));
+      },
+      farklar() {
+        return this.giderler.map((d, i) => d - this.gelirler[i]);
+      },
+      options1() {
+        return {
           chart: {
             height: 300,
-            width: 540,
+            type: 'spline',
           },
           title: {
             text: 'Orta Vadeli Gelir ve Gider Karşılaştırması',
           },
           xAxis: {
-            categories: ['2017', '2018', '2019', '2020',
-            ],
+            categories: this.years,
           },
           yAxis: {
             title: {
@@ -50,7 +118,7 @@
             }],
           },
           tooltip: {
-            valueSuffix: 'bin TL',
+            valueSuffix: ' Bin TL',
           },
           legend: {
             layout: 'vertical',
@@ -63,22 +131,23 @@
           },
           series: [{
             name: 'Gider',
-            data: [2790, 2840, 2880, 2700],
+            data: this.giderler,
           }, {
             name: 'Gelir',
-            data: [1890, 1980, 2190, 2243],
+            data: this.gelirler,
           }, {
             name: 'Fark',
-            data: [820, 780, 640, 510],
+            data: this.farklar,
           }],
           credits: {
             enabled: false,
           },
-        },
-        options2: {
+        };
+      },
+      options2() {
+        return {
           chart: {
             height: 300,
-            width: 300,
             type: 'pie',
             innerRadius: 10,
           },
@@ -86,7 +155,7 @@
             text: 'Gelir Dağılımları',
           },
           tooltip: {
-            valueSuffix: 'bin TL',
+            valueSuffix: ' Bin TL',
           },
           legend: {
             layout: 'vertical',
@@ -111,45 +180,160 @@
           credits: {
             enabled: false,
           },
-        },
-
-        options3: {
+        };
+      },
+      options4() {
+        return {
           chart: {
             height: 300,
-            width: 300,
-            type: 'pie',
-            innerRadius: 10,
+            type: 'areaspline',
           },
           title: {
-            text: 'Gider Dağılımları',
+            text: 'Yıllara Göre Gelir Kırınımları',
+          },
+          xAxis: {
+            categories: this.years,
+          },
+          yAxis: {
+            title: {
+              text: 'Birim (Bin TL)',
+            },
+            plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080',
+            }],
           },
           tooltip: {
-            valueSuffix: 'bin TL',
+            valueSuffix: ' Bin TL',
           },
-          legend: {
-            layout: 'vertical',
-            align:
-              'right',
-            verticalAlign:
-              'middle',
-            borderWidth:
-              0,
+          plotOptions: {
+            areaspline: {
+              stacking: 'normal',
+              lineColor: '#666666',
+              lineWidth: 1,
+              marker: {
+                lineWidth: 1,
+                lineColor: '#666666',
+              },
+            },
           },
-          series: [{
-            size: '80%',
-            innerSize: '60%',
-            name: 'Gelir',
-            data: [
-              { name: 'Faaliyet', y: 890 },
-              { name: 'Faaliyet Dışı', y: 2980 },
-              { name: 'Diğer', y: 2190 },
-            ],
-          }],
+          series: this.gelirlerBreakdown,
           credits: {
             enabled: false,
           },
-        },
-      };
+        };
+      },
+      options5() {
+        return {
+          chart: {
+            height: 300,
+            type: 'areaspline',
+          },
+          title: {
+            text: 'Yıllara Göre Gider Kırınımları',
+          },
+          xAxis: {
+            categories: this.years,
+          },
+          yAxis: {
+            title: {
+              text: 'Birim (Bin TL)',
+            },
+            plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080',
+            }],
+          },
+          tooltip: {
+            valueSuffix: ' Bin TL',
+          },
+          plotOptions: {
+            areaspline: {
+              stacking: 'normal',
+              lineColor: '#666666',
+              lineWidth: 1,
+              marker: {
+                lineWidth: 1,
+                lineColor: '#666666',
+              },
+            },
+          },
+          series: this.giderlerBreakdown,
+          credits: {
+            enabled: false,
+          },
+        };
+      },
+      giderDaginim() {
+        return {
+          chart: {
+            height: 300,
+            type: 'column',
+          },
+          title: {
+            text: 'Yıllara Göre Gider Dağınımları',
+          },
+          xAxis: {
+            categories: this.years,
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: 'Gider (Bin TL)',
+            },
+            stackLabels: {
+              enabled: true,
+              style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray',
+              },
+            },
+          },
+          tooltip: {
+            valueSuffix: ' Bin TL',
+          },
+          credits: {
+            enabled: false,
+          },
+          series: this.giderlerDistribution,
+        };
+      },
+      gelirDaginim() {
+        return {
+          chart: {
+            height: 300,
+            type: 'column',
+          },
+          title: {
+            text: 'Yıllara Göre Gelir Dağınımları',
+          },
+          xAxis: {
+            categories: this.years,
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: 'Gelir (Bin TL)',
+            },
+            stackLabels: {
+              enabled: true,
+              style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray',
+              },
+            },
+          },
+          tooltip: {
+            valueSuffix: ' Bin TL',
+          },
+          credits: {
+            enabled: false,
+          },
+          series: this.gelirlerDistribution,
+        };
+      },
     },
   };
 
@@ -161,6 +345,7 @@
     background-color: #F7F8FC;
     flex: 1;
     padding: 15px 0;
+    overflow: auto;
   }
 
   .panel {
@@ -170,5 +355,7 @@
     box-shadow: 0 2px 10px hsla(0, 0%, 0%, 0.1);
     margin-right: 15px;
     margin-bottom: 15px;
+    border-radius: 5px;
+    width: 100%;
   }
 </style>

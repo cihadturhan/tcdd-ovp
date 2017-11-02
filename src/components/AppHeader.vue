@@ -7,13 +7,17 @@
     </h1>
 
     <div class="last-update">
-      <span class="text-light">Son Guncelleme: {{}}  &nbsp;&middot;&nbsp; </span>
-      <a class="text-light" href="javascript:void(0)" @click.prevent="logout()">Çıkış Yap</a>
+      <span class="text-light">Son Guncelleme: {{fromNow}}  &nbsp;&middot;&nbsp; </span>
+      <a class="text-lighter"
+         :class="{disabled: $store.state.saveInProgress}"
+         href="javascript:void(0)" @click.prevent="save()">Kaydet</a>
     </div>
 
     <div>
-      <div> <span class="text-lighter">Merhaba {{$store.state.user.username}} &nbsp;&middot;&nbsp; </span>
-        <a class="text-light" href="javascript:void(0)" @click.prevent="logout()">Çıkış Yap</a></div>
+      <div><span
+        class="text-light">Merhaba {{$store.state.user.username}} &nbsp;&middot;&nbsp; </span>
+        <a class="text-lighter" href="javascript:void(0)" @click.prevent="logout()">Çıkış Yap</a>
+      </div>
     </div>
 
   </header>
@@ -25,7 +29,19 @@
 
   export default {
     name: 'header',
+    data() {
+      return {
+        fromNow: '',
+        interval: null,
+      };
+    },
     methods: {
+      save() {
+        if (this.$store.state.saveInProgress) {
+          return;
+        }
+        this.$store.dispatch({ type: 'addOVP' });
+      },
       logout() {
         axios.post(`${host}/secureovp/logout`, {}, {
           withCredentials: true,
@@ -40,6 +56,16 @@
     },
     created() {
       this.$store.dispatch('getLastOVP');
+      this.interval = setInterval(() => {
+        try {
+          this.fromNow = this.$store.state.lastOVP.createdAt.locale('tr').fromNow();
+        } catch (e) {
+          this.fromNow = '-';
+        }
+      }, 1000);
+    },
+    beforeDestroy() {
+      clearInterval(this.interval);
     },
   };
 </script>
@@ -55,8 +81,12 @@
     align-items: center;
   }
 
-  .last-update{
+  .last-update {
     flex: 2;
+  }
+
+  a.disabled {
+    opacity: 0.3;
   }
 
   .brand {

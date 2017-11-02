@@ -2,19 +2,23 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import qs from 'qs';
 import axios from 'axios';
+import moment from 'moment';
 
 import { rows, host } from '@/util/config';
 import { beforeLastScope, lastItem } from '@/util';
+import { loadYears, removeYear } from './util';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   modules: {},
   state: {
-    currentYear: 2017,
+    saveInProgress: false,
+    currentYear: null,
     minYear: 2017,
     maxYear: 2017,
     loggedIn: false,
+    lastOVP: {},
     user: {},
     rows,
   },
@@ -31,21 +35,52 @@ const store = new Vuex.Store({
       state.user = user;
       state.loggedIn = !!user.username;
     },
-    addYear(state) {
-      state.maxYear += 1;
+    addYear(state, { year }) {
+      if (year > state.maxYear) {
+        state.maxYear = year;
+      } else {
+        state.minYear = year;
+      }
     },
     setYear(state, { year }) {
       state.currentYear = year;
     },
+    removeYear(state, { year }) {
+      removeYear(store, year);
+    },
+    setJsonContent(state, { jsonContent }) {
+      state.maxYear = jsonContent.maxYear;
+      state.minYear = jsonContent.minYear;
+      state.currentYear = jsonContent.currentYear;
+      loadYears(store, jsonContent);
+    },
+    setLastOVP(state, { createdAt }) {
+      state.lastOVP = { createdAt };
+    },
   },
   actions: {
-    getLastOVP() {
-      axios.get(`${host}/application/getLastOVP`, { withCredentials: true }).then(() => 1);
+    getLastOVP(context) {
+      axios.get(`${host}/application/getLastOVP`, { withCredentials: true }).then((response) => {
+        context.commit('setLastOVP', {
+          createdAt: moment(response.data.olusturulmaTarihi, 'MMM DD, YYYY HH:mm:ss A'),
+        });
+        context.commit('setJsonContent', {
+          jsonContent: JSON.parse(response.data.JSON),
+        });
+      });
     },
-    addOVP(data) {
+    addOVP(context) {
+      context.state.saveInProgress = true;
       axios.post(`${host}/application/addOVP`, qs.stringify({
-        'ovp.JSON': JSON.stringify(data),
-      }), { withCredentials: true });
+        'ovp.JSON': JSON.stringify(context.state),
+      }), { withCredentials: true }).then(() => {
+        context.commit('setLastOVP', {
+          createdAt: moment(),
+        });
+        context.state.saveInProgress = false;
+      }).catch(() => {
+        context.state.saveInProgress = false;
+      });
     },
   },
 });

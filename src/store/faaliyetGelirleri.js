@@ -1,56 +1,56 @@
 const faaliyetBilgileri = {
   banliyo: {
     marmaray: {
-      gelir: 86000000,
-      yolcuSayisi: 68000000,
-      yolcuKm: 952000000,
+      gelir: 0,
+      yolcuSayisi: 0,
+      yolcuKm: 0,
     },
     ankara: {
-      gelir: 120000,
-      yolcuSayisi: 60000,
-      yolcuKm: 2000000,
+      gelir: 0,
+      yolcuSayisi: 0,
+      yolcuKm: 0,
     },
   },
   diger: {
     yurtici: {
-      gelir: 3337000,
-      yolcuSayisi: 1000,
-      yolcuKm: 1000,
+      gelir: 0,
+      yolcuSayisi: 0,
+      yolcuKm: 0,
     },
   },
   anahat: {
     konvansiyonel: {
       yurtici: {
-        gelir: 81593000,
-        yolcuSayisi: 15675000,
-        yolcuKm: 1555000000,
+        gelir: 0,
+        yolcuSayisi: 0,
+        yolcuKm: 0,
       },
       uluslararasi: {
-        gelir: 1152000,
-        yolcuSayisi: 120000,
-        yolcuKm: 40000000,
+        gelir: 0,
+        yolcuSayisi: 0,
+        yolcuKm: 0,
       },
     },
     yht: {
       ankaraEskisehir: {
-        gelir: 24860000,
-        yolcuSayisi: 1365144,
-        yolcuKm: 315304000,
+        gelir: 0,
+        yolcuSayisi: 0,
+        yolcuKm: 0,
       },
       konyaAnkara: {
-        gelir: 39076000,
-        yolcuSayisi: 2040068,
-        yolcuKm: 597839000,
+        gelir: 0,
+        yolcuSayisi: 0,
+        yolcuKm: 0,
       },
       ankaraIstanbul: {
-        gelir: 93282000,
-        yolcuSayisi: 2780917,
-        yolcuKm: 922901000,
+        gelir: 0,
+        yolcuSayisi: 0,
+        yolcuKm: 0,
       },
       konyaIstanbul: {
-        gelir: 35182000,
-        yolcuSayisi: 862871,
-        yolcuKm: 365916000,
+        gelir: 0,
+        yolcuSayisi: 0,
+        yolcuKm: 0,
       },
     },
   },

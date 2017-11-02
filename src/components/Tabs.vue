@@ -1,14 +1,21 @@
 <template>
   <div class="tab-container">
     <ul class="tab-list-container">
+      <li class="add-tab" @click.stop="addPrevYear"><i class="typcn typcn-plus add-icon"></i> <small>{{minYear - 1}} </small></li>
       <li @click="onTabClick(index)" v-for="(tab, index) in tabs"
           :class="{active: index == activeIndex}">
-        <a href="javascript:void(0)">{{tab.title}}</a>
+        <a href="javascript:void(0)">
+          {{tab.title}}
+          <i @click.stop="onTabCloseClick(tab.title)"
+             v-if="(tab.title === minYear || tab.title === maxYear) && tabs.length > 1"
+             class="typcn typcn-times close-tab"></i>
+        </a>
       </li>
-      <li class="add-tab" @click="onNewTabCreated"><i class="icon-plus add-icon"></i></li>
+      <li class="add-tab" @click.stop="addNextYear"><i class="typcn typcn-plus add-icon"></i> <small>{{maxYear + 1}} </small></li>
     </ul>
     <div class="tab-content">
-      <section v-for="(tab, index) in tabs" v-show="index == activeIndex">
+      <section v-if="$store.state[tab.title]" v-for="(tab, index) in tabs"
+               v-show="index == activeIndex">
         <component :is="content" :scope="[tab.title, ...scope]"></component>
       </section>
     </div>
@@ -26,30 +33,37 @@
       scope: Array,
       content: Object,
     },
-    data() {
-      return { activeIndex: 0 };
-    },
     computed: {
+      maxYear() {
+        return this.$store.state.maxYear;
+      },
+      minYear() {
+        return this.$store.state.minYear;
+      },
       tabs() {
         const titles = [];
-        const minYear = this.$store.state.minYear;
-        const maxYear = this.$store.state.maxYear;
 
-        for (let year = minYear; year <= maxYear; year += 1) {
+        for (let year = this.minYear; year <= this.maxYear; year += 1) {
           titles.push({ title: year });
         }
         return titles;
       },
+      activeIndex() {
+        return this.$store.state.currentYear - this.$store.state.minYear;
+      },
     },
     methods: {
-      onNewTabCreated() {
-        const maxYear = this.$store.state.maxYear;
-        addNewYear(this.$store, maxYear + 1);
-        this.$store.commit('addYear');
+      addPrevYear() {
+        addNewYear(this.$store, this.minYear - 1);
+      },
+      addNextYear() {
+        addNewYear(this.$store, this.maxYear + 1);
       },
       onTabClick(index) {
-        this.activeIndex = index;
         this.$store.commit({ type: 'setYear', year: Number(this.tabs[index].title) });
+      },
+      onTabCloseClick(year) {
+        this.$store.commit({ type: 'removeYear', year: Number(year) });
       },
     },
   };
@@ -68,6 +82,13 @@
     width: 100%;
   }
 
+  .close-tab{
+    opacity: 0.5;
+    &:hover{
+      opacity: 1;
+    }
+  }
+
   ul {
     flex: 0 0 32px;
     display: flex;
@@ -83,6 +104,9 @@
     position: relative;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    &.add-tab{
+      color: #2c3e50;
+    }
     &.active {
       background-color: #F7F8FC;
       &::before, &::after {

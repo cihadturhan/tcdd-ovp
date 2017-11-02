@@ -1,14 +1,16 @@
 export default {
   name: '',
   label: 'GENEL ICMAL',
+  virtualNode: true,
   children: [
     {
       name: 'gelirler',
       label: 'GELİRLER TOPLAMI',
+      order: 'last',
       children: [
         {
-          name: 'faaliyetGiderleri',
-          label: 'Faaliyet Giderleri',
+          name: 'faaliyetGelirleri',
+          label: 'Faaliyet Gelirleri',
           children: [
             {
               name: 'yolcuGelirleri',
@@ -76,15 +78,15 @@ export default {
                 },
               ],
             },
-          ],
-        },
-        {
-          name: 'kamuHizmetYukumlulugu',
-          label: 'Kamu Hizmet Yükümlülüğü',
-          children: [
-            { name: 'bolgesel', label: 'Bölgesel' },
-            { name: 'anahat', label: 'Anahat' },
-            { name: 'yht', label: 'YHT' },
+            {
+              name: 'kamuHizmetYukumlulugu',
+              label: 'Kamu Hizmet Yükümlülüğü',
+              children: [
+                { name: 'bolgesel', label: 'Bölgesel' },
+                { name: 'anahat', label: 'Anahat' },
+                { name: 'yht', label: 'YHT' },
+              ],
+            },
           ],
         },
         {
@@ -100,6 +102,7 @@ export default {
     {
       name: 'giderler',
       label: 'GİDERLER TOPLAMI',
+      order: 'last',
       children: [
         {
           name: 'faaliyetGiderleri',
@@ -221,4 +224,42 @@ export default {
         },
       ],
     }],
+  reducers: [
+    {
+      name: 'donemKarZarar',
+      label: 'DÖNEM KAR/ZARAR',
+      reduceFunc: (state, getters, field) => getters[`/gelirler/${field.key}/toplam`]
+        - getters[`/giderler/${field.key}/toplam`],
+    },
+    {
+      name: 'faaliyetKarZarar',
+      label: ' Faaliyet Kar/Zararı',
+      reduceFunc: (state, getters, field) => getters[`/gelirler/faaliyetGelirleri/${field.key}/toplam`]
+        - getters[`/giderler/faaliyetGiderleri/${field.key}/toplam`],
+    },
+    {
+      name: 'faaliyetDisiKarZarar',
+      label: 'Faaliyet Dışı Kar/Zarar',
+      reduceFunc: (state, getters, field) => getters[`/gelirler/faaliyetDisiGelirler/${field.key}/toplam`]
+        - getters[`/giderler/faaliyetDisiGiderler/${field.key}/toplam`],
+    },
+    {
+      name: 'faaliyetKarsilamaOrani',
+      label: 'Faaliyet Gelirinin Gideri Karşılama Oranı (%)',
+      type: 'ratio',
+      reduceFunc: (state, getters, field) => (getters[`/gelirler/faaliyetGelirleri/${field.key}/toplam`] / getters[`/giderler/faaliyetGiderleri/${field.key}/toplam`]) * 100,
+    },
+    {
+      name: 'toplamKarsilamaOrani',
+      label: 'Toplam Gelirin Toplam Gideri Karşılama Oranı (%)',
+      type: 'ratio',
+      reduceFunc: (state, getters, field) => (getters[`/gelirler/${field.key}/toplam`] / getters[`/giderler/${field.key}/toplam`]) * 100,
+    },
+    {
+      name: 'ebitda',
+      label: 'EBİTDA',
+      reduceFunc: (state, getters, field) => getters[`/faaliyetKarZarar/${field.key}`]
+        - getters[`/giderler/faaliyetGiderleri/amortismanlar/${field.key}/toplam`],
+    },
+  ],
 };

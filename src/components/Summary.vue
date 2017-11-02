@@ -35,11 +35,13 @@
     computed: {
       gelirlerToplam() {
         const currentYear = this.$store.state.currentYear;
-        return this.$store.getters[`${currentYear}/genelIcmal//gelirler/genelToplam/toplam`];
+        const value = Math.round(this.$store.getters[`${currentYear}/genelIcmal//gelirler/genelToplam/toplam`]);
+        return isNaN(value) ? 0 : value;
       },
       giderlerToplam() {
         const currentYear = this.$store.state.currentYear;
-        return this.$store.getters[`${currentYear}/genelIcmal//giderler/genelToplam/toplam`];
+        const value = Math.round(this.$store.getters[`${currentYear}/genelIcmal//giderler/genelToplam/toplam`]);
+        return isNaN(value) ? 0 : value;
       },
       donemKarZarar() {
         return this.gelirlerToplam - this.giderlerToplam;

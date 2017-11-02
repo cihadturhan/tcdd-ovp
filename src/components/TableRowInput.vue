@@ -2,6 +2,7 @@
   <td>
     <AutoInput :scope="scope"
                :disabled="disabled"
+               :divider="divider"
                :getterName="getterName" />
   </td>
 </template>
@@ -14,6 +15,7 @@
       scope: { type: Array },
       getterName: { type: String },
       disabled: { type: Boolean },
+      divider: { type: Number },
     },
     components: {
       AutoInput,

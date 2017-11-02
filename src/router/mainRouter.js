@@ -29,6 +29,11 @@ export default new Router({
       component: Login,
     },
     {
+      path: '/anasayfa',
+      name: 'Anasayfa',
+      component: Grafikler,
+    },
+    {
       path: '/varsayimlar',
       name: 'Varsayimlar',
       component: Varsayimlar,
@@ -76,11 +81,7 @@ export default new Router({
       path: '/genel-icmal',
       name: 'Genel İcmal',
       component: GenelIcmal,
-    }, {
-      path: '/grafikler',
-      name: 'Grafikler',
-      component: Grafikler,
     },
-    { path: '*', redirect: '/varsayimlar' },
+    { path: '*', redirect: '/anasayfa' },
   ],
 });

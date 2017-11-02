@@ -23,10 +23,55 @@ export const addNewYear = (store, year) => {
   store.registerModule([String(year)], { namespaced: true });
   Object.entries(moduleGenerators).forEach(([moduleName, moduleGenerator]) => {
     const generatedModule = moduleGenerator(year);
-    if (year > store.state.minYear) {
-      const previousYearState = deepClone(store.state[year - 1][moduleName]);
-      generatedModule.state = () => previousYearState;
-    }
     store.registerModule([String(year), moduleName], generatedModule);
   });
+
+  store.commit('addYear', { year });
+};
+
+export const removeYear = (store, year) => {
+  if (year === store.state.minYear) {
+    store.state.minYear = year + 1;
+    if (year === store.state.currentYear) {
+      store.state.currentYear = year + 1;
+    }
+  }
+
+  if (year === store.state.maxYear) {
+    store.state.maxYear = year - 1;
+    if (year === store.state.currentYear) {
+      store.state.currentYear = year - 1;
+    }
+  }
+
+  if (year in store.state) {
+    store.unregisterModule([String(year)]);
+  }
+};
+
+export const loadYears = (store, jsonContent) => {
+  for (let year = jsonContent.minYear; year <= jsonContent.maxYear; year += 1) {
+    if (year in store.state) {
+      store.unregisterModule([String(year)]);
+    }
+
+    store.registerModule([String(year)], { namespaced: true });
+    Object.entries(moduleGenerators).forEach(([moduleName, moduleGenerator]) => {
+      const generatedModule = moduleGenerator(year);
+      const loadedState = jsonContent[year][moduleName];
+
+      /*
+      if (moduleName === 'genelIcmal') {
+        const data = loadedState[''].gelirler.kamuHizmetYukumlulugu;
+        delete loadedState[''].gelirler.kamuHizmetYukumlulugu;
+        loadedState[''].gelirler.faaliyetGelirleri = loadedState[''].gelirler.faaliyetGiderleri;
+        delete loadedState[''].gelirler.faaliyetGiderleri;
+        loadedState[''].gelirler.faaliyetGelirleri.kamuHizmetYukumlulugu = data;
+      }
+      */
+
+      generatedModule.state = () => loadedState;
+      store.registerModule([String(year), moduleName], generatedModule);
+    });
+  }
 };

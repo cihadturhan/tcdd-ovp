@@ -1,33 +1,33 @@
 const trenHamtonKm = {
   marmaray: {
     title: 'Marmaray',
-    carpan: 4,
-    deger: 1099000,
+    carpan: 0,
+    deger: 0,
   },
   ankara: {
     title: 'Ankara',
-    carpan: 4,
-    deger: 54250,
+    carpan: 0,
+    deger: 0,
   },
   baskentRay: {
     title: 'Başkent Ray',
-    carpan: 4,
+    carpan: 0,
     deger: 0,
   },
   yht: {
     title: 'YHT',
-    carpan: 6,
-    deger: 3903520,
+    carpan: 0,
+    deger: 0,
   },
   yolcu: {
     title: 'Anahat',
-    carpan: 4,
-    deger: 3903520,
+    carpan: 0,
+    deger: 0,
   },
   lojistik: {
     title: 'Lojistik',
-    carpan: 5,
-    deger: 3903520,
+    carpan: 0,
+    deger: 0,
   },
 };
 

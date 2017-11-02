@@ -6,6 +6,12 @@
     props: {
       getterName: String,
       scope: [Array, String],
+      divider: Number,
+    },
+    data() {
+      return {
+        focused: false,
+      };
     },
     computed: {
       value() {
@@ -27,6 +33,12 @@
           currentScope = this.scope;
         }
         return this.roundOff(currentScope.reduce((p, c) => p[c], this.$store.state), 4);
+      },
+      dividedValue() {
+        if (this.divider) {
+          return Math.round(this.value / this.divider);
+        }
+        return this.value;
       },
     },
     methods: {

@@ -1,6 +1,6 @@
 <template>
   <td>
-    {{value}}
+    {{dividedValue}}
   </td>
 </template>
 
@@ -11,3 +11,9 @@
     extends: InputWrapper,
   };
 </script>
+
+<style scoped>
+  td{
+    padding-right: 18px;
+  }
+</style>

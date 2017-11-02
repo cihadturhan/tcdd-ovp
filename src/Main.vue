@@ -12,7 +12,6 @@
 </template>
 
 <script>
-  import { addNewYear } from '@/store/util';
   import AppMenu from '@/components/AppMenu';
   import AppHeader from '@/components/AppHeader';
   import AppFooter from '@/components/AppFooter';
@@ -41,7 +40,7 @@
         if (to.name !== 'Login' && !this.loggedIn) {
           return next({ name: 'Login' });
         } else if (to.name === 'Login' && this.loggedIn) {
-          return next({ name: 'Varsayimlar' });
+          return next({ name: 'Anasayfa' });
         }
         return next();
       });
@@ -49,16 +48,13 @@
       if (this.$route.name !== 'Login' && !this.loggedIn) {
         this.$router.push({ name: 'Login' });
       } else if (this.$route.name === 'Login' && this.loggedIn) {
-        this.$router.push({ name: 'Varsayimlar' });
+        this.$router.push({ name: 'Anasayfa' });
       }
-
-      addNewYear(this.$store, this.$store.state.minYear);
     },
   };
 </script>
 
 <style lang="postcss">
-  @import "styles/icons.css";
   @import "styles/index.css";
   @import "../node_modules/flexboxgrid/src/css/flexboxgrid.css";
 

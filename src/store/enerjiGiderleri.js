@@ -1,31 +1,31 @@
 const enerjiGiderleri = {
   yolcu: {
-    elektrik: 100,
-    motorin: 100,
+    elektrik: 0,
+    motorin: 0,
   },
   yht: {
-    elektrik: 100,
-    motorin: 100,
+    elektrik: 0,
+    motorin: 0,
   },
   marmaray: {
-    elektrik: 100,
-    motorin: 100,
+    elektrik: 0,
+    motorin: 0,
   },
   lojistik: {
-    elektrik: 100,
-    motorin: 100,
+    elektrik: 0,
+    motorin: 0,
   },
   aracBakim: {
-    elektrik: 100,
-    motorin: 100,
+    elektrik: 0,
+    motorin: 0,
   },
   adf: {
-    elektrik: 100,
-    motorin: 100,
+    elektrik: 0,
+    motorin: 0,
   },
   genelYonetim: {
-    elektrik: 100,
-    motorin: 100,
+    elektrik: 0,
+    motorin: 0,
   },
 };
 

@@ -1,19 +1,23 @@
 <template>
   <div class="autocenter">
     <div class="form-container">
-      <form action="" @submit.prevent="attempLogin()">
+      <div  v-if="firstLoading">
+        Yükleniyor...
+      </div>
+
+      <form action="" @submit.prevent="attempLogin()"  v-else>
         <div class="logo-container">
           <img src="../assets/logo.svg">
         </div>
-        <h2 class="lead brand">
+        <h3 class="lead brand">
           <span>TCDD TAŞIMACILIK A.Ş. GENEL MÜDÜRLÜĞÜ</span> <br/>
           <span>ORTA VADELİ PLAN ÇALIŞMASI</span>
-        </h2>
+        </h3>
 
         <div v-if="error"> Hatalı Giriş! Giriş bilgilerinizi kontrol edip tekrar deneyiniz. </div>
-        <div><input name="username" v-model="params.username"></div>
-        <div><input type="password" name="password" v-model="params.password"></div>
-        <div><input type="submit" value="GİRİŞ YAP" :disabled="!isValid"></div>
+        <div><input name="username" v-model="params.username"/></div>
+        <div><input type="password" name="password" v-model="params.password"/></div>
+        <div><input type="submit" value="GİRİŞ YAP" :disabled="!isValid"/></div>
       </form>
     </div>
   </div>
@@ -30,6 +34,7 @@
     data() {
       return {
         loading: true,
+        firstLoading: true,
         error: false,
         params: {
           username: '',
@@ -56,7 +61,7 @@
           this.loading = false;
           if (response.data === 'success') {
             this.$store.commit({ type: 'updateUser', user: { username: this.params.username }, });
-            this.$router.push({ name: 'Varsayimlar' });
+            this.$router.push({ name: 'Anasayfa' });
           } else {
             this.error = true;
           }
@@ -66,7 +71,21 @@
       },
     },
     created() {
-
+      axios.post(`${host}/secureovp/checkLoginForOvp`, qs.stringify(this.params), {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        fetchType: 'CORS',
+        withCredentials: true,
+      }).then(response => {
+        this.firstLoading = false;
+        if (response.data !== 'fail') {
+          this.$store.commit({ type: 'updateUser', user: { username: response.data }, });
+          this.$router.push({ name: 'Anasayfa' });
+        }
+      }).catch(() => {
+        this.firstLoading = false;
+      })
     },
   };
 
@@ -84,7 +103,7 @@
     justify-content: center;
   }
 
-  h2 {
+  h3 {
     line-height: 1.4em;
     margin-bottom: 20px;
   }

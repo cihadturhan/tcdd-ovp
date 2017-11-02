@@ -115,6 +115,24 @@ export default (year) => {
       }
     }
 
+    if (expense.reducers && expense.reducers.length) {
+      const reducers = expense.reducers.reduce((prev, reducer) => {
+        const rowReducers = rows.reduce((rowPrev, row) => ({
+          ...rowPrev,
+          [`${strScope}${expense.name}/${reducer.name}/${row.key}`]:
+            (store, getters) => {
+              if (reducer.except && reducer.except.indexOf(row.key) > -1) {
+                return 0;
+              }
+              return reducer.reduceFunc(store, getters, row);
+            },
+        }), {});
+        return { ...prev, ...rowReducers };
+      }, {});
+
+      childrenGetters = { ...childrenGetters, ...reducers };
+    }
+
     return childrenGetters;
   };
 

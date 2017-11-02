@@ -1,7 +1,9 @@
 <template>
   <input type="number"
-         :value="value"
+         :value="focused ? value : dividedValue"
          :class="className"
+         @focus="focused = true"
+         @blur="focused = false"
          @input="onChange"
          :disabled="disabled || getterName"/>
 

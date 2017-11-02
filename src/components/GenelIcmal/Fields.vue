@@ -32,90 +32,13 @@
 
         <td v-for="col in flatGider.cols"
             :is="col.scope ? 'TableRowInput' : 'TableRowDisplay'"
-            v-bind="{[col.scope ? 'scope' : 'getterName']: col.scope || col.getter}">
+            v-bind="{[col.scope ? 'scope' : 'getterName']: col.scope || col.getter, divider: flatGider.type === 'ratio' ? null : 1000}">
         </td>
-      </tr>
-
-      <tr class="section-title">
-        <td> DÖNEM KAR/ZARAR</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Faaliyet Kar/Zararı</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Faaliyet Dışı Kar/Zarar</td>
-        <td> 8,000,000</td>
-        <td> 32,000,000</td>
-        <td> -</td>
-        <td> -</td>
-        <td> -</td>
-        <td> -</td>
-        <td> 40,000,000</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Faaliyet Gelirinin Gideri Karşılama Oranı (%)</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> Toplam Gelirin Toplam Gideri Karşılama Oranı (%)</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td> EBİTDA</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
       </tr>
       </tbody>
     </table>
+
+    <div class="row start-xs note">* Tüm değerler Bin TL üzerinden görüntülenir. Değiştirme sırasında normal değer görünür.</div>
 
   </div>
 </template>
@@ -152,8 +75,7 @@
         return this.scope.join('/');
       },
       flatGiderler() {
-        const [first, ...rest] = this.flatten(this.giderler);
-        return [...rest, first];
+        return this.flatten(this.giderler);
       },
     },
     methods: {
@@ -173,7 +95,7 @@
             ], []),
           };
 
-          childrenExpense = [parentExpense, ...expense.children.reduce((prev, curr) => {
+          childrenExpense = [...expense.children.reduce((prev, curr) => {
             let child = this.flatten(curr, [...scope, expense.name]);
             if (TypeOf(child) === 'object') {
               child = [child];
@@ -183,6 +105,14 @@
               ...child,
             ];
           }, [])];
+
+          if (!expense.virtualNode) {
+            if (expense.order === 'last') {
+              childrenExpense = [...childrenExpense, parentExpense];
+            } else {
+              childrenExpense = [parentExpense, ...childrenExpense];
+            }
+          }
         } else {
           switch (TypeOf(expense.getters)) {
             case 'string':
@@ -235,6 +165,36 @@
             default:
               childrenExpense = {};
           }
+        }
+
+        if (expense.reducers) {
+          const reducers = expense.reducers.map((reducer) => {
+            const result = {
+              label: reducer.label,
+              level: scope.length,
+              type: reducer.type,
+              cols: rows.reduce((prev, row) => [
+                ...prev,
+                {
+                  getter: `${currScope}${expense.name}/${reducer.name}/${row.key}`,
+                },
+              ], []),
+            };
+
+            result.cols.splice(6, 0, {
+              getter: `${currScope}${expense.name}/satislarinMaaliyeti/toplam`,
+            });
+            result.cols.push({
+              getter: `${currScope}${expense.name}/tcddTasimacilik/toplam`,
+            });
+            result.cols.push({
+              getter: `${currScope}${expense.name}/genelToplam/toplam`,
+            });
+
+            return result;
+          });
+
+          childrenExpense = [...childrenExpense, ...reducers];
         }
 
         if (childrenExpense.cols) {

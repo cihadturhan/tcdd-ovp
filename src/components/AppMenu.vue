@@ -1,14 +1,17 @@
 <template>
   <ul id="menu">
+    <li>
+      <router-link to="/anasayfa">ANA SAYFA</router-link>
+    </li>
     <li class="active">
       <router-link to="/varsayimlar" class="menu-title">
-        <i class="icon-waves"></i>
+        <i class="typcn typcn-waves"></i>
         <span>VARSAYIMLAR</span>
       </router-link>
     </li>
     <li class="sub-menu" ref="li1" @click="show('li1')" :class="shown.li1">
       <a class="menu-title" href="javascript:void(0)">
-        <i class="icon-arrow-forward-outline"></i>
+        <i class="typcn typcn-arrow-forward-outline"></i>
         <span>GELİRLER</span>
         <caret></caret>
       </a>
@@ -24,7 +27,7 @@
 
     <li class="sub-menu" ref="li2" @click="show('li2')" :class="shown.li2">
       <a class="menu-title" href="javascript:void(0)">
-        <i class="icon-arrow-back-outline"></i>
+        <i class="typcn typcn-arrow-back-outline"></i>
         <span>GİDERLER</span>
         <caret></caret>
       </a>
@@ -44,7 +47,7 @@
     <li class="sub-menu" ref="li3" @click="show('li3')" :class="shown.li3">
       <a class="menu-title" href="javascript:void(0)">
 
-        <i class="icon-arrow-repeat"></i>
+        <i class="typcn typcn-arrow-repeat"></i>
         <span>DÖNEM KAR/ZARAR</span>
         <caret></caret>
 
@@ -52,9 +55,6 @@
       <ul>
         <li>
           <router-link to="genel-icmal">GENEL İCMAL</router-link>
-        </li>
-        <li>
-          <router-link to="grafikler">GRAFİKLER</router-link>
         </li>
       </ul>
     </li>

@@ -1,12 +1,12 @@
 export default {
   yolcu: {
-    hurdaSatisi: 3000000,
-    digerSatislar: 5000000,
+    hurdaSatisi: 0,
+    digerSatislar: 0,
     digerGelirler: 0,
   },
   lojistik: {
-    hurdaSatisi: 27000000,
-    digerSatislar: 5000000,
+    hurdaSatisi: 0,
+    digerSatislar: 0,
     digerGelirler: 0,
   },
   yht: {
