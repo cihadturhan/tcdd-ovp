@@ -18,10 +18,16 @@
 
           <tbody>
           <tr>
-            <td>Gelir (TL)</td>
-            <td is="TableRowInput" :scope="[...scope, 'banliyo', 'marmaray', 'gelir']"></td>
-            <td is="TableRowInput" :scope="[...scope, 'banliyo', 'ankara', 'gelir']"></td>
-            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/banliyo/toplamGelir'"></td>
+            <td>Gelir (Bin TL)</td>
+            <td is="TableRowInput"
+                :divider="1000"
+                :scope="[...scope, 'banliyo', 'marmaray', 'gelir']"></td>
+            <td is="TableRowInput"
+                :divider="1000" 
+                :scope="[...scope, 'banliyo', 'ankara', 'gelir']"></td>
+            <td is="TableRowDisplay"
+                :divider="1000"
+                :getter-name="scope.join('/') + '/banliyo/toplamGelir'"></td>
           </tr>
 
           <tr>
@@ -33,9 +39,15 @@
 
           <tr>
             <td>Yolcu Km (Bin KM)</td>
-            <td is="TableRowInput" :scope="[...scope, 'banliyo', 'marmaray', 'yolcuKm']"></td>
-            <td is="TableRowInput" :scope="[...scope, 'banliyo', 'ankara', 'yolcuKm']"></td>
-            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/banliyo/toplamYolcuKm'"></td>
+            <td is="TableRowInput"
+                :divider="1000"
+                :scope="[...scope, 'banliyo', 'marmaray', 'yolcuKm']"></td>
+            <td is="TableRowInput"
+                :divider="1000"
+                :scope="[...scope, 'banliyo', 'ankara', 'yolcuKm']"></td>
+            <td is="TableRowDisplay"
+                :divider="1000"
+                :getter-name="scope.join('/') + '/banliyo/toplamYolcuKm'"></td>
           </tr>
 
           <tr class="disabled">
@@ -44,7 +56,8 @@
                 :getter-name="scope.join('/') + '/banliyo/marmaray/birimGelir'"></td>
             <td is="TableRowDisplay"
                 :getter-name="scope.join('/') + '/banliyo/ankara/birimGelir'"></td>
-            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/banliyo/birimGelir'"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/banliyo/birimGelir'"></td>
           </tr>
           </tbody>
         </table>
@@ -65,12 +78,15 @@
 
           <tbody>
           <tr>
-            <td>Gelir (TL)</td>
+            <td>Gelir (Bin TL)</td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'konvansiyonel', 'yurtici', 'gelir']"></td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'konvansiyonel', 'uluslararasi', 'gelir']"></td>
             <td is="TableRowDisplay"
+                :divider="1000"
                 :getter-name="scope.join('/') + '/anahat/konvansiyonel/toplamGelir'"></td>
           </tr>
 
@@ -87,10 +103,13 @@
           <tr>
             <td>Yolcu Km (Bin KM)</td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'konvansiyonel', 'yurtici', 'yolcuKm']"></td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'konvansiyonel', 'uluslararasi', 'yolcuKm']"></td>
             <td is="TableRowDisplay"
+                :divider="1000"
                 :getter-name="scope.join('/') + '/anahat/konvansiyonel/toplamYolcuKm'"></td>
           </tr>
 
@@ -122,16 +141,21 @@
 
           <tbody>
           <tr>
-            <td>Gelir (TL)</td>
+            <td>Gelir (Bin TL)</td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'yht', 'ankaraEskisehir', 'gelir']"></td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'yht', 'konyaAnkara', 'gelir']"></td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'yht', 'ankaraIstanbul', 'gelir']"></td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'yht', 'konyaIstanbul', 'gelir']"></td>
             <td is="TableRowDisplay"
+                :divider="1000"
                 :getter-name="scope.join('/') + '/anahat/yht/toplamGelir'"></td>
           </tr>
 
@@ -152,14 +176,19 @@
           <tr>
             <td>Yolcu Km (Bin KM)</td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'yht', 'ankaraEskisehir', 'yolcuKm']"></td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'yht', 'konyaAnkara', 'yolcuKm']"></td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'yht', 'ankaraIstanbul', 'yolcuKm']"></td>
             <td is="TableRowInput"
+                :divider="1000"
                 :scope="[...scope, 'anahat', 'yht', 'konyaIstanbul', 'yolcuKm']"></td>
             <td is="TableRowDisplay"
+                :divider="1000"
                 :getter-name="scope.join('/') + '/anahat/yht/toplamYolcuKm'"></td>
           </tr>
 
@@ -193,8 +222,10 @@
 
           <tbody>
           <tr>
-            <td>Gelir (TL)</td>
-            <td is="TableRowInput" :scope="[...scope, 'diger', 'yurtici', 'gelir']"></td>
+            <td>Gelir (Bin TL)</td>
+            <td is="TableRowInput"
+                :divider="1000"
+                :scope="[...scope, 'diger', 'yurtici', 'gelir']"></td>
           </tr>
 
           <tr>
@@ -204,7 +235,9 @@
 
           <tr>
             <td>Yolcu Km (Bin KM)</td>
-            <td is="TableRowInput" :scope="[...scope, 'diger', 'yurtici', 'yolcuKm']"></td>
+            <td is="TableRowInput"
+                :divider="1000"
+                :scope="[...scope, 'diger', 'yurtici', 'yolcuKm']"></td>
           </tr>
 
           <tr class="disabled">
@@ -231,9 +264,13 @@
 
           <tbody>
           <tr>
-            <td>Gelir (TL)</td>
-            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/anahat/toplamGelir'"></td>
-            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/toplamGelir'"></td>
+            <td>Gelir (Bin TL)</td>
+            <td is="TableRowDisplay"
+                :divider="1000"
+                :getter-name="scope.join('/') + '/anahat/toplamGelir'"></td>
+            <td is="TableRowDisplay"
+                :divider="1000"
+                :getter-name="scope.join('/') + '/toplamGelir'"></td>
           </tr>
 
           <tr>
@@ -244,14 +281,20 @@
 
           <tr>
             <td>Yolcu Km (Bin KM)</td>
-            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/anahat/toplamYolcuKm'"></td>
-            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/toplamYolcuKm'"></td>
+            <td is="TableRowDisplay"
+                :divider="1000"
+                :getter-name="scope.join('/') + '/anahat/toplamYolcuKm'"></td>
+            <td is="TableRowDisplay"
+                :divider="1000"
+                :getter-name="scope.join('/') + '/toplamYolcuKm'"></td>
           </tr>
 
           <tr class="disabled">
             <td>Birim Gelir (TL/Yolcu KM)</td>
-            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/anahat/birimGelir'"></td>
-            <td is="TableRowDisplay" :getter-name="scope.join('/') + '/birimGelir'"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/anahat/birimGelir'"></td>
+            <td is="TableRowDisplay"
+                :getter-name="scope.join('/') + '/birimGelir'"></td>
           </tr>
           </tbody>
         </table>

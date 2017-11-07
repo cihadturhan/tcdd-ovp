@@ -7,6 +7,7 @@
       getterName: String,
       scope: [Array, String],
       divider: Number,
+      fixed: Number,
     },
     data() {
       return {
@@ -35,10 +36,21 @@
         return this.roundOff(currentScope.reduce((p, c) => p[c], this.$store.state), 4);
       },
       dividedValue() {
-        if (this.divider) {
-          return Math.round(this.value / this.divider);
+        let val = 0;
+        if (this.divider && !this.focused) {
+          val = Math.round(this.value / this.divider);
+        } else {
+          val = this.value;
         }
-        return this.value;
+
+        const opts = this.fixed > 0 ? {
+          minimumSignificantDigits: this.fixed,
+          maximumSignificantDigits: this.fixed,
+        } : {};
+        return val.toLocaleString(
+          'tr-TR', // use a string like 'en-US' to override browser locale
+          opts,
+        );
       },
     },
     methods: {

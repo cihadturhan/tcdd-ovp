@@ -1,4 +1,4 @@
-export const host = process.env.NODE_ENV === 'development' ? 'http://tcdd.fdnsoft.com' : 'https://ovp.tcddtasimacilik.gov.tr';
+export const host = process.env.NODE_ENV === 'development' ? 'http://tcdd.fdnsoft.com' : 'https://gys.tcddtasimacilik.gov.tr';
 export const env = process.env.NODE_ENV;
 
 export const rows = [

@@ -2,6 +2,7 @@
   <div class="input-group">
     <AutoInput className="text-input"
                :scope="scope"
+               :fixed="fixed"
                :disabled="disabled"
                :getterName="getterName" />
     <div class="input-group-addon">
@@ -15,6 +16,7 @@
 
   export default {
     props: {
+      fixed: Number,
       type: String,
       disabled: Boolean,
       getterName: String,
@@ -33,6 +35,7 @@
   }
 
   .input-group-addon {
+    width: 40px;
     background: rgba(6, 129, 204, 0.12);
     display: flex;
     align-items: center;

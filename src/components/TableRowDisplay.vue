@@ -1,5 +1,5 @@
 <template>
-  <td>
+  <td class="display">
     {{dividedValue}}
   </td>
 </template>
@@ -13,7 +13,7 @@
 </script>
 
 <style scoped>
-  td{
-    padding-right: 18px;
+  .display{
+    padding-right: 5px;
   }
 </style>

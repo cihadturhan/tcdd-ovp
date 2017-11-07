@@ -5,12 +5,12 @@
         <h2 class="fieldset-label">BÜYÜME</h2>
         <div class="field-group">
           <label class="field-label">GSYH Reel Büyümesi</label>
-          <InputGroup type="%" :scope="[...scope, 'buyume', 'gsyhReelBuyumesi']"/>
+          <InputGroup type="%" :fixed="2" :scope="[...scope, 'buyume', 'gsyhReelBuyumesi']"/>
         </div>
 
         <div class="field-group">
           <label class="field-label">GSYH Nominal Büyümesi</label>
-          <InputGroup type="%" :scope="[...scope, 'buyume', 'gsyhNominalBuyumesi']"/>
+          <InputGroup type="%" :fixed="2" :scope="[...scope, 'buyume', 'gsyhNominalBuyumesi']"/>
         </div>
       </div>
     </div>
@@ -22,23 +22,23 @@
       <div class="col-xs-5">
         <div class="field-group">
           <label class="field-label">Yıl Sonu Dolar Kuru</label>
-          <InputGroup type="%" :scope="[...scope, 'dovizKuru', 'yilSonuDolar']"/>
+          <InputGroup type="₺" :fixed="5" :scope="[...scope, 'dovizKuru', 'yilSonuDolar']"/>
         </div>
 
         <div class="field-group">
           <label class="field-label">Yıllık Ortalama Dolar Kuru</label>
-          <InputGroup type="%" :scope="[...scope, 'dovizKuru', 'yillikOrtalamaDolar']"/>
+          <InputGroup type="₺" :fixed="5" :scope="[...scope, 'dovizKuru', 'yillikOrtalamaDolar']"/>
         </div>
       </div>
       <div class="col-xs-5 col-xs-offset-2">
         <div class="field-group">
           <label class="field-label">Yıl Sonu Euro Kuru</label>
-          <InputGroup type="%" :scope="[...scope, 'dovizKuru', 'yilSonuEuro']"/>
+          <InputGroup type="₺" :fixed="5" :scope="[...scope, 'dovizKuru', 'yilSonuEuro']"/>
         </div>
 
         <div class="field-group">
           <label class="field-label">Yıllık Ortalama Euro Kuru</label>
-          <InputGroup type="%" :scope="[...scope, 'dovizKuru', 'yillikOrtalamaEuro']"/>
+          <InputGroup type="₺" :fixed="5" :scope="[...scope, 'dovizKuru', 'yillikOrtalamaEuro']"/>
         </div>
       </div>
     </div>
@@ -51,41 +51,41 @@
       <div class="col-xs-5">
         <div class="field-group">
           <label class="field-label">GSYH Deflatörü</label>
-          <InputGroup type="%" :scope="[...scope, 'fiyatlar', 'gsyhDeflatoru']"/>
+          <InputGroup type="%" :fixed="2" :scope="[...scope, 'fiyatlar', 'gsyhDeflatoru']"/>
         </div>
 
         <div class="field-group">
           <label class="field-label">H. Petrol Fiyatı - Brent</label>
-          <InputGroup type="%" :scope="[...scope, 'fiyatlar', 'hamPetrolBrent']"/>
+          <InputGroup type="₺" :fixed="3" :scope="[...scope, 'fiyatlar', 'hamPetrolBrent']"/>
         </div>
         <div class="field-group">
           <label class="field-label">Elektrik Fiyatı - KWS</label>
-          <InputGroup type="%" :scope="[...scope, 'fiyatlar', 'elektrikKWS']"/>
+          <InputGroup type="₺" :fixed="3" :scope="[...scope, 'fiyatlar', 'elektrikKWS']"/>
         </div>
         <div class="field-group">
-          <label class="field-label">Mazot Fiyatı - Litre</label>
-          <InputGroup type="%" :scope="[...scope, 'fiyatlar', 'motorin']"/>
+          <label class="field-label">Motorin Fiyatı - Litre</label>
+          <InputGroup type="₺" :fixed="3" :scope="[...scope, 'fiyatlar', 'motorin']"/>
         </div>
       </div>
       <div class="col-xs-5 col-xs-offset-2">
         <div class="field-group">
           <label class="field-label">TÜFE Yıl Sonu</label>
-          <InputGroup type="%" :scope="[...scope, 'fiyatlar', 'tufeYilSonu']"/>
+          <InputGroup type="%" :fixed="3" :scope="[...scope, 'fiyatlar', 'tufeYilSonu']"/>
         </div>
 
         <div class="field-group">
           <label class="field-label">TÜFE Yıllık Ortalama</label>
-          <InputGroup type="%" :scope="[...scope, 'fiyatlar', 'tufeYillikOrtalama']"/>
+          <InputGroup type="%" :fixed="3" :scope="[...scope, 'fiyatlar', 'tufeYillikOrtalama']"/>
         </div>
 
         <div class="field-group">
           <label class="field-label">Yİ-ÜFE Yıl Sonu</label>
-          <InputGroup type="%" :scope="[...scope, 'fiyatlar', 'yiUfeYilSonu']"/>
+          <InputGroup type="%" :fixed="3" :scope="[...scope, 'fiyatlar', 'yiUfeYilSonu']"/>
         </div>
 
         <div class="field-group">
           <label class="field-label">Yİ-ÜFE Yıllık Ortalama</label>
-          <InputGroup type="%" :scope="[...scope, 'fiyatlar', 'yiUfeYillikOrtalama']"/>
+          <InputGroup type="%" :fixed="3" :scope="[...scope, 'fiyatlar', 'yiUfeYillikOrtalama']"/>
         </div>
       </div>
     </div>
@@ -97,18 +97,18 @@
       <div class="col-xs-5">
         <div class="field-group">
           <label class="field-label">I. Dönem</label>
-          <InputGroup type="%" :scope="[...scope, 'memurMaasi', 'iDonem']"/>
+          <InputGroup type="%" :fixed="3" :scope="[...scope, 'memurMaasi', 'iDonem']"/>
         </div>
 
         <div class="field-group">
           <label class="field-label">II. Dönem</label>
-          <InputGroup type="%" :scope="[...scope, 'memurMaasi', 'iiDonem']"/>
+          <InputGroup type="%" :fixed="3" :scope="[...scope, 'memurMaasi', 'iiDonem']"/>
         </div>
       </div>
       <div class="col-xs-5 col-xs-offset-2">
         <div class="field-group">
           <label class="field-label">Yillik Ortalama Artis</label>
-          <InputGroup type="%" disabled :getter-name="`${scope.join('/')}/memurMaasi/ortalama`"/>
+          <InputGroup type="%" :fixed="3" disabled :getter-name="`${scope.join('/')}/memurMaasi/ortalama`"/>
         </div>
       </div>
     </div>
@@ -120,18 +120,18 @@
       <div class="col-xs-5">
         <div class="field-group">
           <label class="field-label">I. Dönem</label>
-          <InputGroup type="%" :scope="[...scope, 'kamuIscisiUcreti', 'iDonem']"/>
+          <InputGroup type="%" :fixed="3" :scope="[...scope, 'kamuIscisiUcreti', 'iDonem']"/>
         </div>
 
         <div class="field-group">
           <label class="field-label">II. Dönem</label>
-          <InputGroup type="%" :scope="[...scope, 'kamuIscisiUcreti', 'iiDonem']"/>
+          <InputGroup type="%" :fixed="3" :scope="[...scope, 'kamuIscisiUcreti', 'iiDonem']"/>
         </div>
       </div>
       <div class="col-xs-5 col-xs-offset-2">
         <div class="field-group">
           <label class="field-label">Yillik Ortalama Artis</label>
-          <InputGroup type="%" disabled :getter-name="`${scope.join('/')}/kamuIscisiUcreti/ortalama`"/>
+          <InputGroup type="%" :fixed="3"  disabled :getter-name="`${scope.join('/')}/kamuIscisiUcreti/ortalama`"/>
         </div>
       </div>
     </div>

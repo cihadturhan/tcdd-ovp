@@ -8,7 +8,7 @@
         <thead>
         <tr class="section-title">
           <th>TREN CİNSİ</th>
-          <th>HAMTON/TRENKM</th>
+          <th>HAMTON veya TRENKM</th>
           <th style="width:100px">ÇARPAN</th>
           <th>TOPLAM (TL)</th>
         </tr>
@@ -17,8 +17,11 @@
 
         <tr v-for="(row, key) in trenHamtonKm" v-if="row !== trenHamtonKm.banliyo">
           <td>{{row.title}}</td>
-          <td is="TableRowInput" :scope="[...scope, 'trenHamtonKm', key, 'deger']"></td>
-          <td is="TableRowInput" :scope="[...scope, 'trenHamtonKm', key, 'carpan']"></td>
+          <td is="TableRowInput"
+              :scope="[...scope, 'trenHamtonKm', key, 'deger']"></td>
+          <td is="TableRowInput"
+              :fixed="2"
+              :scope="[...scope, 'trenHamtonKm', key, 'carpan']"></td>
           <td is="TableRowDisplay" :getter-name="scope.join('/') + `/${key}/gider`"></td>
         </tr>
 

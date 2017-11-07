@@ -56,6 +56,10 @@
           </tbody>
         </table>
       </div>
+
+      <div class="row start-xs note">
+        *Ücret birimi personellerin tamamında TL olarak girilmelidir
+      </div>
     </div>
 
 
