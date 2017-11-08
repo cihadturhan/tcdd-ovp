@@ -5,6 +5,7 @@ import personelGiderleri from '../store/personelGiderleri';
 import enerjiGiderleri from '../store/enerjiGiderleri';
 import altyapiErisim from '../store/altyapiErisim';
 import genelIcmal from '../store/genelIcmal/index';
+import migrations from './migrations';
 
 
 const moduleGenerators = {
@@ -50,6 +51,7 @@ export const removeYear = (store, year) => {
 };
 
 export const loadYears = (store, jsonContent) => {
+  const migration = migrations(jsonContent.version, store.state.version);
   for (let year = jsonContent.minYear; year <= jsonContent.maxYear; year += 1) {
     if (year in store.state) {
       store.unregisterModule([String(year)]);
@@ -59,18 +61,8 @@ export const loadYears = (store, jsonContent) => {
     Object.entries(moduleGenerators).forEach(([moduleName, moduleGenerator]) => {
       const generatedModule = moduleGenerator(year);
       const loadedState = jsonContent[year][moduleName];
-
-      /*
-      if (moduleName === 'genelIcmal') {
-        const data = loadedState[''].gelirler.kamuHizmetYukumlulugu;
-        delete loadedState[''].gelirler.kamuHizmetYukumlulugu;
-        loadedState[''].gelirler.faaliyetGelirleri = loadedState[''].gelirler.faaliyetGiderleri;
-        delete loadedState[''].gelirler.faaliyetGiderleri;
-        loadedState[''].gelirler.faaliyetGelirleri.kamuHizmetYukumlulugu = data;
-      }
-      */
-
-      generatedModule.state = () => loadedState;
+      const migratedLoadedState = migration(moduleName, loadedState);
+      generatedModule.state = () => migratedLoadedState;
       store.registerModule([String(year), moduleName], generatedModule);
     });
   }

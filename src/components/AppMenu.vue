@@ -122,7 +122,7 @@
 
   #menu {
     padding-top: 30px;
-    width: 266px;
+    flex: 0 0 250px;
     background-color: #373B52;
     color: white;
     text-align: left;

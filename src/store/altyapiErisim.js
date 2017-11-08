@@ -19,7 +19,7 @@ const trenHamtonKm = {
     carpan: 0,
     deger: 0,
   },
-  yolcu: {
+  anahat: {
     title: 'Anahat',
     carpan: 0,
     deger: 0,
@@ -45,6 +45,8 @@ export default (year) => ({ // eslint-disable-line
   },
   getters: {
     ...altyapiErisimGiderleri,
+    'yolcu/gider': (state, getters) => getters['anahat/gider'] + getters['ankara/gider'] +
+      getters['baskentRay/gider'],
     toplamBanliyo: state => ['marmaray', 'ankara', 'baskentRay']
       .map(key => state.trenHamtonKm[key])
       .reduce((p, obj) => p + (obj.carpan * obj.deger), 0),
