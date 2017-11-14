@@ -1,4 +1,4 @@
-import { rows, smRows, tRows, gtRows } from '@/util/config';
+import { rows, smRows, tRows, gtRows, fullRows } from '@/util/config';
 import { TypeOf } from '../util';
 import expenses from './template';
 
@@ -117,7 +117,7 @@ export default (year) => {
 
     if (expense.reducers && expense.reducers.length) {
       const reducers = expense.reducers.reduce((prev, reducer) => {
-        const rowReducers = rows.reduce((rowPrev, row) => ({
+        const rowReducers = fullRows.reduce((rowPrev, row) => ({
           ...rowPrev,
           [`${strScope}${expense.name}/${reducer.name}/${row.key}`]:
             (store, getters) => {
@@ -137,11 +137,11 @@ export default (year) => {
   };
 
   const generateHorizontalGetters = (expense, scope = []) => {
-    let horizontalGetter = {};
+    let horizontalGetters = {};
     const strScope = `${scope.join('/')}${scope.length ? '/' : ''}`;
 
     if (expense.children && expense.children.length) {
-      const parentHorizontalGetters = [...rows, { key: 'satislarinMaaliyeti' }, { key: 'tcddTasimacilik' }, { key: 'genelToplam' }].reduce((prev, row) => ({
+      const parentHorizontalGetters = fullRows.reduce((prev, row) => ({
         ...prev,
         [`${strScope}${expense.name}/${row.key}/toplam`]:
           (state, getters) => {
@@ -159,7 +159,7 @@ export default (year) => {
             }, 0);
           },
       }), {});
-      horizontalGetter = {
+      horizontalGetters = {
         ...parentHorizontalGetters,
         ...expense.children.reduce((prev, curr) => ({
           ...prev,
@@ -168,7 +168,7 @@ export default (year) => {
       };
     }
 
-    return horizontalGetter;
+    return horizontalGetters;
   };
 
 

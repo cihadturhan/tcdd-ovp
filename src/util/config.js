@@ -15,7 +15,7 @@ export const smRows = rows.slice(0, 4);
 export const tRows = [...rows.slice(0, 4), rows[6]];
 export const gtRows = rows;
 export const fullRows = [
-  ...rows.splice(5, 0),
+  ...rows.slice(0, 6),
   { key: 'satislarinMaaliyeti', title: 'Satışların Maaliyeti' },
   rows[6],
   { key: 'tcddTasimacilik', title: 'TCDD Taşımacılık' },

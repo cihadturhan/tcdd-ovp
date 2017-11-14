@@ -182,13 +182,13 @@
             };
 
             result.cols.splice(6, 0, {
-              getter: `${currScope}${expense.name}/satislarinMaaliyeti/toplam`,
+              getter: `${currScope}${expense.name}/${reducer.name}/satislarinMaaliyeti`,
             });
             result.cols.push({
-              getter: `${currScope}${expense.name}/tcddTasimacilik/toplam`,
+              getter: `${currScope}${expense.name}/${reducer.name}/tcddTasimacilik`,
             });
             result.cols.push({
-              getter: `${currScope}${expense.name}/genelToplam/toplam`,
+              getter: `${currScope}${expense.name}/${reducer.name}/genelToplam`,
             });
 
             return result;
