@@ -59,9 +59,13 @@ export const loadYears = (store, jsonContent) => {
 
     store.registerModule([String(year)], { namespaced: true });
     Object.entries(moduleGenerators).forEach(([moduleName, moduleGenerator]) => {
+      // generate module with default parameters
       const generatedModule = moduleGenerator(year);
+      // find module from the json recieved by server
       const loadedState = jsonContent[year][moduleName];
-      const migratedLoadedState = migration(moduleName, loadedState);
+      // perform migration
+      const migratedLoadedState = migration(moduleName, loadedState, generatedModule);
+      // assign new data
       generatedModule.state = () => migratedLoadedState;
       store.registerModule([String(year), moduleName], generatedModule);
     });

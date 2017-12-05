@@ -17,7 +17,7 @@
         <div v-if="error"> Hatalı Giriş! Giriş bilgilerinizi kontrol edip tekrar deneyiniz. </div>
         <div><input name="username" v-model="params.username"/></div>
         <div><input type="password" name="password" v-model="params.password"/></div>
-        <div><input type="submit" value="GİRİŞ YAP" :disabled="!isValid"/></div>
+        <div><input type="submit" value="GİRİŞ YAP" :disabled="!isValid || loading"/></div>
       </form>
     </div>
   </div>
@@ -33,7 +33,7 @@
   export default {
     data() {
       return {
-        loading: true,
+        loading: false,
         firstLoading: true,
         error: false,
         params: {

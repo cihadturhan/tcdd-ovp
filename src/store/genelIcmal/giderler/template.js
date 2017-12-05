@@ -82,8 +82,10 @@ export default {
               name: 'kamuHizmetYukumlulugu',
               label: 'Kamu Hizmet Yükümlülüğü',
               children: [
+                { name: 'banliyo', label: 'Banliyö' },
                 { name: 'bolgesel', label: 'Bölgesel' },
                 { name: 'anahat', label: 'Anahat' },
+                { name: 'marmaray', label: 'Marmaray' },
                 { name: 'yht', label: 'YHT' },
               ],
             },
@@ -94,7 +96,7 @@ export default {
           label: 'Faaliyet Dışı Gelirler',
           children: [
             { name: 'hurdaSatisi', label: 'Hurda Satışı' },
-            { name: 'digerSatislar', label: 'Diğer satışlar' },
+            { name: 'digerSatislar', label: 'Diğer Satışlar' },
             { name: 'digerGelirler', label: 'Diğer Gelirler' },
           ],
         }],
@@ -134,7 +136,40 @@ export default {
                 },
               ],
             },
-            { name: 'malzemeGiderleri', label: 'Malzeme Giderleri' },
+            {
+              name: 'malzemeGiderleri',
+              label: 'Malzeme Giderleri',
+              children: [
+                {
+                  name: 'genelIsletme',
+                  label: 'Genel İşletme ve Bakım Malzemeleri',
+                }, {
+                  name: 'demiryoluRay',
+                  label: 'Demiryolu Ray, Travers, Makas, Balast, Çimento, Bağlantı vb. Malzemeleri',
+                }, {
+                  name: 'cekenCekilen',
+                  label: 'Çeken - Çekilen Malzemeleri',
+                }, {
+                  name: 'yagBoyaKimyevi',
+                  label: 'Yağ, Boya ve Kimyevi Malzemeler',
+                }, {
+                  name: 'isitma',
+                  label: 'Isıtma Malzemeleri',
+                }, {
+                  name: 'demirbas',
+                  label: 'Demirbaş Malzemeleri',
+                }, {
+                  name: 'kirtasiyeBilgisayar',
+                  label: 'Kırtasiye, Basılı Kağıt ve Bilgisayar Malzemeleri',
+                }, {
+                  name: 'yiyecekIcecek',
+                  label: 'Yiyecek İçecek Malzemeleri',
+                }, {
+                  name: 'diger',
+                  label: 'Diğerleri',
+                },
+              ],
+            },
             {
               name: 'enerjiGiderleri',
               label: 'Enerji Giderleri',
@@ -157,51 +192,75 @@ export default {
               name: 'disariyaYaptirilanBakOn',
               label: 'Dışarıya Yaptırılan Bakım ve Onarım Giderleri',
               children: [
+                { name: 'binalar', label: 'Binaların Bakım ve Onarımları' },
+                { name: 'tesisler', label: 'Tesisler, Makinalar ve Cihazlar Bakım Onarımları' },
+                { name: 'doseme', label: 'Döşeme ve Demirbaşların Bakım Onarımları' },
+                { name: 'diger', label: 'Diğer Bakım Onarım Giderleri' },
                 {
                   name: 'CekenCekilenArOn',
                   label: 'Çeken Çekilen Araç Onarımları',
                   children: [
                     { name: 'bagliOrtaklik', label: 'Bağlı Ortaklık bakım onarım giderleri' },
                     { name: 'dahili', label: 'Dahili Bakım ve Onarım giderleri' },
-                    {
-                      name: 'disariyaYaptirilan',
-                      label: 'Dışarıya Yaptırılan Bakım ve Onarım Giderleri',
-                    },
                   ],
                 },
-                { name: 'diger', label: 'Diger' },
               ],
             },
             {
               name: 'hizmetAlimlari',
               label: 'Hizmet Alımları',
               children: [
-                { name: 'giselerIcin', label: 'Gişeler için Hizmet Alımı Gid.' },
-                { name: 'arac', label: 'Araç Hizmet Alımı Giderleri' },
-                { name: 'temizlik', label: 'Temizlik Hizmet Alımı Giderleri' },
+                { name: 'arac', label: 'Araç Hizmet Alımı' },
+                { name: 'giselerIcin', label: 'Gişeler İçin Hizmet Alımı' },
+                { name: 'koruma', label: 'Koruma ve Güvenlik için Hizmet Alımı' },
+                { name: 'temizlik', label: 'Temizlik Hizmet Alımı' },
+                { name: 'otel', label: 'Otel Misafirhane ve Yatakhane Hizmet Alımı' },
+                { name: 'hostes', label: 'Hostes Hizmet Alımı' },
+                { name: 'cagri', label: 'Çağrı Merkezi Gideri' },
+                { name: 'kidemTazminati', label: 'Hizmet Alımları Kapsaminda Öd. Kıdem Tazminatı' },
+                { name: 'etut', label: 'Etüt Proje ve Müşavirlik Hizmet Alımı' },
                 { name: 'diger', label: 'Diğer Hizmet Alımları' },
+              ],
+            },
+            {
+              name: 'danismanlik',
+              label: 'Danışmanlık Hizmetleri',
+              children: [
+                {
+                  name: 'altyapiErisim',
+                  label: ' Altyapı Erişim Ücreti Giderleri',
+                  getters: '/altyapiErisim/{fieldName}/gider',
+                  except: ['aracBakim', 'adf', 'genelYonetim'],
+                },
+                { name: 'tesisKullanim', label: 'Tesis Kullanım Ücretleri' },
+                { name: 'yardimciHizmetler', label: 'Yardımcı Hizmetler Giderleri' },
+                { name: 'ekHizmetler', label: 'Ek Hizmetler Giderleri' },
+                { name: 'tazminat', label: 'Tazminat Giderleri' },
+                { name: 'vangolu', label: 'Vangölü Feribot Geçiş Ücreti' },
+                { name: 'tekirdag', label: 'Tekirdağ Feribot Geçiş Ücreti' },
               ],
             },
             {
               name: 'amortismanlar',
               label: 'Amortismanlar',
               children: [
-                { name: 'cekenCekilenAraclar', label: 'Çeken ve çekilen araçlar amortismanı' },
                 {
                   name: 'tesislerMakinalarCihazlar',
-                  label: 'Tesisler, makinalar ve cihazlar amortismanı',
+                  label: 'Tesisler, Makinalar ve Cihazlar Amortismanı',
                 },
+                { name: 'cekenCekilenAraclar', label: 'Çeken ve Çekilen Araçlar Amortismanı' },
                 { name: 'diger', label: 'Diğer Amortismanlar' },
               ],
             },
             { name: 'disSaglananGazveSu', label: 'Dış. Sağlanan Gaz ve Su Gideri' },
+            { name: 'kira', label: 'Kira Giderleri' },
+            { name: 'mahkemeNoter', label: 'Mahkeme ve Noter Giderleri' },
+            { name: 'egitimKultur', label: 'Eğitim Kültür ve Yayın Giderleri' },
+            { name: 'vergiSigorta', label: 'Vergi ve Sigorta Giderleri' },
+            { name: 'haberlesme', label: 'Haberlesme Giderleri' },
+            { name: 'reklam', label: 'Reklam ve Satışları Teşvik Giderleri' },
+            { name: 'sosyal', label: 'Sosyal Giderler' },
             { name: 'digerleri', label: 'Diğerleri' },
-            {
-              name: 'altyapiErisim',
-              label: ' TCDD Altyapı Erişim ücreti',
-              getters: '/altyapiErisim/{fieldName}/gider',
-              except: ['aracBakim', 'adf', 'genelYonetim'],
-            },
           ],
         },
         {

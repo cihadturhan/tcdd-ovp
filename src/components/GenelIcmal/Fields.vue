@@ -239,6 +239,7 @@
 
   tr > td:first-child {
     text-align: left;
+    letter-spacing: -0.5px;
   }
 
   .level-1 > td:first-child {

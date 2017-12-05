@@ -13,7 +13,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   modules: {},
   state: {
-    version: '1.0',
+    version: '1.1',
     saveInProgress: false,
     currentYear: null,
     minYear: 2017,
